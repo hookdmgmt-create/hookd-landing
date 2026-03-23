@@ -1,12 +1,14 @@
-<div id="hookd-form-container" style="max-width:480px; margin:50px auto; font-family:'Poppins', sans-serif; position:relative; overflow:hidden; border-radius:24px; background:linear-gradient(145deg, #fefefe, #f0f0f8); box-shadow:0 20px 40px rgba(0,0,0,0.12); padding:50px;">
-  
-  <!-- Background floating shapes -->
-  <div style="position:absolute; top:-50px; left:-40px; width:150px; height:150px; background:radial-gradient(circle, #ff5f6d, transparent); border-radius:50%; opacity:0.2;"></div>
-  <div style="position:absolute; bottom:-60px; right:-50px; width:200px; height:200px; background:radial-gradient(circle, #ffc371, transparent); border-radius:50%; opacity:0.15;"></div>
+<div id="hookd-form-container" style="max-width:480px; margin:50px auto; font-family:'Poppins', sans-serif; position:relative; overflow:hidden; border-radius:24px; background:linear-gradient(145deg, #f0f4ff, #ffffff); box-shadow:0 20px 40px rgba(0,0,0,0.12); padding:50px;">
 
-  <h2 style="font-size:32px; font-weight:700; color:#111; text-align:center; margin-bottom:10px;">Join the Hookd List</h2>
-  <p style="font-size:16px; color:#555; text-align:center; margin-bottom:35px;">Get exclusive updates on music, events, and more!</p>
+  <!-- Background floating shapes -->
+  <div style="position:absolute; top:-60px; left:-40px; width:150px; height:150px; background:radial-gradient(circle, #5dade2, transparent); border-radius:50%; opacity:0.2;"></div>
+  <div style="position:absolute; bottom:-70px; right:-50px; width:200px; height:200px; background:radial-gradient(circle, #7fb3d5, transparent); border-radius:50%; opacity:0.15;"></div>
+
+  <!-- Heading -->
+  <h2 style="font-size:32px; font-weight:700; color:#111; text-align:center; margin-bottom:10px;">Be the first to get Hookd</h2>
+  <p style="font-size:16px; color:#555; text-align:center; margin-bottom:35px;">Keep me on the hook for music, events, and more!</p>
   
+  <!-- Form -->
   <form id="hookd-form" action="https://assets.mailerlite.com/api/v2/forms/eDmazM/subscribe" method="POST">
     <input type="text" name="fields[name]" placeholder="Full Name" required
       style="width:100%; padding:16px 20px; margin-bottom:15px; border-radius:14px; border:1px solid #ddd; font-size:16px; outline:none; transition:0.2s; box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);"/>
@@ -16,13 +18,20 @@
       style="width:100%; padding:16px 20px; margin-bottom:25px; border-radius:14px; border:1px solid #ddd; font-size:16px; outline:none; transition:0.2s; box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);"/>
     
     <button type="submit" 
-      style="width:100%; padding:16px; background:linear-gradient(90deg, #ff5f6d, #ffc371); color:#fff; font-weight:600; font-size:16px; border:none; border-radius:16px; cursor:pointer; box-shadow:0 8px 20px rgba(0,0,0,0.15); transition:0.3s;">
-      Submit
+      style="width:100%; padding:16px; background:linear-gradient(90deg, #5dade2, #3498db); color:#fff; font-weight:600; font-size:16px; border:none; border-radius:16px; cursor:pointer; box-shadow:0 8px 20px rgba(0,0,0,0.15); transition:0.3s;">
+      Keep me on the hook
     </button>
   </form>
   
+  <!-- Success / Error Messages -->
   <p id="hookd-success" style="display:none; margin-top:20px; font-size:16px; color:#1abc9c; text-align:center;">Thanks! You’re on the list.</p>
   <p id="hookd-error" style="display:none; margin-top:20px; font-size:16px; color:#e74c3c; text-align:center;">Something went wrong. Please try again.</p>
+  
+  <!-- Footer -->
+  <div style="text-align:center; margin-top:40px; font-size:14px; color:#555;">
+    <p>Hookd Creative 2026</p>
+    <a href="https://www.instagram.com/yourhandle" target="_blank" style="color:#3498db; text-decoration:none;">Instagram</a>
+  </div>
 </div>
 
 <script>
