@@ -1,63 +1,187 @@
-<div id="hookd-form-container" style="max-width:480px; margin:50px auto; font-family:'Poppins', sans-serif; position:relative; overflow:hidden; border-radius:24px; background:linear-gradient(145deg, #f0f4ff, #ffffff); box-shadow:0 20px 40px rgba(0,0,0,0.12); padding:50px;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hookd Creative | Interest List</title>
 
-  <!-- Background floating shapes -->
-  <div style="position:absolute; top:-60px; left:-40px; width:150px; height:150px; background:radial-gradient(circle, #5dade2, transparent); border-radius:50%; opacity:0.2;"></div>
-  <div style="position:absolute; bottom:-70px; right:-50px; width:200px; height:200px; background:radial-gradient(circle, #7fb3d5, transparent); border-radius:50%; opacity:0.15;"></div>
+  <!-- MailerLite Universal -->
+  <script>
+    (function(w,d,e,u,f,l,n){
+      w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);};
+      l=d.createElement(e); l.async=1; l.src=u;
+      n=d.getElementsByTagName(e)[0]; n.parentNode.insertBefore(l,n);
+    })(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2215527');
+  </script>
 
-  <!-- Heading -->
-  <h2 style="font-size:32px; font-weight:700; color:#111; text-align:center; margin-bottom:10px;">Be the first to get Hookd</h2>
-  <p style="font-size:16px; color:#555; text-align:center; margin-bottom:35px;">Keep me on the hook for music, events, and more!</p>
-  
-  <!-- Form -->
-  <form id="hookd-form" action="https://assets.mailerlite.com/api/v2/forms/eDmazM/subscribe" method="POST">
-    <input type="text" name="fields[name]" placeholder="Full Name" required
-      style="width:100%; padding:16px 20px; margin-bottom:15px; border-radius:14px; border:1px solid #ddd; font-size:16px; outline:none; transition:0.2s; box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);"/>
-    <input type="tel" name="fields[phone]" placeholder="Phone Number" required
-      style="width:100%; padding:16px 20px; margin-bottom:15px; border-radius:14px; border:1px solid #ddd; font-size:16px; outline:none; transition:0.2s; box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);"/>
-    <input type="email" name="fields[email]" placeholder="Email Address" required
-      style="width:100%; padding:16px 20px; margin-bottom:25px; border-radius:14px; border:1px solid #ddd; font-size:16px; outline:none; transition:0.2s; box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);"/>
-    
-    <button type="submit" 
-      style="width:100%; padding:16px; background:linear-gradient(90deg, #5dade2, #3498db); color:#fff; font-weight:600; font-size:16px; border:none; border-radius:16px; cursor:pointer; box-shadow:0 8px 20px rgba(0,0,0,0.15); transition:0.3s;">
-      Keep me on the hook
-    </button>
-  </form>
-  
-  <!-- Success / Error Messages -->
-  <p id="hookd-success" style="display:none; margin-top:20px; font-size:16px; color:#1abc9c; text-align:center;">Thanks! You’re on the list.</p>
-  <p id="hookd-error" style="display:none; margin-top:20px; font-size:16px; color:#e74c3c; text-align:center;">Something went wrong. Please try again.</p>
-  
-  <!-- Footer -->
-  <div style="text-align:center; margin-top:40px; font-size:14px; color:#555;">
-    <p>Hookd Creative 2026</p>
-    <a href="https://www.instagram.com/yourhandle" target="_blank" style="color:#3498db; text-decoration:none;">Instagram</a>
-  </div>
-</div>
-
-<script>
-document.getElementById('hookd-form').addEventListener('submit', async function(e){
-  e.preventDefault();
-  const name = this.elements['fields[name]'].value;
-  const phone = this.elements['fields[phone]'].value;
-  const email = this.elements['fields[email]'].value;
-
-  try {
-    const res = await fetch('https://assets.mailerlite.com/api/v2/forms/eDmazM/subscribe',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({fields:{name,phone,email}})
-    });
-    if(res.ok){
-      document.getElementById('hookd-success').style.display='block';
-      document.getElementById('hookd-error').style.display='none';
-      this.reset();
-    } else {
-      throw new Error('Submit failed');
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #0a0a0a, #111);
+      color: white;
+      text-align: center;
     }
-  } catch(err){
-    document.getElementById('hookd-success').style.display='none';
-    document.getElementById('hookd-error').style.display='block';
-    console.error(err);
-  }
-});
-</script>
+
+    .container {
+      max-width: 520px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      color: #00cfff;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #bbb;
+      margin-bottom: 25px;
+    }
+
+    ul {
+      text-align: left;
+      margin: 25px 0;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+      list-style: none;
+      position: relative;
+      padding-left: 20px;
+      color: #ddd;
+    }
+
+    ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #00cfff;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    input {
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid #222;
+      background: #1a1a1a;
+      color: white;
+      font-size: 1rem;
+    }
+
+    input:focus {
+      outline: none;
+      border: 1px solid #00cfff;
+    }
+
+    button {
+      background: linear-gradient(135deg, #00cfff, #008cff);
+      color: black;
+      font-weight: bold;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .disclaimer {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    footer a {
+      color: #00cfff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .success {
+      display: none;
+      margin-top: 20px;
+      color: #00ffae;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Be the first to get Hookd</h1>
+
+    <p>
+      Hookd is your all-in-one creator space for music, podcasts, photography, and events.
+      Join the interest list to get first access and updates as soon as we launch trials and sessions.
+    </p>
+
+    <ul>
+      <li>Early access to trial sessions and creator events</li>
+      <li>Updates on new features and creator opportunities</li>
+      <li>Stay in the loop before public launch</li>
+    </ul>
+
+    <!-- CLEAN WORKING FORM -->
+    <form id="hookdForm">
+      <input type="text" name="fields[name]" placeholder="Your Name" required>
+      <input type="email" name="fields[email]" placeholder="Your Email" required>
+      <input type="text" name="fields[phone]" placeholder="Your Phone">
+      <button type="submit">Keep Me On The Hook</button>
+    </form>
+
+    <div class="success" id="successMsg">
+      You're on the list. We'll keep you posted.
+    </div>
+
+    <p class="disclaimer">
+      No commitment required. We'll reach out as soon as trial sessions, pricing, and schedules are confirmed.
+    </p>
+
+    <footer>
+      <div>
+        Follow us for sneak peeks and updates:
+        <a href="https://instagram.com/hookdrecording" target="_blank">Instagram</a>
+      </div>
+      <p>© 2026 Hookd Creative</p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("hookdForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+
+      fetch("https://assets.mailerlite.com/jsonp/2215527/forms/182754247239009348/subscribe", {
+        method: "POST",
+        body: formData,
+        mode: "no-cors"
+      });
+
+      document.getElementById("successMsg").style.display = "block";
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
