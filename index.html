@@ -53,25 +53,17 @@
       color: #00FFD5;
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    input {
+    /* MailerLite form styling */
+    .ml-form-field {
       padding: 12px;
       font-size: 1rem;
       border-radius: 8px;
       border: none;
+      width: 100%;
+      box-sizing: border-box;
     }
 
-    input[type="email"] {
-      border: 2px solid #00FFD5;
-    }
-
-    button {
+    .ml-button {
       background-color: #00FFD5;
       color: #111;
       font-weight: bold;
@@ -80,9 +72,11 @@
       border: none;
       cursor: pointer;
       transition: 0.2s;
+      width: 100%;
+      font-size: 1rem;
     }
 
-    button:hover {
+    .ml-button:hover {
       background-color: #00ccb3;
     }
 
@@ -104,7 +98,6 @@
       font-weight: bold;
       text-decoration: none;
     }
-
   </style>
 </head>
 <body>
@@ -118,11 +111,12 @@
       <li>Stay in the loop before public launch</li>
     </ul>
 
-    <form id="waitlistForm">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <input type="tel" name="phone" placeholder="Your Phone">
-      <button type="submit">Keep Me On The Hook</button>
+    <!-- MailerLite embedded HTML form -->
+    <form action="https://assets.mailerlite.com/jsonp/2215527/forms/182754247239009348/subscribe" method="post" target="_blank">
+      <input type="text" name="fields[name]" placeholder="Your Name" class="ml-form-field" required>
+      <input type="email" name="fields[email]" placeholder="Your Email" class="ml-form-field" required>
+      <input type="tel" name="fields[phone]" placeholder="Your Phone" class="ml-form-field">
+      <button type="submit" class="ml-button">Keep Me On The Hook</button>
     </form>
 
     <p class="disclaimer">No commitment required. We'll reach out as soon as trial sessions, pricing, and schedules are confirmed.</p>
@@ -130,18 +124,10 @@
     <footer>
       <div>
         Follow us for sneak peeks and updates:
-        <a href="https://instagram.com/hookdrecording" target="_blank">Instagram</a> |
+        <a href="https://instagram.com/hookdrecording" target="_blank" rel="noopener noreferrer">Instagram</a> |
       </div>
       <p>© 2026 Hookd Creative</p>
     </footer>
   </div>
-
-<form action="https://assets.mailerlite.com/jsonp/2215527/forms/182754247239009348/subscribe" method="post" target="_blank" id="waitlistForm">
-  <input type="text" name="fields[name]" placeholder="Your Name" required>
-  <input type="email" name="fields[email]" placeholder="Your Email" required>
-  <input type="tel" name="fields[phone]" placeholder="Your Phone">
-  <button type="submit">Keep Me On The Hook</button>
-</form>
-  
 </body>
 </html>
