@@ -1,80 +1,44 @@
-<!-- MailerLite Universal -->
+<!-- Hookd Custom Landing Form -->
+<div id="hookd-form-container" style="max-width:480px; margin:0 auto; font-family: 'Open Sans', Arial, sans-serif; background:#f6f6f6; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.08); padding:30px; text-align:center;">
+  <h2 style="margin-bottom:20px; font-size:28px; color:#000;">Join the Hookd List</h2>
+  <p style="margin-bottom:25px; font-size:16px; color:#333;">Get updates on music, events, and more!</p>
+  
+  <form id="hookd-form" action="https://assets.mailerlite.com/api/v2/forms/eDmazM/subscribe" method="POST">
+    <input type="text" name="fields[name]" placeholder="Your Name" required style="width:100%; padding:14px; margin-bottom:15px; border-radius:8px; border:1px solid #ddd; font-size:16px;">
+    <input type="tel" name="fields[phone]" placeholder="Phone Number" required style="width:100%; padding:14px; margin-bottom:15px; border-radius:8px; border:1px solid #ddd; font-size:16px;">
+    <input type="email" name="fields[email]" placeholder="Email Address" required style="width:100%; padding:14px; margin-bottom:20px; border-radius:8px; border:1px solid #ddd; font-size:16px;">
+    <button type="submit" style="width:100%; padding:14px; background:#000; color:#fff; font-weight:700; font-size:16px; border:none; border-radius:8px; cursor:pointer;">Submit</button>
+  </form>
+
+  <p id="hookd-success" style="display:none; margin-top:20px; font-size:16px; color:#007700;">Thanks! You’re on the list.</p>
+  <p id="hookd-error" style="display:none; margin-top:20px; font-size:16px; color:#cc0000;">Something went wrong. Please try again.</p>
+</div>
+
 <script>
-(function(w,d,e,u,f,l,n){
-    w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},
-    l=d.createElement(e);l.async=1;l.src=u;
-    n=d.getElementsByTagName(e)[0];n.parentNode.insertBefore(l,n);
-})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-ml('account','2215527'); // Your MailerLite account ID
+  // Hookd custom form submission
+  document.getElementById('hookd-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const name = this.elements['fields[name]'].value;
+    const phone = this.elements['fields[phone]'].value;
+    const email = this.elements['fields[email]'].value;
+
+    try {
+      const res = await fetch('https://assets.mailerlite.com/api/v2/forms/eDmazM/subscribe', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({fields:{name,phone,email}})
+      });
+      if(res.ok){
+        document.getElementById('hookd-success').style.display='block';
+        document.getElementById('hookd-error').style.display='none';
+        this.reset();
+      } else {
+        throw new Error('Submit failed');
+      }
+    } catch(err) {
+      document.getElementById('hookd-success').style.display='none';
+      document.getElementById('hookd-error').style.display='block';
+      console.error(err);
+    }
+  });
 </script>
-<!-- End MailerLite Universal -->
-
-<!-- Hookd Landing Page Form -->
-<div class="ml-embedded" data-form="eDmazM"></div>
-
-<!-- Styles (preserve original look + fixes) -->
-<style type="text/css">
-@import url("https://assets.mlcdn.com/fonts.css?version=1773928");
-
-.ml-form-embedContainer { 
-    box-sizing: border-box; 
-    display: table; 
-    margin: 0 auto; 
-    position: static; 
-    width: 100% !important;
-}
-
-.ml-form-embedWrapper {
-    background-color: #f6f6f6;
-    border-radius: 4px;
-    padding: 20px;
-    display: inline-block !important;
-    width: 100%;
-    max-width: 400px;
-}
-
-.ml-form-embedBody input[type="text"],
-.ml-form-embedBody input[type="email"],
-.ml-form-embedBody input[type="tel"] {
-    width: 100% !important;
-    padding: 10px !important;
-    margin-bottom: 10px;
-    border: 1px solid #ccc !important;
-    border-radius: 4px !important;
-    font-size: 14px !important;
-    box-sizing: border-box !important;
-}
-
-.ml-form-embedBody button {
-    width: 100% !important;
-    padding: 10px !important;
-    background-color: #000 !important;
-    color: #fff !important;
-    font-weight: 700;
-    font-size: 14px !important;
-    border: none !important;
-    cursor: pointer;
-    border-radius: 4px !important;
-}
-
-.ml-form-embedBody button:hover {
-    background-color: #333 !important;
-}
-
-/* Fix checkbox/radio alignment issues */
-.ml-form-embedBody .custom-control-label::before,
-.ml-form-embedBody .custom-control-label::after {
-    top: 0 !important;
-    left: -1.5rem !important;
-    position: absolute !important;
-    display: block !important;
-    width: 16px !important;
-    height: 16px !important;
-}
-
-.ml-form-embedBody .custom-control-input {
-    position: absolute !important;
-    z-index: -1 !important;
-    opacity: 0 !important;
-}
-</style>
