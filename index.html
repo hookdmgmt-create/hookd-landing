@@ -166,22 +166,26 @@
     </footer>
   </div>
 
-  <script>
-    document.getElementById("hookdForm").addEventListener("submit", function(e) {
-      e.preventDefault();
+<script>
+  document.getElementById("hookdForm").addEventListener("submit", function(e) {
+    e.preventDefault();
 
-      const formData = new FormData(this);
+    const name = this.querySelector('[name="fields[name]"]').value;
+    const email = this.querySelector('[name="fields[email]"]').value;
+    const phone = this.querySelector('[name="fields[phone]"]').value;
 
-      fetch("https://assets.mailerlite.com/jsonp/2215527/forms/182754247239009348/subscribe", {
-        method: "POST",
-        body: formData,
-        mode: "no-cors"
-      });
-
-      document.getElementById("successMsg").style.display = "block";
-      this.reset();
+    ml('send', 'eDmazM', {
+      fields: {
+        name: name,
+        email: email,
+        phone: phone
+      }
     });
-  </script>
+
+    document.getElementById("successMsg").style.display = "block";
+    this.reset();
+  });
+</script>
 
 </body>
 </html>
