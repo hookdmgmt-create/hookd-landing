@@ -53,17 +53,21 @@
       color: #00FFD5;
     }
 
-    /* MailerLite form styling */
-    .ml-form-field {
+    form input {
       padding: 12px;
       font-size: 1rem;
       border-radius: 8px;
       border: none;
       width: 100%;
       box-sizing: border-box;
+      margin-bottom: 15px;
     }
 
-    .ml-button {
+    form input[type="email"] {
+      border: 2px solid #00FFD5;
+    }
+
+    form button {
       background-color: #00FFD5;
       color: #111;
       font-weight: bold;
@@ -76,7 +80,7 @@
       font-size: 1rem;
     }
 
-    .ml-button:hover {
+    form button:hover {
       background-color: #00ccb3;
     }
 
@@ -113,10 +117,10 @@
 
     <!-- MailerLite embedded HTML form -->
     <form action="https://assets.mailerlite.com/jsonp/2215527/forms/182754247239009348/subscribe" method="post" target="_blank">
-      <input type="text" name="fields[name]" placeholder="Your Name" class="ml-form-field" required>
-      <input type="email" name="fields[email]" placeholder="Your Email" class="ml-form-field" required>
-      <input type="tel" name="fields[phone]" placeholder="Your Phone" class="ml-form-field">
-      <button type="submit" class="ml-button">Keep Me On The Hook</button>
+      <input type="text" name="fields[name]" placeholder="Your Name" required>
+      <input type="email" name="fields[email]" placeholder="Your Email" required>
+      <input type="tel" name="fields[phone]" placeholder="Your Phone">
+      <button type="submit">Keep Me On The Hook</button>
     </form>
 
     <p class="disclaimer">No commitment required. We'll reach out as soon as trial sessions, pricing, and schedules are confirmed.</p>
@@ -125,6 +129,8 @@
       <div>
         Follow us for sneak peeks and updates:
         <a href="https://instagram.com/hookdrecording" target="_blank" rel="noopener noreferrer">Instagram</a> |
+        <a href="https://tiktok.com/@hookdrecording" target="_blank" rel="noopener noreferrer">TikTok</a> |
+        <a href="https://youtube.com/@hookdrecording" target="_blank" rel="noopener noreferrer">YouTube</a>
       </div>
       <p>© 2026 Hookd Creative</p>
     </footer>
