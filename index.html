@@ -3,172 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hookd Creative | Interest List</title>
+  <title>Hookd Landing Page Form</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+  
+  <!-- MailerLite Universal JS (only once per page) -->
+  <script>
+    (function(w,d,e,u,f,l,n){
+      w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);};
+      l=d.createElement(e);l.async=1;l.src=u;
+      n=d.getElementsByTagName(e)[0];n.parentNode.insertBefore(l,n);
+    })(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2215527');
+  </script>
+
   <style>
     body {
+      font-family: 'Open Sans', Arial, sans-serif;
+      background-color: #f6f6f6;
       margin: 0;
       padding: 0;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      background-color: #111;
-      color: #fff;
-      line-height: 1.5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .form-container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .form-container h2 {
+      font-weight: 700;
+      font-size: 28px;
+      margin-bottom: 20px;
       text-align: center;
+      color: #000000;
     }
 
-    .container {
-      max-width: 500px;
-      margin: 0 auto;
-      padding: 40px 20px;
+    .ml-form-embedWrapper {
+      width: 100% !important;
     }
 
-    h1 {
-      font-size: 2.2rem;
-      color: #00FFD5;
-      margin-bottom: 10px;
+    /* Override default MailerLite input styles if needed */
+    #mlb2-38873938 input,
+    #mlb2-38873938 textarea,
+    #mlb2-38873938 select,
+    #mlb2-38873938 button {
+      font-family: 'Open Sans', Arial, sans-serif !important;
+      font-size: 14px !important;
     }
 
-    p {
-      font-size: 1rem;
-      color: #ccc;
-      margin-bottom: 30px;
-    }
-
-    ul {
-      text-align: left;
-      margin: 20px 0;
-      padding-left: 20px;
-    }
-
-    ul li {
-      margin-bottom: 10px;
-      list-style: none;
-      position: relative;
-      padding-left: 1.2em;
-    }
-
-    ul li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: #00FFD5;
-    }
-
-    form input {
-      padding: 12px;
-      font-size: 1rem;
-      border-radius: 8px;
-      border: none;
-      width: 100%;
-      box-sizing: border-box;
-      margin-bottom: 15px;
-    }
-
-    form input[type="email"] {
-      border: 2px solid #00FFD5;
-    }
-
-    form button {
-      background-color: #00FFD5;
-      color: #111;
-      font-weight: bold;
-      padding: 12px;
-      border-radius: 8px;
-      border: none;
+    #mlb2-38873938 button {
+      background-color: #000000 !important;
+      color: #ffffff !important;
+      font-weight: 700;
+      border-radius: 4px !important;
       cursor: pointer;
-      transition: 0.2s;
-      width: 100%;
-      font-size: 1rem;
     }
 
-    form button:hover {
-      background-color: #00ccb3;
-    }
-
-    .disclaimer {
-      margin-top: 15px;
-      font-size: 0.9rem;
-      color: #999;
-    }
-
-    #successMessage {
-      display: none;
-      margin-top: 20px;
-      color: #00FFD5;
-      font-weight: bold;
-    }
-
-    footer {
-      margin-top: 40px;
-      font-size: 0.85rem;
-      color: #777;
-    }
-
-    footer a {
-      color: #00FFD5;
-      margin: 0 10px;
-      font-weight: bold;
-      text-decoration: none;
+    #mlb2-38873938 button:hover {
+      background-color: #333333 !important;
+      border-color: #333333 !important;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Be the first to get Hookd</h1>
-    <p>Hookd is your all-in-one creator space for music, podcasts, photography, and events. Join the interest list to get first access and updates as soon as we launch trials and sessions.</p>
 
-    <ul>
-      <li>Early access to trial sessions and creator events</li>
-      <li>Updates on new features and creator opportunities</li>
-      <li>Stay in the loop before public launch</li>
-    </ul>
+  <div class="form-container">
+    <h2>Join the Hookd Interest List</h2>
 
-    <!-- MailerLite form -->
-    <form id="mlForm" action="YOUR_MAILERLITE_ACTION_URL" method="POST">
-      <input type="text" name="fields[name]" placeholder="Your Name" required>
-      <input type="email" name="fields[email]" placeholder="Your Email" required>
-      <input type="tel" name="fields[phone]" placeholder="Your Phone">
-      <button type="submit">Keep Me On The Hook</button>
-    </form>
+    <!-- MailerLite embedded form -->
+    <div class="ml-embedded" data-form="eDmazM"></div>
 
-    <div id="successMessage">
-      Thanks! You’re on the Hookd interest list. We’ll update you soon!
-    </div>
-
-    <p class="disclaimer">No commitment required. We'll reach out as soon as trial sessions, pricing, and schedules are confirmed.</p>
-
-    <footer>
-      <div>
-        Follow us for sneak peeks and updates:
-        <a href="https://instagram.com/hookdrecording" target="_blank" rel="noopener noreferrer">Instagram</a> |
-        <a href="https://tiktok.com/@hookdrecording" target="_blank" rel="noopener noreferrer">TikTok</a> |
-        <a href="https://youtube.com/@hookdrecording" target="_blank" rel="noopener noreferrer">YouTube</a>
-      </div>
-      <p>© 2026 Hookd Creative</p>
-    </footer>
   </div>
 
-  <script>
-    // AJAX form submission for on-page success message
-    const form = document.getElementById('mlForm');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const xhr = new XMLHttpRequest();
-      xhr.open('POST', form.action, true);
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-
-      const formData = new FormData(form);
-      const params = new URLSearchParams(formData).toString();
-
-      xhr.onload = function() {
-        if(xhr.status === 200 || xhr.status === 0) {
-          form.style.display = 'none';
-          document.getElementById('successMessage').style.display = 'block';
-        } else {
-          alert('Something went wrong. Please try again.');
-        }
-      };
-      xhr.send(params);
-    });
-  </script>
 </body>
 </html>
