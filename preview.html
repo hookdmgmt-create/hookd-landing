@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hookd Creative | Interest List</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: #00FFD5;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+
+    ul {
+      text-align: left;
+      margin: 20px 0;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+      list-style: none;
+      position: relative;
+      padding-left: 1.2em;
+    }
+
+    ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #00FFD5;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    input {
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: none;
+    }
+
+    input[type="email"] {
+      border: 2px solid #00FFD5;
+    }
+
+    button {
+      background-color: #00FFD5;
+      color: #111;
+      font-weight: bold;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background-color: #00ccb3;
+    }
+
+    .disclaimer {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #999;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.85rem;
+      color: #777;
+    }
+
+    footer a {
+      color: #00FFD5;
+      margin: 0 10px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Be the first to get Hookd</h1>
+    <p>Hookd is your all-in-one creator space for music, podcasts, photography, and events. Join the interest list to get first access and updates as soon as we launch trials and sessions.</p>
+
+    <ul>
+      <li>Early access to trial sessions and creator events</li>
+      <li>Updates on new features and creator opportunities</li>
+      <li>Stay in the loop before public launch</li>
+    </ul>
+
+    <form id="waitlistForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="tel" name="phone" placeholder="Your Phone">
+      <button type="submit">Keep Me On The Hook</button>
+    </form>
+
+    <p class="disclaimer">No commitment required. We'll reach out as soon as trial sessions, pricing, and schedules are confirmed.</p>
+
+    <footer>
+      <div>
+        Follow us for sneak peeks and updates:
+        <a href="https://instagram.com/hookdcreative" target="_blank">Instagram</a> |
+        <a href="https://tiktok.com/@hookdcreative" target="_blank">TikTok</a> |
+        <a href="https://youtube.com/@hookdcreative" target="_blank">YouTube</a>
+      </div>
+      <p>© 2026 Hookd Creative</p>
+    </footer>
+  </div>
+
+  <script>
+    // Simple demo form submission
+    const form = document.getElementById('waitlistForm');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thanks! You are now on the Hookd interest list. We’ll update you soon!');
+      form.reset();
+    });
+  </script>
+</body>
+</html>
