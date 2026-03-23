@@ -1,44 +1,54 @@
-<!-- Hookd Custom Landing Form -->
-<div id="hookd-form-container" style="max-width:480px; margin:0 auto; font-family: 'Open Sans', Arial, sans-serif; background:#f6f6f6; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.08); padding:30px; text-align:center;">
-  <h2 style="margin-bottom:20px; font-size:28px; color:#000;">Join the Hookd List</h2>
-  <p style="margin-bottom:25px; font-size:16px; color:#333;">Get updates on music, events, and more!</p>
+<div id="hookd-form-container" style="max-width:480px; margin:40px auto; font-family:'Poppins', sans-serif; background:linear-gradient(135deg,#ffffff,#f0f0f5); border-radius:16px; box-shadow:0 20px 40px rgba(0,0,0,0.1); padding:40px; text-align:center; position:relative; overflow:hidden;">
+  
+  <!-- Decorative icons -->
+  <div style="position:absolute; top:-20px; left:-20px; opacity:0.1; font-size:120px;">🎤</div>
+  <div style="position:absolute; bottom:-20px; right:-20px; opacity:0.1; font-size:120px;">📸</div>
+  
+  <h2 style="margin-bottom:15px; font-size:32px; color:#111; font-weight:700;">Join the Hookd List</h2>
+  <p style="margin-bottom:30px; font-size:16px; color:#555;">Get exclusive updates on music, events, and more!</p>
   
   <form id="hookd-form" action="https://assets.mailerlite.com/api/v2/forms/eDmazM/subscribe" method="POST">
-    <input type="text" name="fields[name]" placeholder="Your Name" required style="width:100%; padding:14px; margin-bottom:15px; border-radius:8px; border:1px solid #ddd; font-size:16px;">
-    <input type="tel" name="fields[phone]" placeholder="Phone Number" required style="width:100%; padding:14px; margin-bottom:15px; border-radius:8px; border:1px solid #ddd; font-size:16px;">
-    <input type="email" name="fields[email]" placeholder="Email Address" required style="width:100%; padding:14px; margin-bottom:20px; border-radius:8px; border:1px solid #ddd; font-size:16px;">
-    <button type="submit" style="width:100%; padding:14px; background:#000; color:#fff; font-weight:700; font-size:16px; border:none; border-radius:8px; cursor:pointer;">Submit</button>
+    <input type="text" name="fields[name]" placeholder="Full Name" required
+      style="width:100%; padding:16px 18px; margin-bottom:15px; border-radius:10px; border:1px solid #ddd; font-size:16px; outline:none; transition:0.2s;"/>
+    <input type="tel" name="fields[phone]" placeholder="Phone Number" required
+      style="width:100%; padding:16px 18px; margin-bottom:15px; border-radius:10px; border:1px solid #ddd; font-size:16px; outline:none; transition:0.2s;"/>
+    <input type="email" name="fields[email]" placeholder="Email Address" required
+      style="width:100%; padding:16px 18px; margin-bottom:25px; border-radius:10px; border:1px solid #ddd; font-size:16px; outline:none; transition:0.2s;"/>
+    
+    <button type="submit" 
+      style="width:100%; padding:16px; background:#1a1a1a; color:#fff; font-weight:600; font-size:16px; border:none; border-radius:12px; cursor:pointer; transition:0.2s;">
+      Submit
+    </button>
   </form>
-
-  <p id="hookd-success" style="display:none; margin-top:20px; font-size:16px; color:#007700;">Thanks! You’re on the list.</p>
-  <p id="hookd-error" style="display:none; margin-top:20px; font-size:16px; color:#cc0000;">Something went wrong. Please try again.</p>
+  
+  <p id="hookd-success" style="display:none; margin-top:20px; font-size:16px; color:#1abc9c;">Thanks! You’re on the list.</p>
+  <p id="hookd-error" style="display:none; margin-top:20px; font-size:16px; color:#e74c3c;">Something went wrong. Please try again.</p>
 </div>
 
 <script>
-  // Hookd custom form submission
-  document.getElementById('hookd-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const name = this.elements['fields[name]'].value;
-    const phone = this.elements['fields[phone]'].value;
-    const email = this.elements['fields[email]'].value;
+document.getElementById('hookd-form').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const name = this.elements['fields[name]'].value;
+  const phone = this.elements['fields[phone]'].value;
+  const email = this.elements['fields[email]'].value;
 
-    try {
-      const res = await fetch('https://assets.mailerlite.com/api/v2/forms/eDmazM/subscribe', {
-        method: 'POST',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({fields:{name,phone,email}})
-      });
-      if(res.ok){
-        document.getElementById('hookd-success').style.display='block';
-        document.getElementById('hookd-error').style.display='none';
-        this.reset();
-      } else {
-        throw new Error('Submit failed');
-      }
-    } catch(err) {
-      document.getElementById('hookd-success').style.display='none';
-      document.getElementById('hookd-error').style.display='block';
-      console.error(err);
+  try {
+    const res = await fetch('https://assets.mailerlite.com/api/v2/forms/eDmazM/subscribe',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({fields:{name,phone,email}})
+    });
+    if(res.ok){
+      document.getElementById('hookd-success').style.display='block';
+      document.getElementById('hookd-error').style.display='none';
+      this.reset();
+    } else {
+      throw new Error('Submit failed');
     }
-  });
+  } catch(err){
+    document.getElementById('hookd-success').style.display='none';
+    document.getElementById('hookd-error').style.display='block';
+    console.error(err);
+  }
+});
 </script>
