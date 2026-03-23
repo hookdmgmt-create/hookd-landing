@@ -90,6 +90,13 @@
       color: #999;
     }
 
+    #successMessage {
+      display: none;
+      margin-top: 20px;
+      color: #00FFD5;
+      font-weight: bold;
+    }
+
     footer {
       margin-top: 40px;
       font-size: 0.85rem;
@@ -115,13 +122,17 @@
       <li>Stay in the loop before public launch</li>
     </ul>
 
-    <!-- MailerLite embedded HTML form -->
-    <form action="https://assets.mailerlite.com/jsonp/2215527/forms/182754247239009348/subscribe" method="post" target="_blank">
+    <!-- MailerLite form -->
+    <form id="mlForm" action="YOUR_MAILERLITE_ACTION_URL" method="POST">
       <input type="text" name="fields[name]" placeholder="Your Name" required>
       <input type="email" name="fields[email]" placeholder="Your Email" required>
       <input type="tel" name="fields[phone]" placeholder="Your Phone">
       <button type="submit">Keep Me On The Hook</button>
     </form>
+
+    <div id="successMessage">
+      Thanks! You’re on the Hookd interest list. We’ll update you soon!
+    </div>
 
     <p class="disclaimer">No commitment required. We'll reach out as soon as trial sessions, pricing, and schedules are confirmed.</p>
 
@@ -135,5 +146,29 @@
       <p>© 2026 Hookd Creative</p>
     </footer>
   </div>
+
+  <script>
+    // AJAX form submission for on-page success message
+    const form = document.getElementById('mlForm');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', form.action, true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+
+      const formData = new FormData(form);
+      const params = new URLSearchParams(formData).toString();
+
+      xhr.onload = function() {
+        if(xhr.status === 200 || xhr.status === 0) {
+          form.style.display = 'none';
+          document.getElementById('successMessage').style.display = 'block';
+        } else {
+          alert('Something went wrong. Please try again.');
+        }
+      };
+      xhr.send(params);
+    });
+  </script>
 </body>
 </html>
