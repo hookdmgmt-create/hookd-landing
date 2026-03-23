@@ -136,14 +136,12 @@
     </footer>
   </div>
 
-  <script>
-    // Simple demo form submission
-    const form = document.getElementById('waitlistForm');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Thanks! You are now on the Hookd interest list. We’ll update you soon!');
-      form.reset();
-    });
-  </script>
+<form action="https://assets.mailerlite.com/jsonp/2215527/forms/182754247239009348/subscribe" method="post" target="_blank" id="waitlistForm">
+  <input type="text" name="fields[name]" placeholder="Your Name" required>
+  <input type="email" name="fields[email]" placeholder="Your Email" required>
+  <input type="tel" name="fields[phone]" placeholder="Your Phone">
+  <button type="submit">Keep Me On The Hook</button>
+</form>
+  
 </body>
 </html>
