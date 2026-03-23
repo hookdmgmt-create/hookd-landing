@@ -1,86 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hookd Landing Page Form</title>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
-  
-  <!-- MailerLite Universal JS (only once per page) -->
-  <script>
-    (function(w,d,e,u,f,l,n){
-      w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);};
-      l=d.createElement(e);l.async=1;l.src=u;
-      n=d.getElementsByTagName(e)[0];n.parentNode.insertBefore(l,n);
-    })(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-    ml('account', '2215527');
-  </script>
+<!-- MailerLite Universal -->
+<script>
+(function(w,d,e,u,f,l,n){
+    w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},
+    l=d.createElement(e);l.async=1;l.src=u;
+    n=d.getElementsByTagName(e)[0];n.parentNode.insertBefore(l,n);
+})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+ml('account','2215527'); // Your MailerLite account ID
+</script>
+<!-- End MailerLite Universal -->
 
-  <style>
-    body {
-      font-family: 'Open Sans', Arial, sans-serif;
-      background-color: #f6f6f6;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
+<!-- Hookd Landing Page Form -->
+<div class="ml-embedded" data-form="eDmazM"></div>
 
-    .form-container {
-      background-color: #ffffff;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      max-width: 400px;
-      width: 100%;
-    }
+<!-- Styles (preserve original look + fixes) -->
+<style type="text/css">
+@import url("https://assets.mlcdn.com/fonts.css?version=1773928");
 
-    .form-container h2 {
-      font-weight: 700;
-      font-size: 28px;
-      margin-bottom: 20px;
-      text-align: center;
-      color: #000000;
-    }
+.ml-form-embedContainer { 
+    box-sizing: border-box; 
+    display: table; 
+    margin: 0 auto; 
+    position: static; 
+    width: 100% !important;
+}
 
-    .ml-form-embedWrapper {
-      width: 100% !important;
-    }
+.ml-form-embedWrapper {
+    background-color: #f6f6f6;
+    border-radius: 4px;
+    padding: 20px;
+    display: inline-block !important;
+    width: 100%;
+    max-width: 400px;
+}
 
-    /* Override default MailerLite input styles if needed */
-    #mlb2-38873938 input,
-    #mlb2-38873938 textarea,
-    #mlb2-38873938 select,
-    #mlb2-38873938 button {
-      font-family: 'Open Sans', Arial, sans-serif !important;
-      font-size: 14px !important;
-    }
+.ml-form-embedBody input[type="text"],
+.ml-form-embedBody input[type="email"],
+.ml-form-embedBody input[type="tel"] {
+    width: 100% !important;
+    padding: 10px !important;
+    margin-bottom: 10px;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    font-size: 14px !important;
+    box-sizing: border-box !important;
+}
 
-    #mlb2-38873938 button {
-      background-color: #000000 !important;
-      color: #ffffff !important;
-      font-weight: 700;
-      border-radius: 4px !important;
-      cursor: pointer;
-    }
+.ml-form-embedBody button {
+    width: 100% !important;
+    padding: 10px !important;
+    background-color: #000 !important;
+    color: #fff !important;
+    font-weight: 700;
+    font-size: 14px !important;
+    border: none !important;
+    cursor: pointer;
+    border-radius: 4px !important;
+}
 
-    #mlb2-38873938 button:hover {
-      background-color: #333333 !important;
-      border-color: #333333 !important;
-    }
-  </style>
-</head>
-<body>
+.ml-form-embedBody button:hover {
+    background-color: #333 !important;
+}
 
-  <div class="form-container">
-    <h2>Join the Hookd Interest List</h2>
+/* Fix checkbox/radio alignment issues */
+.ml-form-embedBody .custom-control-label::before,
+.ml-form-embedBody .custom-control-label::after {
+    top: 0 !important;
+    left: -1.5rem !important;
+    position: absolute !important;
+    display: block !important;
+    width: 16px !important;
+    height: 16px !important;
+}
 
-    <!-- MailerLite embedded form -->
-    <div class="ml-embedded" data-form="eDmazM"></div>
-
-  </div>
-
-</body>
-</html>
+.ml-form-embedBody .custom-control-input {
+    position: absolute !important;
+    z-index: -1 !important;
+    opacity: 0 !important;
+}
+</style>
