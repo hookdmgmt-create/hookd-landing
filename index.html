@@ -5,15 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hookd Creative | Central Arkansas</title>
 
-  <!-- MailerLite Universal -->
-  <script>
-    (function(w,d,e,u,f,l,n){
-      w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);};
-      l=d.createElement(e); l.async=1; l.src=u;
-      n=d.getElementsByTagName(e)[0]; n.parentNode.insertBefore(l,n);
-    })(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-    ml('account', '2215527');
-  </script>
+  <!-- MailerLite -->
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
+  <script>fetch("https://assets.mailerlite.com/jsonp/2215527/forms/182754247239009348/takel")</script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -658,14 +652,25 @@
       setTimeout(() => r.remove(), 700);
     });
 
-    // FORM SUBMIT — MailerLite untouched
+    // FORM SUBMIT — MailerLite via correct endpoint
     document.getElementById('hookdForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const name  = this.querySelector('[name="fields[name]"]').value;
       const email = this.querySelector('[name="fields[email]"]').value;
       const phone = this.querySelector('[name="fields[phone]"]').value;
 
-      ml('send', 'eDmazM', { fields: { name, email, phone } });
+      const body = new URLSearchParams();
+      body.append('fields[name]', name);
+      body.append('fields[email]', email);
+      body.append('fields[phone]', phone);
+      body.append('ml-submit', '1');
+      body.append('anticsrf', 'true');
+
+      fetch('https://assets.mailerlite.com/jsonp/2215527/forms/182754247239009348/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body.toString()
+      }).catch(() => {});
 
       document.getElementById('formWrap').style.display = 'none';
       const s = document.getElementById('successState');
