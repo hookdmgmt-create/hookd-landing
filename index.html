@@ -433,6 +433,8 @@
     }
     .success-state p { font-size: 0.8rem; color: rgba(247,242,234,0.45); line-height: 1.7; }
 
+
+
     /* INFO BLOCK */
     .info-block {
       margin-top: 20px;
@@ -595,7 +597,7 @@
       </div>
 
       <p class="headline">
-        A new kind of space — built for <em>consistent creators,</em> not one-off sessions.
+        Every great idea deserves a space to <em>become real.</em>
       </p>
 
       <div class="social-proof">
@@ -667,6 +669,8 @@
           <p>We'll reach out as soon as sessions, pricing, and schedules are set. Founding spots go first.</p>
         </div>
       </div>
+
+
 
       <!-- WHAT HOOKD WILL BE -->
       <div class="info-block" id="infoBlock">
@@ -803,7 +807,7 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: body.toString()
-      }).catch(() => {});
+      }).catch(() => {}); // fire and forget — MailerLite JSONP doesn't return CORS-friendly response
 
       document.getElementById('formWrap').style.display = 'none';
       const s = document.getElementById('successState');
