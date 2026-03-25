@@ -88,6 +88,7 @@ body {
   background: var(--terra) !important; color: var(--cream) !important;
   padding: 8px 18px !important; border-radius: 6px;
   letter-spacing: 0.15em !important;
+  white-space: nowrap;
   transition: background 0.2s, transform 0.15s !important;
 }
 .nav-cta:hover { background: var(--terra-bright) !important; transform: translateY(-1px); }
@@ -178,4 +179,7 @@ body {
   .nav-links { gap: 10px; }
   .nav-links a { font-size: 0.5rem; letter-spacing: 0.1em; }
   .nav-cta { padding: 6px 12px !important; }
+  /* swap to short labels */
+  .nav-links a[data-short] { font-size: 0; }
+  .nav-links a[data-short]::after { content: attr(data-short); font-size: 0.58rem; letter-spacing: 0.12em; }
 }
