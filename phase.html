@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Phase | Hookd Creative</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    .inner-page { max-width: 760px; margin: 0 auto; padding: 72px 40px 100px; }
+
+    .pg-header { margin-bottom: 72px; }
+    .pg-header-tag { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px; }
+    .pg-header-tag-line { width: 24px; height: 1px; background: var(--terra); }
+    .pg-header-tag-text { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--terra); }
+    .pg-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 5vw, 4.2rem); font-weight: 700; line-height: 0.95; letter-spacing: -0.02em; color: var(--cream); margin-bottom: 20px; }
+    .pg-title em { font-style: italic; color: var(--terra); }
+    .pg-sub { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem, 1.8vw, 1.4rem); font-weight: 300; line-height: 1.5; color: rgba(247,242,234,0.5); }
+
+    /* TIMELINE */
+    .timeline { position: relative; padding-left: 36px; }
+    .timeline::before {
+      content: ''; position: absolute; left: 6px; top: 10px; bottom: 10px; width: 1px;
+      background: linear-gradient(180deg, var(--terra) 0%, rgba(168,66,31,0.25) 60%, transparent 100%);
+    }
+
+    .phase-item { position: relative; margin-bottom: 20px; }
+
+    .phase-dot {
+      position: absolute; left: -36px; top: 24px;
+      width: 14px; height: 14px; border-radius: 50%;
+      border: 1.5px solid rgba(168,66,31,0.3); background: var(--ink);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .phase-dot-inner { width: 5px; height: 5px; border-radius: 50%; background: rgba(168,66,31,0.3); }
+    .phase-item.complete .phase-dot { border-color: rgba(168,66,31,0.5); }
+    .phase-item.complete .phase-dot-inner { background: var(--terra-dim); }
+    .phase-item.active .phase-dot { border-color: var(--terra); background: rgba(168,66,31,0.1); }
+    .phase-item.active .phase-dot-inner { background: var(--terra); animation: dotPulse 2s ease infinite; }
+    @keyframes dotPulse { 0%,100%{box-shadow:0 0 0 0 rgba(168,66,31,0.4)} 50%{box-shadow:0 0 0 4px rgba(168,66,31,0)} }
+
+    .phase-card {
+      background: rgba(247,242,234,0.03); border: 1px solid rgba(247,242,234,0.06);
+      border-radius: 16px; padding: 26px 30px;
+      position: relative; overflow: hidden; transition: background 0.2s;
+    }
+    .phase-item.active .phase-card { background: rgba(168,66,31,0.05); border-color: rgba(168,66,31,0.18); }
+    .phase-item.active .phase-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(168,66,31,0.5), transparent);
+    }
+
+    .phase-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .phase-num { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; }
+    .phase-item.complete .phase-num { color: rgba(168,66,31,0.4); }
+    .phase-item.active .phase-num { color: var(--terra); }
+    .phase-item.upcoming .phase-num { color: rgba(247,242,234,0.18); }
+
+    .phase-badge {
+      font-size: 0.54rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 2px 9px; border-radius: 100px;
+    }
+    .phase-item.complete .phase-badge { color: #5a7a6a; background: rgba(90,122,106,0.1); border: 1px solid rgba(90,122,106,0.2); }
+    .phase-item.active .phase-badge { color: var(--terra-bright); background: rgba(168,66,31,0.12); border: 1px solid rgba(168,66,31,0.25); }
+    .phase-item.upcoming .phase-badge { color: rgba(247,242,234,0.2); background: rgba(247,242,234,0.04); border: 1px solid rgba(247,242,234,0.08); }
+
+    .phase-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 600; line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .phase-item.upcoming .phase-name { color: rgba(247,242,234,0.35); }
+
+    .phase-desc { font-size: 0.78rem; color: rgba(247,242,234,0.38); line-height: 1.75; margin-bottom: 16px; }
+    .phase-item.active .phase-desc { color: rgba(247,242,234,0.52); }
+
+    .milestones { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .milestones li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.72rem; color: rgba(247,242,234,0.32); line-height: 1.5; }
+    .phase-item.active .milestones li { color: rgba(247,242,234,0.48); }
+    .m-icon { color: var(--terra); opacity: 0.5; font-size: 0.58rem; padding-top: 3px; flex-shrink: 0; }
+    .phase-item.active .m-icon { opacity: 0.85; }
+
+    /* BOTTOM CTA */
+    .phase-cta-block {
+      margin-top: 52px;
+      background: rgba(247,242,234,0.03); border: 1px solid rgba(247,242,234,0.07);
+      border-radius: 20px; padding: 44px 52px;
+      display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 36px;
+      position: relative; overflow: hidden;
+    }
+    .phase-cta-block::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(168,66,31,0.4), transparent);
+    }
+    .phase-cta-block h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 600; color: var(--cream); margin-bottom: 8px; }
+    .phase-cta-block h3 em { font-style: italic; color: var(--terra); }
+    .phase-cta-block p { font-size: 0.78rem; color: rgba(247,242,234,0.38); line-height: 1.7; }
+
+    @media (max-width: 600px) {
+      .inner-page { padding: 60px 20px 80px; }
+      .phase-cta-block { grid-template-columns: 1fr; padding: 32px 24px; }
+      .phase-card { padding: 20px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="grain"></div>
+  <div class="ambient"></div>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">HOO<span class="accent">K</span>D</a>
+    <ul class="nav-links">
+      <li class="nav-hide-xs"><a href="who.html">Who It's For</a></li>
+      <li class="nav-hide-xs"><a href="phase.html" class="active">Our Phase</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="index.html#form" class="nav-cta">Get Access</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="inner-page">
+
+      <div class="pg-header reveal d1">
+        <div class="pg-header-tag">
+          <div class="pg-header-tag-line"></div>
+          <span class="pg-header-tag-text">Transparency</span>
+        </div>
+        <h1 class="pg-title">Where Hookd<br><em>is right now.</em></h1>
+        <p class="pg-sub">We're building this in public. Here's exactly what phase we're in and what comes next.</p>
+      </div>
+
+      <div class="timeline">
+
+        <div class="phase-item complete reveal d1">
+          <div class="phase-dot"><div class="phase-dot-inner"></div></div>
+          <div class="phase-card">
+            <div class="phase-meta">
+              <span class="phase-num">Phase 0</span>
+              <span class="phase-badge">Complete</span>
+            </div>
+            <h3 class="phase-name">Concept & Community</h3>
+            <p class="phase-desc">Establishing the Hookd brand and starting to connect with Central Arkansas creators before a physical space exists.</p>
+            <ul class="milestones">
+              <li><span class="m-icon">✓</span>Brand and identity established</li>
+              <li><span class="m-icon">✓</span>Instagram launched — @hookdrecording</li>
+              <li><span class="m-icon">✓</span>Website and interest list live</li>
+              <li><span class="m-icon">✓</span>Creator Night No. 1 hosted</li>
+              <li><span class="m-icon">✓</span>Collaborators onboarded — Echoes of Arkansas, Valhalla Media, Wil Wes Studios, Fidel & Co</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="phase-item active reveal d2">
+          <div class="phase-dot"><div class="phase-dot-inner"></div></div>
+          <div class="phase-card">
+            <div class="phase-meta">
+              <span class="phase-num">Phase 1</span>
+              <span class="phase-badge">In Progress</span>
+            </div>
+            <h3 class="phase-name">Pre-Launch & Validation</h3>
+            <p class="phase-desc">Building the interest list, hosting Creator Nights, and validating demand before committing to a permanent location. This is the phase you're seeing right now.</p>
+            <ul class="milestones">
+              <li><span class="m-icon">◈</span>Creator Night No. 2 — March 27, 2026</li>
+              <li><span class="m-icon">◈</span>Interest list growth and community building</li>
+              <li><span class="m-icon">◈</span>Pilot location scouting and lease negotiation</li>
+              <li><span class="m-icon">◈</span>Pre-sale pass floor — 20 paid passes before lease signing</li>
+              <li><span class="m-icon">◈</span>Equipment sourcing and studio buildout planning</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="phase-item upcoming reveal d3">
+          <div class="phase-dot"><div class="phase-dot-inner"></div></div>
+          <div class="phase-card">
+            <div class="phase-meta">
+              <span class="phase-num">Phase 2</span>
+              <span class="phase-badge">Upcoming</span>
+            </div>
+            <h3 class="phase-name">Pilot Launch</h3>
+            <p class="phase-desc">Opening the first Hookd location for a capped pilot run. Limited passes, real sessions, and real feedback to shape the full launch.</p>
+            <ul class="milestones">
+              <li><span class="m-icon">○</span>Pilot location secured and built out</li>
+              <li><span class="m-icon">○</span>Audio studio and content studio operational</li>
+              <li><span class="m-icon">○</span>Pilot passes sold to founding members</li>
+              <li><span class="m-icon">○</span>Contractor pool active</li>
+              <li><span class="m-icon">○</span>Booking system live via SimplyBook</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="phase-item upcoming reveal d4">
+          <div class="phase-dot"><div class="phase-dot-inner"></div></div>
+          <div class="phase-card">
+            <div class="phase-meta">
+              <span class="phase-num">Phase 3</span>
+              <span class="phase-badge">Upcoming</span>
+            </div>
+            <h3 class="phase-name">Full Launch & Memberships</h3>
+            <p class="phase-desc">Recurring monthly memberships open to the public. Hookd operating as a fully functional creative facility in Central Arkansas.</p>
+            <ul class="milestones">
+              <li><span class="m-icon">○</span>Monthly membership tiers go live</li>
+              <li><span class="m-icon">○</span>Hookd Creative Workshops division launches</li>
+              <li><span class="m-icon">○</span>Hookd Events division launches</li>
+              <li><span class="m-icon">○</span>Creator education programming begins</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="phase-cta-block reveal d5">
+        <div>
+          <h3>We're in Phase 1.<br><em>Join us now.</em></h3>
+          <p>Interest list members get first access to pilot passes, pricing, and founding membership — before anything goes public.</p>
+        </div>
+        <a href="index.html#form" class="btn"><span>Get on the list →</span></a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+    (function a(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a);})();
+    document.querySelectorAll('a').forEach(el=>{el.addEventListener('mouseenter',()=>ring.classList.add('expanded'));el.addEventListener('mouseleave',()=>ring.classList.remove('expanded'));});
+  </script>
+</body>
+</html>

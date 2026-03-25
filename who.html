@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Who It's For | Hookd Creative</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    .inner-page { max-width: 1100px; margin: 0 auto; padding: 72px 40px 100px; }
+
+    /* PAGE HEADER — matches index left panel typography */
+    .pg-header { margin-bottom: 72px; }
+    .pg-header-tag { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px; }
+    .pg-header-tag-line { width: 24px; height: 1px; background: var(--terra); }
+    .pg-header-tag-text { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--terra); }
+    .pg-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 5vw, 4.2rem); font-weight: 700;
+      line-height: 0.95; letter-spacing: -0.02em;
+      color: var(--cream); margin-bottom: 20px;
+    }
+    .pg-title em { font-style: italic; color: var(--terra); }
+    .pg-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 1.8vw, 1.4rem); font-weight: 300;
+      line-height: 1.5; color: rgba(247,242,234,0.5);
+      max-width: 520px;
+    }
+
+    /* CREATOR GRID */
+    .creator-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 56px;
+    }
+
+    .creator-card {
+      background: rgba(247,242,234,0.03);
+      border: 1px solid rgba(247,242,234,0.06);
+      border-radius: 16px; padding: 30px 26px;
+      position: relative; overflow: hidden;
+      transition: background 0.25s, border-color 0.25s, transform 0.25s;
+      cursor: none;
+    }
+    .creator-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(168,66,31,0.2), transparent);
+      opacity: 0; transition: opacity 0.25s;
+    }
+    .creator-card:hover { background: rgba(247,242,234,0.05); border-color: rgba(247,242,234,0.1); transform: translateY(-3px); }
+    .creator-card:hover::before { opacity: 1; }
+
+    .creator-glyph {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem; color: var(--terra); opacity: 0.45;
+      margin-bottom: 16px; line-height: 1; display: block;
+    }
+    .creator-type {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; font-weight: 600;
+      color: var(--cream); margin-bottom: 10px; line-height: 1.2;
+    }
+    .creator-desc {
+      font-size: 0.74rem; font-weight: 400;
+      color: rgba(247,242,234,0.38); line-height: 1.75; margin-bottom: 18px;
+    }
+    .creator-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .creator-tag {
+      font-size: 0.56rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--terra); background: rgba(168,66,31,0.08);
+      border: 1px solid rgba(168,66,31,0.16); border-radius: 100px; padding: 3px 9px;
+    }
+
+    /* OPEN DOOR — same card language as info-section */
+    .open-door {
+      background: rgba(247,242,234,0.03); border: 1px solid rgba(247,242,234,0.07);
+      border-radius: 20px; padding: 52px 56px;
+      position: relative; overflow: hidden;
+      display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 40px;
+    }
+    .open-door::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(168,66,31,0.5), transparent);
+    }
+    .open-door-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 600;
+      color: var(--cream); line-height: 1.2; margin-bottom: 10px;
+    }
+    .open-door-text h2 em { font-style: italic; color: var(--terra); }
+    .open-door-text p { font-size: 0.8rem; color: rgba(247,242,234,0.4); line-height: 1.75; max-width: 400px; }
+
+    @media (max-width: 900px) { .creator-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 600px) {
+      .creator-grid { grid-template-columns: 1fr; }
+      .inner-page { padding: 60px 20px 80px; }
+      .open-door { grid-template-columns: 1fr; padding: 36px 28px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="grain"></div>
+  <div class="ambient"></div>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">HOO<span class="accent">K</span>D</a>
+    <ul class="nav-links">
+      <li class="nav-hide-xs"><a href="who.html" class="active">Who It's For</a></li>
+      <li class="nav-hide-xs"><a href="phase.html">Our Phase</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="index.html#form" class="nav-cta">Get Access</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="inner-page">
+
+      <div class="pg-header reveal d1">
+        <div class="pg-header-tag">
+          <div class="pg-header-tag-line"></div>
+          <span class="pg-header-tag-text">Built for you</span>
+        </div>
+        <h1 class="pg-title">If you create,<br><em>Hookd is for you.</em></h1>
+        <p class="pg-sub">Hookd is for every kind of creator. Whether you're here once or every week — if your work deserves a real space, this is it.</p>
+      </div>
+
+      <div class="creator-grid">
+        <div class="creator-card reveal d1">
+          <span class="creator-glyph">♩</span>
+          <h3 class="creator-type">Musicians & Recording Artists</h3>
+          <p class="creator-desc">A professional audio studio with the gear to capture your sound the way it deserves to be heard. Bring your own engineer or book one of ours.</p>
+          <div class="creator-tags">
+            <span class="creator-tag">Recording</span><span class="creator-tag">Mixing</span>
+            <span class="creator-tag">Mastering</span><span class="creator-tag">Live Tracking</span>
+          </div>
+        </div>
+
+        <div class="creator-card reveal d2">
+          <span class="creator-glyph">◻</span>
+          <h3 class="creator-type">Content Creators</h3>
+          <p class="creator-desc">A dedicated content studio built for photo and video — lights, backdrops, camera setups ready to go. Stop recreating your setup from scratch every time.</p>
+          <div class="creator-tags">
+            <span class="creator-tag">YouTube</span><span class="creator-tag">Short Form</span>
+            <span class="creator-tag">Brand Content</span><span class="creator-tag">Reels</span>
+          </div>
+        </div>
+
+        <div class="creator-card reveal d3">
+          <span class="creator-glyph">◎</span>
+          <h3 class="creator-type">Podcasters</h3>
+          <p class="creator-desc">Acoustic-treated recording space, professional mics, and the setup to make your show sound like it belongs everywhere your audience listens.</p>
+          <div class="creator-tags">
+            <span class="creator-tag">Solo Shows</span><span class="creator-tag">Interviews</span>
+            <span class="creator-tag">Editing</span><span class="creator-tag">Video Pods</span>
+          </div>
+        </div>
+
+        <div class="creator-card reveal d4">
+          <span class="creator-glyph">◈</span>
+          <h3 class="creator-type">Photographers</h3>
+          <p class="creator-desc">A fully equipped photo studio with professional lighting, multiple backdrop options, and space to shoot portraits, products, and editorial work.</p>
+          <div class="creator-tags">
+            <span class="creator-tag">Portraits</span><span class="creator-tag">Products</span>
+            <span class="creator-tag">Editorial</span><span class="creator-tag">Retouching</span>
+          </div>
+        </div>
+
+        <div class="creator-card reveal d5">
+          <span class="creator-glyph">▷</span>
+          <h3 class="creator-type">Filmmakers & Videographers</h3>
+          <p class="creator-desc">Controlled studio space for interviews, narrative scenes, and commercial shoots. Pair it with our audio studio for full production under one roof.</p>
+          <div class="creator-tags">
+            <span class="creator-tag">Narrative</span><span class="creator-tag">Commercial</span>
+            <span class="creator-tag">Interviews</span><span class="creator-tag">Editing</span>
+          </div>
+        </div>
+
+        <div class="creator-card reveal d6">
+          <span class="creator-glyph">✦</span>
+          <h3 class="creator-type">& Every Creator In Between</h3>
+          <p class="creator-desc">DJs. Visual artists. Spoken word. Coaches. Educators. If your work benefits from a dedicated creative space, Hookd is designed with you in mind.</p>
+          <div class="creator-tags">
+            <span class="creator-tag">All Disciplines</span><span class="creator-tag">All Levels</span>
+            <span class="creator-tag">All Ideas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="open-door reveal d4">
+        <div class="open-door-text">
+          <h2>Your work belongs<br><em>somewhere real.</em></h2>
+          <p>Hookd is in early development and building its founding community. Get on the interest list to be first in line when sessions open.</p>
+        </div>
+        <a href="index.html#form" class="btn"><span>Get on the list →</span></a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+    (function a(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a);})();
+    document.querySelectorAll('a,.creator-card').forEach(el=>{el.addEventListener('mouseenter',()=>ring.classList.add('expanded'));el.addEventListener('mouseleave',()=>ring.classList.remove('expanded'));});
+  </script>
+</body>
+</html>
