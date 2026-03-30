@@ -7,14 +7,13 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hookdcreative.us/">
   <meta property="og:title" content="Hookd Creative | Central Arkansas">
-  <meta property="og:description" content="A dedicated creative space in Central Arkansas for music, content, photography, and podcasts. Get early access before we launch.">
+  <meta property="og:description" content="Central Arkansas's first dedicated creative space. Get on the founding member list before we open.">
   <meta property="og:image" content="https://hookdcreative.us/og.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Hookd Creative | Central Arkansas">
-  <meta name="twitter:description" content="A dedicated creative space in Central Arkansas for music, content, photography, and podcasts.">
+  <meta name="twitter:description" content="Central Arkansas's first dedicated creative space. Get on the founding member list.">
   <meta name="twitter:image" content="https://hookdcreative.us/og.png">
 
-  <!-- MailerLite -->
   <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
   <script>fetch("https://assets.mailerlite.com/jsonp/2215527/forms/182754247239009348/takel")</script>
 
@@ -24,110 +23,131 @@
   <link rel="stylesheet" href="shared.css">
 
   <style>
-    /* ── LAYOUT ── */
     .site {
       position: relative; z-index: 2;
       display: grid; grid-template-columns: 1fr 1fr;
       max-width: 1100px; margin: 0 auto; padding: 0 40px;
     }
 
+    /* ── LEFT PANEL ── */
     .left {
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 40px 60px 80px 0;
-      border-right: 1px solid rgba(247,242,234,0.06);
       position: sticky; top: 64px;
-      height: calc(100vh - 64px); overflow: hidden;
+      height: calc(100vh - 64px);
+      display: flex; flex-direction: column;
+      border-right: 1px solid rgba(247,242,234,0.06);
+      overflow: hidden;
     }
 
-    .brand-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      margin-bottom: 48px;
+    /* ── VIDEO REEL ── */
+    .video-reel {
+      position: relative; width: 100%; flex: 1; overflow: hidden;
+      background: #0a0705; min-height: 0;
     }
-    .brand-tag-line { width: 24px; height: 1px; background: var(--terra); }
-    .brand-tag-text { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--terra); }
+    .reel-vid {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; opacity: 0;
+      transition: opacity 0.9s ease;
+    }
+    .reel-vid.active { opacity: 1; }
+    .video-overlay {
+      position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(
+        to bottom,
+        rgba(15,10,7,0.12) 0%,
+        rgba(15,10,7,0.0) 35%,
+        rgba(15,10,7,0.55) 78%,
+        rgba(15,10,7,0.93) 100%
+      );
+    }
 
-    .logo-area { margin-bottom: 32px; }
+    /* geographic identity pill */
+    .geo-identity {
+      position: absolute; top: 18px; left: 20px;
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(15,10,7,0.68); backdrop-filter: blur(10px);
+      border: 1px solid rgba(168,66,31,0.3); border-radius: 100px;
+      padding: 5px 12px; pointer-events: none;
+    }
+    .geo-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--terra-bright); flex-shrink: 0; animation: gpulse 2s ease infinite; }
+    @keyframes gpulse { 0%,100%{box-shadow:0 0 0 0 rgba(168,66,31,0.5)} 50%{box-shadow:0 0 0 4px rgba(168,66,31,0)} }
+    .geo-text { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(247,242,234,0.65); }
+    .geo-text em { font-style: normal; color: var(--terra-bright); }
+
+    /* sound toggle */
+    .sound-btn {
+      position: absolute; top: 18px; right: 20px;
+      background: rgba(15,10,7,0.68); backdrop-filter: blur(10px);
+      border: 1px solid rgba(247,242,234,0.1); border-radius: 100px;
+      padding: 5px 12px; display: flex; align-items: center; gap: 6px;
+      cursor: pointer; transition: border-color 0.2s; z-index: 2;
+    }
+    .sound-btn:hover { border-color: rgba(247,242,234,0.28); }
+    .sound-icon { font-size: 0.68rem; line-height: 1; }
+    .sound-label { font-size: 0.52rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(247,242,234,0.32); }
+
+    /* reel dots */
+    .reel-dots { position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; pointer-events: none; }
+    .reel-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(247,242,234,0.28); transition: background 0.3s, transform 0.3s; }
+    .reel-dot.active { background: var(--terra-bright); transform: scale(1.5); }
+
+    /* ── LEFT BOTTOM ── */
+    .left-bottom { padding: 20px 28px 0; flex-shrink: 0; }
+
+    .brand-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 10px; }
     .logo-hookd {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(4rem, 6.5vw, 6rem); font-weight: 700;
-      line-height: 0.92; letter-spacing: -0.02em;
-      color: var(--cream); display: block;
+      font-size: clamp(2rem, 3.2vw, 2.8rem); font-weight: 700;
+      line-height: 0.92; letter-spacing: -0.02em; color: var(--cream);
     }
     .logo-hookd .accent { color: var(--terra); }
     .logo-creative {
-      font-family: 'Syne', sans-serif; font-size: 0.6rem; font-weight: 700;
-      letter-spacing: 0.38em; text-transform: uppercase;
-      color: rgba(247,242,234,0.3); display: block; margin-top: 10px; padding-left: 3px;
+      font-family: 'Syne', sans-serif; font-size: 0.5rem; font-weight: 700;
+      letter-spacing: 0.36em; text-transform: uppercase;
+      color: rgba(247,242,234,0.22); padding-bottom: 2px;
     }
 
-    .headline {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(1.3rem, 2vw, 1.75rem); font-weight: 300;
-      line-height: 1.45; color: rgba(247,242,234,0.65); margin-bottom: 32px;
+    /* attendee quote on left */
+    .left-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.88rem, 1.1vw, 1rem); font-weight: 300; font-style: italic;
+      line-height: 1.55; color: rgba(247,242,234,0.52);
+      border-left: 2px solid rgba(168,66,31,0.32);
+      padding-left: 13px; margin-bottom: 14px;
     }
-    .headline em { font-style: italic; color: var(--cream); font-weight: 600; }
+    .left-quote strong { font-style: normal; font-weight: 600; color: rgba(247,242,234,0.78); }
+    .left-quote-attr { display: block; font-size: 0.56rem; font-style: normal; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; font-family: 'Syne', sans-serif; color: rgba(247,242,234,0.26); margin-top: 6px; }
 
-    /* ── SOCIAL PROOF — updated to show count + real signal ── */
-    .social-proof { display: flex; align-items: center; gap: 14px; margin-bottom: 36px; }
+    /* social proof */
+    .social-proof { display: flex; align-items: center; gap: 11px; margin-bottom: 0; }
     .avatar-stack { display: flex; }
     .avatar {
-      width: 28px; height: 28px; border-radius: 50%;
-      border: 2px solid var(--ink); margin-left: -8px;
+      width: 23px; height: 23px; border-radius: 50%;
+      border: 2px solid var(--ink); margin-left: -7px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 0.58rem; font-weight: 700;
+      font-size: 0.48rem; font-weight: 700;
     }
     .avatar:first-child { margin-left: 0; }
     .av1 { background: var(--terra); color: var(--cream); }
     .av2 { background: var(--gold); color: var(--ink); }
     .av3 { background: #5a7a6a; color: var(--cream); }
     .av4 { background: #4a5a8a; color: var(--cream); }
-    .proof-text { font-size: 0.76rem; color: rgba(247,242,234,0.45); line-height: 1.4; }
+    .proof-text { font-size: 0.68rem; color: rgba(247,242,234,0.38); line-height: 1.4; }
     .proof-text strong { color: var(--cream); font-weight: 700; }
 
-    /* ── LIVE BADGE — new, shows events are real and active ── */
-    .live-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(168,66,31,0.08); border: 1px solid rgba(168,66,31,0.2);
-      border-radius: 100px; padding: 6px 14px; margin-bottom: 28px;
-    }
-    .live-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--terra-bright); flex-shrink: 0;
-      animation: livePulse 2s ease infinite;
-    }
-    @keyframes livePulse {
-      0%,100% { box-shadow: 0 0 0 0 rgba(168,66,31,0.5); }
-      50% { box-shadow: 0 0 0 4px rgba(168,66,31,0); }
-    }
-    .live-text {
-      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.01em;
-      text-transform: none; color: rgba(247,242,234,0.6);
-    }
-    .live-text strong { color: var(--terra-bright); }
+    /* marquee */
+    .marquee-wrap { overflow: hidden; border-top: 1px solid rgba(247,242,234,0.05); padding: 9px 0; margin: 14px -28px 0; }
+    .marquee-track { display: flex; animation: marquee 24s linear infinite; width: max-content; }
+    .marquee-item { display: flex; align-items: center; gap: 18px; padding-right: 36px; white-space: nowrap; font-size: 0.52rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(247,242,234,0.11); }
+    .marquee-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--terra); opacity: 0.28; }
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
-    .access-line {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1rem, 1.5vw, 1.2rem); font-weight: 300;
-      line-height: 1.55; color: rgba(247,242,234,0.55);
-      margin-bottom: 0;
-    }
-    .access-line em { font-style: italic; color: var(--cream); font-weight: 600; }
-
-    .marquee-wrap {
-      position: absolute; bottom: 0; left: 0; right: -40px;
-      overflow: hidden; border-top: 1px solid rgba(247,242,234,0.05); padding: 13px 0;
-    }
-    .marquee-track { display: flex; animation: marquee 22s linear infinite; width: max-content; }
-    .marquee-item { display: flex; align-items: center; gap: 18px; padding-right: 36px; white-space: nowrap; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(247,242,234,0.15); }
-    .marquee-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--terra); opacity: 0.35; }
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-    .right { display: flex; flex-direction: column; justify-content: flex-start; padding: 80px 0 80px 60px; }
+    /* ── RIGHT PANEL ── */
+    .right { display: flex; flex-direction: column; justify-content: center; padding: 56px 0 56px 52px; min-height: calc(100vh - 64px); }
 
     /* ── FORM CARD ── */
     .form-card {
       background: rgba(247,242,234,0.04); border: 1px solid rgba(247,242,234,0.08);
-      border-radius: 20px; padding: 44px 40px;
+      border-radius: 20px; padding: 38px 34px;
       position: relative; overflow: hidden;
       transition: transform 0.1s ease, box-shadow 0.3s;
     }
@@ -137,31 +157,27 @@
     }
     .card-shine { position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(168,66,31,0.07) 0%, transparent 70%); pointer-events: none; }
 
-    .form-eyebrow { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--terra); margin-bottom: 6px; }
+    /* counter row */
+    .counter-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .form-eyebrow { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--terra); }
+    .founding-counter {
+      display: flex; align-items: center; gap: 6px;
+      background: rgba(168,66,31,0.08); border: 1px solid rgba(168,66,31,0.2);
+      border-radius: 100px; padding: 3px 10px;
+    }
+    .counter-pulse { width: 5px; height: 5px; border-radius: 50%; background: var(--terra-bright); animation: gpulse 2s ease infinite; flex-shrink: 0; }
+    .counter-text { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; color: rgba(247,242,234,0.55); }
+    .counter-num { color: var(--cream); }
+
     .form-title {
-      font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 600;
-      color: var(--cream); line-height: 1.2; margin-bottom: 10px;
+      font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 600;
+      color: var(--cream); line-height: 1.12; margin-bottom: 16px;
     }
 
-    /* ── ATTENDEE QUOTE — new, replaces urgency bar ── */
-    .attendee-quote {
-      margin-bottom: 22px;
-      padding: 12px 16px;
-      border-left: 2px solid rgba(168,66,31,0.4);
-      background: rgba(168,66,31,0.05);
-      border-radius: 0 8px 8px 0;
-    }
-    .attendee-quote-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.92rem; font-style: italic; font-weight: 300;
-      color: rgba(247,242,234,0.7); line-height: 1.5; margin-bottom: 5px;
-    }
-    .attendee-quote-attr {
-      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em;
-      text-transform: uppercase; color: rgba(168,66,31,0.7);
-    }
+    .confirm-line { font-size: 0.7rem; color: rgba(247,242,234,0.36); line-height: 1.65; margin-bottom: 18px; }
+    .confirm-line em { color: rgba(247,242,234,0.58); font-style: normal; }
 
-    form { display: flex; flex-direction: column; gap: 10px; }
+    form { display: flex; flex-direction: column; gap: 9px; }
     .field-group { position: relative; }
     .field-label { position: absolute; top: 13px; left: 16px; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em; color: rgba(247,242,234,0.3); transition: all 0.2s cubic-bezier(0.16,1,0.3,1); pointer-events: none; }
     input[type="text"], input[type="email"] {
@@ -174,10 +190,15 @@
     input:focus { border-color: rgba(168,66,31,0.5); background: rgba(247,242,234,0.06); box-shadow: 0 0 0 3px rgba(168,66,31,0.08); }
     input:focus + .field-label, input:not(:placeholder-shown) + .field-label { top: 7px; font-size: 0.58rem; letter-spacing: 0.12em; color: var(--terra); }
 
+    /* scarcity signal */
+    .scarcity-signal { display: flex; align-items: center; gap: 10px; padding: 7px 0 1px; }
+    .scarcity-line { height: 1px; flex: 1; background: rgba(247,242,234,0.05); }
+    .scarcity-text { font-size: 0.6rem; color: rgba(247,242,234,0.22); letter-spacing: 0.06em; white-space: nowrap; }
+
     .submit-btn {
-      margin-top: 4px; width: 100%; padding: 16px; border-radius: 10px; border: none;
+      width: 100%; padding: 16px; border-radius: 10px; border: none;
       background: var(--terra); color: var(--cream); font-family: 'Syne', sans-serif;
-      font-size: 0.76rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
       cursor: none; position: relative; overflow: hidden;
       transition: background 0.25s, transform 0.15s, box-shadow 0.25s;
     }
@@ -187,59 +208,47 @@
     .btn-text { position: relative; z-index: 1; }
 
     .ripple { position: absolute; border-radius: 50%; background: rgba(255,255,255,0.2); transform: scale(0); animation: rippleAnim 0.6s linear; pointer-events: none; }
-    @keyframes rippleAnim { to { transform: scale(4); opacity: 0; } }
+    @keyframes rippleAnim { to{transform:scale(4);opacity:0} }
 
-    .form-footer { margin-top: 14px; display: flex; align-items: center; gap: 8px; }
+    .form-footer { margin-top: 11px; display: flex; align-items: center; gap: 8px; }
     .form-footer-line { height: 1px; flex: 1; background: rgba(247,242,234,0.06); }
-    .disclaimer { font-size: 0.68rem; color: rgba(247,242,234,0.28); text-align: center; line-height: 1.5; }
+    .disclaimer { font-size: 0.63rem; color: rgba(247,242,234,0.2); text-align: center; line-height: 1.5; }
 
     .success-state { display: none; text-align: center; padding: 16px 0; animation: reveal 0.6s cubic-bezier(0.16,1,0.3,1) both; }
     .success-mark { width: 52px; height: 52px; border-radius: 50%; background: rgba(168,66,31,0.1); border: 1px solid rgba(168,66,31,0.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--terra); }
     .success-state h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; font-weight: 600; color: var(--cream); margin-bottom: 10px; }
-    .success-state p { font-size: 0.8rem; color: rgba(247,242,234,0.45); line-height: 1.7; }
+    .success-state p { font-size: 0.78rem; color: rgba(247,242,234,0.42); line-height: 1.7; }
 
-    /* ── INFO BLOCK ── */
-    .info-block { margin-top: 20px; position: relative; }
-    .info-block-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-    .info-block-line { height: 1px; flex: 1; background: linear-gradient(90deg, rgba(168,66,31,0.3), transparent); }
-    .info-block-label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(247,242,234,0.2); }
-    .info-section { background: rgba(247,242,234,0.03); border: 1px solid rgba(247,242,234,0.06); border-radius: 14px; padding: 24px 28px; margin-bottom: 10px; position: relative; overflow: hidden; transition: background 0.2s, border-color 0.2s; }
-    .info-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(168,66,31,0.25), transparent); }
-    .info-section:hover { background: rgba(247,242,234,0.05); border-color: rgba(247,242,234,0.1); }
-    .info-section-inner { display: flex; gap: 20px; align-items: flex-start; }
-    .info-icon { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--terra); opacity: 0.6; min-width: 20px; padding-top: 1px; line-height: 1; }
-    .info-content { flex: 1; }
-    .info-eyebrow { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--terra); margin-bottom: 6px; display: block; }
-    .info-text { font-size: 0.78rem; font-weight: 400; color: rgba(247,242,234,0.42); line-height: 1.75; }
-    .info-text em { color: rgba(247,242,234,0.65); font-style: normal; }
+    /* ── INSTAGRAM FEED SLOT ── */
+    .ig-block { margin-top: 18px; }
+    .ig-block-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .ig-block-line { height: 1px; flex: 1; background: linear-gradient(90deg, rgba(168,66,31,0.18), transparent); }
+    .ig-block-label { font-size: 0.54rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(247,242,234,0.16); }
+    .ig-thumbs { display: grid; grid-template-columns: repeat(3,1fr); gap: 5px; border-radius: 10px; overflow: hidden; }
+    .ig-thumb { aspect-ratio: 1; background: rgba(247,242,234,0.03); border: 1px solid rgba(247,242,234,0.05); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.5rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,242,234,0.12); }
+    .ig-follow-row { display: flex; justify-content: flex-end; margin-top: 7px; }
+    .ig-follow-link { display: inline-flex; align-items: center; gap: 5px; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; color: rgba(247,242,234,0.26); text-decoration: none; transition: color 0.2s; }
+    .ig-follow-link:hover { color: rgba(247,242,234,0.55); }
+    .ig-follow-link svg { width: 11px; height: 11px; }
 
-    /* ── EVENTS LIVE STRIP — new, bridges events to the studio vision ── */
-    .events-strip {
-      background: rgba(247,242,234,0.03); border: 1px solid rgba(247,242,234,0.06);
-      border-radius: 14px; padding: 18px 24px; margin-bottom: 10px;
-      display: flex; align-items: center; gap: 16px;
-    }
-    .events-strip-left { flex: 1; }
-    .events-strip-label { font-size: 0.56rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--terra); margin-bottom: 4px; display: block; }
-    .events-strip-text { font-size: 0.76rem; color: rgba(247,242,234,0.45); line-height: 1.5; }
-    .events-strip-text strong { color: rgba(247,242,234,0.7); font-weight: 500; }
-    .events-strip-cta {
-      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--terra); text-decoration: none; white-space: nowrap;
-      transition: color 0.2s;
-    }
-    .events-strip-cta:hover { color: var(--terra-bright); }
-
-    .ig-link-wrap { margin-top: 14px; text-align: center; }
-
+    /* ── MOBILE ── */
     @media (max-width: 768px) {
-      .site { grid-template-columns: 1fr; padding: 0 20px; }
-      .left { position: static; height: auto; padding: 40px 0 0; border-right: none; border-bottom: 1px solid rgba(247,242,234,0.06); padding-bottom: 40px; }
-      .right { padding: 36px 0 56px; }
-      .marquee-wrap { display: none; }
-      .logo-hookd { font-size: 3.8rem; }
+      .site { grid-template-columns: 1fr; padding: 0; }
+      .left { position: static; height: auto; border-right: none; }
+      .video-reel { height: 58vw; min-height: 200px; flex: none; }
+      .left-bottom { padding: 18px 20px 0; }
+      .marquee-wrap { margin: 12px -20px 0; }
+      .right { padding: 26px 20px 44px; min-height: unset; }
+      .form-card { padding: 26px 18px; }
+      /* collapse nav to logo + CTA only on mobile */
+      .nav-links li:not(:last-child) { display: none; }
+      .nav-links { gap: 0; }
     }
-    @media (max-width: 480px) { .form-card { padding: 28px 22px; } }
+    @media (max-width: 420px) {
+      .video-reel { height: 66vw; }
+      .logo-hookd { font-size: 1.9rem; }
+      .form-title { font-size: 1.45rem; }
+    }
   </style>
 </head>
 <body>
@@ -260,52 +269,72 @@
   </nav>
 
   <div class="site" id="form">
-    <div class="left reveal d1">
-      <div class="brand-tag">
-        <div class="brand-tag-line"></div>
-        <span class="brand-tag-text">Central Arkansas</span>
-      </div>
-      <div class="logo-area">
-        <span class="logo-hookd">HOO<span class="accent">K</span>D</span>
-        <span class="logo-creative">Creative</span>
-      </div>
-      <p class="headline reveal d2">Every great idea deserves a space to <em>become real.</em></p>
 
-      <!-- LIVE BADGE — Hookd voice -->
-      <div class="live-badge reveal d3">
-        <div class="live-dot"></div>
-        <span class="live-text">60+ creatives showed up. Central Arkansas to Northwest Arkansas. That's what Creator Nights are.</span>
-      </div>
+    <!-- ── LEFT ── -->
+    <div class="left">
 
-      <div class="social-proof reveal d3">
-        <div class="avatar-stack">
-          <div class="avatar av1">BV</div>
-          <div class="avatar av2">LR</div>
-          <div class="avatar av3">IR</div>
-          <div class="avatar av4">AW</div>
-          <div class="avatar av1">AC</div>
+      <div class="video-reel" id="videoReel">
+        <video class="reel-vid active" src="cn2-1.mp4" muted playsinline preload="auto"></video>
+        <video class="reel-vid" src="cn2-2.mp4" muted playsinline preload="auto"></video>
+        <video class="reel-vid" src="cn2-3.mp4" muted playsinline preload="auto"></video>
+        <video class="reel-vid" src="cn2-4.mp4" muted playsinline preload="auto"></video>
+        <div class="video-overlay"></div>
+        <div class="geo-identity">
+          <div class="geo-dot"></div>
+          <span class="geo-text">Central Arkansas's <em>first.</em></span>
         </div>
-        <!-- UPDATE this number as the list grows -->
-        <p class="proof-text"><strong>Growing list of creators</strong> already signed up.</p>
+        <button class="sound-btn" id="soundBtn" onclick="toggleSound()">
+          <span class="sound-icon" id="soundIcon">🔇</span>
+          <span class="sound-label" id="soundLabel">Sound off</span>
+        </button>
+        <div class="reel-dots" id="reelDots"></div>
       </div>
 
-      <p class="access-line reveal d4">The list is how you stay inside what Hookd is building. <em>First in, first served.</em> No commitment.</p>
-      <div class="marquee-wrap reveal d5">
-        <div class="marquee-track" id="marqueeTrack"></div>
+      <div class="left-bottom reveal d1">
+        <div class="brand-row">
+          <span class="logo-hookd">HOO<span class="accent">K</span>D</span>
+          <span class="logo-creative">Creative</span>
+        </div>
+
+        <p class="left-quote reveal d2">
+          "We were HOOK'D on all the love and collaboration. <strong>We're family now.</strong>"
+          <span class="left-quote-attr">Creator Night No. 2 &mdash; Central Arkansas</span>
+        </p>
+
+        <div class="social-proof reveal d3">
+          <div class="avatar-stack">
+            <div class="avatar av1">BV</div>
+            <div class="avatar av2">LR</div>
+            <div class="avatar av3">IR</div>
+            <div class="avatar av4">AW</div>
+            <div class="avatar av1">AC</div>
+          </div>
+          <p class="proof-text"><strong>Founding members are already in.</strong> You should be too.</p>
+        </div>
+
+        <div class="marquee-wrap">
+          <div class="marquee-track" id="marqueeTrack"></div>
+        </div>
       </div>
     </div>
 
+    <!-- ── RIGHT ── -->
     <div class="right">
-      <div class="form-card reveal d2" id="formCard">
+      <div class="form-card reveal d1" id="formCard">
         <div class="card-shine"></div>
-        <p class="form-eyebrow">Get early access</p>
-        <h2 class="form-title">Be the first<br>to get Hookd.</h2>
 
-        <!-- ATTENDEE QUOTE — replaces urgency bar, real voice from Creator Night No. 2 -->
-        <div class="attendee-quote">
-          <p class="attendee-quote-text">"We were HOOK'D on all the love and collaboration. We're family now."</p>
-          <span class="attendee-quote-attr">Creator Night No. 2 attendee &mdash; Central Arkansas</span>
+        <div class="counter-row">
+          <p class="form-eyebrow">Founding membership</p>
+          <div class="founding-counter">
+            <div class="counter-pulse"></div>
+            <!-- UPDATE FOUNDING_COUNT in script below as list grows -->
+            <span class="counter-text"><span class="counter-num" id="foundingCount">0</span> in so far</span>
+          </div>
         </div>
+
+        <h2 class="form-title">This is where<br>Central Arkansas<br>creatives come first.</h2>
+
+        <p class="confirm-line">Get on the list before we open. <em>Founding members hear everything first — sessions, pricing, and what's coming — before it goes public.</em></p>
 
         <div id="formWrap">
           <form id="hookdForm" novalidate>
@@ -321,106 +350,174 @@
               <input type="text" id="fphone" name="fields[phone]" placeholder="phone" autocomplete="tel">
               <label class="field-label" for="fphone">Your Phone (optional)</label>
             </div>
-            <button type="submit" class="submit-btn"><span class="btn-text">Keep Me On The Hook</span></button>
+            <div class="scarcity-signal">
+              <div class="scarcity-line"></div>
+              <span class="scarcity-text">Founding membership is a limited tier</span>
+              <div class="scarcity-line"></div>
+            </div>
+            <button type="submit" class="submit-btn"><span class="btn-text">Count Me In</span></button>
           </form>
           <div class="form-footer">
             <div class="form-footer-line"></div>
-            <p class="disclaimer">No commitment. We'll reach out when sessions open.</p>
+            <p class="disclaimer">No commitment. No cost. Opt out anytime.</p>
             <div class="form-footer-line"></div>
           </div>
         </div>
+
         <div class="success-state" id="successState">
           <div class="success-mark">✦</div>
-          <h3>You're on the list.</h3>
-          <p>We'll reach out as soon as sessions, pricing, and schedules are set. Founding spots go first.</p>
+          <h3>You're in.</h3>
+          <p>Founding spot secured. We'll be in touch before anything goes public.</p>
         </div>
       </div>
 
-      <div class="info-block reveal d3">
-        <div class="info-block-header">
-          <div class="info-block-line"></div>
-          <span class="info-block-label">What Hookd Will Be</span>
-          <div class="info-block-line" style="background:linear-gradient(90deg,transparent,rgba(168,66,31,0.3))"></div>
+      <!-- INSTAGRAM FEED SLOT -->
+      <div class="ig-block reveal d2">
+        <div class="ig-block-header">
+          <div class="ig-block-line"></div>
+          <span class="ig-block-label">From the room</span>
+          <div class="ig-block-line" style="background:linear-gradient(90deg,transparent,rgba(168,66,31,0.18))"></div>
         </div>
-
-        <!-- EVENTS STRIP — new, bridges the community to the studio -->
-        <div class="events-strip">
-          <div class="events-strip-left">
-            <span class="events-strip-label">Already active</span>
-            <p class="events-strip-text">Creator Nights are happening now. <strong>Free events for Central Arkansas creatives</strong> — workshops, networking, and content creation in one room.</p>
-          </div>
-          <a href="https://instagram.com/hookdrecording" target="_blank" rel="noopener" class="events-strip-cta">Follow along &rarr;</a>
+        <!--
+          INSTAGRAM LIVE FEED — TO CONNECT:
+          1. Go to behold.so (free plan works)
+          2. Connect @hookdrecording
+          3. Create widget: 3 columns, 1 row, square crops, no header
+          4. Copy the embed snippet and replace the .ig-thumbs div below with it
+        -->
+        <div class="ig-thumbs">
+          <div class="ig-thumb">@hookdrecording</div>
+          <div class="ig-thumb">Creator Nights</div>
+          <div class="ig-thumb">Central AR</div>
         </div>
-
-        <div class="info-section">
-          <div class="info-section-inner">
-            <span class="info-icon">◈</span>
-            <div class="info-content">
-              <span class="info-eyebrow">The Space</span>
-              <p class="info-text">A dedicated creative facility in Central Arkansas housing a <em>professional audio studio</em>, a <em>content studio</em> built for photo and video, and flexible space for collaboration and events. Everything set up and ready — no teardown, no wasted time.</p>
-            </div>
-          </div>
-        </div>
-        <div class="info-section">
-          <div class="info-section-inner">
-            <span class="info-icon">◈</span>
-            <div class="info-content">
-              <span class="info-eyebrow">What You Can Do Here</span>
-              <p class="info-text">Record music. Film content. Shoot photography. Host podcasts. Work independently or bring in one of our <em>engineers, photographers, or creative leads</em>. Every service available à la carte.</p>
-            </div>
-          </div>
-        </div>
-        <div class="info-section">
-          <div class="info-section-inner">
-            <span class="info-icon">◈</span>
-            <div class="info-content">
-              <span class="info-eyebrow">Membership</span>
-              <p class="info-text">Hookd will offer <em>monthly memberships at three tiers</em> — giving you a set number of hours each month to use however you need. Members get priority booking, consistent access, and first consideration for opportunities within the Hookd network. Pricing shared with the interest list first.</p>
-            </div>
-          </div>
+        <div class="ig-follow-row">
+          <a class="ig-follow-link" href="https://instagram.com/hookdrecording" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+            </svg>
+            Follow @hookdrecording
+          </a>
         </div>
       </div>
 
-      <div class="ig-link-wrap reveal d4">
-        <a class="ig-link" href="https://instagram.com/hookdrecording" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-            <circle cx="12" cy="12" r="4"/>
-            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
-          </svg>
-          @hookdrecording
-        </a>
-        <p class="copyright">© 2026 Hookd Creative LLC</p>
-      </div>
+      <p class="copyright" style="margin-top:18px;font-size:0.56rem;color:rgba(247,242,234,0.1);letter-spacing:0.05em;">© 2026 Hookd Creative LLC</p>
     </div>
   </div>
 
   <script>
+    /* ── CURSOR ── */
     const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
     let mx=0,my=0,rx=0,ry=0;
     document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
-    (function a(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a);})();
-    document.querySelectorAll('button,a,input').forEach(el=>{el.addEventListener('mouseenter',()=>ring.classList.add('expanded'));el.addEventListener('mouseleave',()=>ring.classList.remove('expanded'));});
+    (function tick(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(tick);})();
+    document.querySelectorAll('button,a,input').forEach(el=>{
+      el.addEventListener('mouseenter',()=>ring.classList.add('expanded'));
+      el.addEventListener('mouseleave',()=>ring.classList.remove('expanded'));
+    });
 
+    /* ── VIDEO REEL ── */
+    const vids=[...document.querySelectorAll('.reel-vid')];
+    const dotsWrap=document.getElementById('reelDots');
+    let cur=0,soundOn=false,reelTimer=null;
+
+    vids.forEach((_,i)=>{
+      const d=document.createElement('div');
+      d.className='reel-dot'+(i===0?' active':'');
+      dotsWrap.appendChild(d);
+    });
+    const dots=[...dotsWrap.querySelectorAll('.reel-dot')];
+
+    function playVid(idx){
+      vids[cur].classList.remove('active');
+      vids[cur].pause();
+      dots[cur].classList.remove('active');
+      cur=idx%vids.length;
+      vids[cur].muted=!soundOn;
+      vids[cur].currentTime=0;
+      vids[cur].classList.add('active');
+      dots[cur].classList.add('active');
+      vids[cur].play().catch(()=>{});
+    }
+
+    function startReel(){
+      vids[0].play().catch(()=>{});
+      reelTimer=setInterval(()=>playVid(cur+1),5000);
+    }
+    startReel();
+
+    function toggleSound(){
+      soundOn=!soundOn;
+      vids[cur].muted=!soundOn;
+      document.getElementById('soundIcon').textContent=soundOn?'🔊':'🔇';
+      document.getElementById('soundLabel').textContent=soundOn?'Sound on':'Sound off';
+    }
+
+    /* ── MARQUEE ── */
     const words=['Music','Content','Podcasts','Photography','Media','Creation','Community','Central Arkansas'];
     const track=document.getElementById('marqueeTrack');
-    [...words,...words,...words,...words].forEach(w=>{const s=document.createElement('span');s.className='marquee-item';s.innerHTML=w+'<span class="marquee-dot"></span>';track.appendChild(s);});
+    [...words,...words,...words,...words].forEach(w=>{
+      const s=document.createElement('span');
+      s.className='marquee-item';
+      s.innerHTML=w+'<span class="marquee-dot"></span>';
+      track.appendChild(s);
+    });
 
+    /* ── CARD TILT ── */
     const card=document.getElementById('formCard');
-    card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-0.5;const y=(e.clientY-r.top)/r.height-0.5;card.style.transform=`perspective(900px) rotateY(${x*4}deg) rotateX(${-y*4}deg)`;card.style.transition='transform 0.08s ease';});
-    card.addEventListener('mouseleave',()=>{card.style.transform='perspective(900px) rotateY(0) rotateX(0)';card.style.transition='transform 0.6s cubic-bezier(0.16,1,0.3,1)';});
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-0.5;
+      const y=(e.clientY-r.top)/r.height-0.5;
+      card.style.transform=`perspective(900px) rotateY(${x*4}deg) rotateX(${-y*4}deg)`;
+      card.style.transition='transform 0.08s ease';
+    });
+    card.addEventListener('mouseleave',()=>{
+      card.style.transform='perspective(900px) rotateY(0) rotateX(0)';
+      card.style.transition='transform 0.6s cubic-bezier(0.16,1,0.3,1)';
+    });
 
-    document.querySelector('.submit-btn').addEventListener('click',function(e){const r=document.createElement('span');const rect=this.getBoundingClientRect();const size=Math.max(rect.width,rect.height);r.className='ripple';r.style.cssText=`width:${size}px;height:${size}px;left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px`;this.appendChild(r);setTimeout(()=>r.remove(),700);});
+    /* ── RIPPLE ── */
+    document.querySelector('.submit-btn').addEventListener('click',function(e){
+      const r=document.createElement('span');
+      const rect=this.getBoundingClientRect();
+      const size=Math.max(rect.width,rect.height);
+      r.className='ripple';
+      r.style.cssText=`width:${size}px;height:${size}px;left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px`;
+      this.appendChild(r);
+      setTimeout(()=>r.remove(),700);
+    });
 
+    /* ── COUNTER COUNT-UP ── */
+    /* UPDATE THIS NUMBER to match your real MailerLite subscriber count */
+    const FOUNDING_COUNT=5;
+    const countEl=document.getElementById('foundingCount');
+    let c=0;
+    const countUp=setInterval(()=>{
+      c=Math.min(c+1,FOUNDING_COUNT);
+      countEl.textContent=c;
+      if(c>=FOUNDING_COUNT) clearInterval(countUp);
+    },100);
+
+    /* ── FORM SUBMIT ── */
     document.getElementById('hookdForm').addEventListener('submit',function(e){
       e.preventDefault();
-      const name=this.querySelector('[name="fields[name]"]').value;
-      const email=this.querySelector('[name="fields[email]"]').value;
-      const phone=this.querySelector('[name="fields[phone]"]').value;
+      const name=this.querySelector('[name="fields[name]"]').value.trim();
+      const email=this.querySelector('[name="fields[email]"]').value.trim();
+      const phone=this.querySelector('[name="fields[phone]"]').value.trim();
+      if(!name||!email) return;
       const body=new URLSearchParams();
-      body.append('fields[name]',name);body.append('fields[email]',email);body.append('fields[phone]',phone);
-      body.append('ml-submit','1');body.append('anticsrf','true');
-      fetch('https://assets.mailerlite.com/jsonp/2215527/forms/182754247239009348/subscribe',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body.toString()}).catch(()=>{});
+      body.append('fields[name]',name);
+      body.append('fields[email]',email);
+      body.append('fields[phone]',phone);
+      body.append('ml-submit','1');
+      body.append('anticsrf','true');
+      fetch('https://assets.mailerlite.com/jsonp/2215527/forms/182754247239009348/subscribe',{
+        method:'POST',
+        headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        body:body.toString()
+      }).catch(()=>{});
       window.location.href='thankyou.html';
     });
   </script>
