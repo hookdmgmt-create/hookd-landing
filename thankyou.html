@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>You're On The List | Hookd Creative</title>
+  <title>You're In | Hookd Creative</title>
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hookdcreative.us/thankyou.html">
-  <meta property="og:title" content="You're On The List | Hookd Creative">
-  <meta property="og:description" content="You're on the Hookd interest list. We'll reach out as soon as sessions, pricing, and schedules are confirmed.">
+  <meta property="og:title" content="You're In | Hookd Creative">
+  <meta property="og:description" content="Founding spot secured. You're on the Hookd interest list.">
   <meta property="og:image" content="https://hookdcreative.us/og.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="You're On The List | Hookd Creative">
-  <meta name="twitter:description" content="You're on the list. Founding members hear first.">
+  <meta name="twitter:title" content="You're In | Hookd Creative">
+  <meta name="twitter:description" content="Founding spot secured. You're on the Hookd interest list.">
   <meta name="twitter:image" content="https://hookdcreative.us/og.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +26,6 @@
       align-items: center;
     }
 
-    /* LEFT — mirrors index left panel */
     .ty-left {
       padding: 80px 60px 80px 0;
       border-right: 1px solid rgba(247,242,234,0.06);
@@ -37,10 +36,10 @@
       background: rgba(168,66,31,0.08); border: 1px solid rgba(168,66,31,0.25);
       display: flex; align-items: center; justify-content: center;
       font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--terra);
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
-    .ty-tag { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+    .ty-tag { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 18px; }
     .ty-tag-line { width: 24px; height: 1px; background: var(--terra); }
     .ty-tag-text { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--terra); }
 
@@ -48,65 +47,98 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(3rem, 5.5vw, 5rem); font-weight: 700;
       line-height: 0.92; letter-spacing: -0.02em;
-      color: var(--cream); margin-bottom: 24px;
+      color: var(--cream); margin-bottom: 20px;
     }
     .ty-title em { font-style: italic; color: var(--terra); }
 
+    /* waitlist position — the Robinhood mechanic */
+    .position-block {
+      background: rgba(168,66,31,0.06); border: 1px solid rgba(168,66,31,0.18);
+      border-radius: 14px; padding: 20px 24px; margin-bottom: 24px;
+      position: relative; overflow: hidden;
+    }
+    .position-block::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(168,66,31,0.45), transparent);
+    }
+    .position-label { font-size: 0.56rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(168,66,31,0.6); margin-bottom: 6px; display: block; }
+    .position-number {
+      font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 700;
+      color: var(--cream); line-height: 1; letter-spacing: -0.02em;
+    }
+    .position-number span { color: var(--terra); }
+    .position-sub { font-size: 0.72rem; color: rgba(247,242,234,0.38); margin-top: 5px; line-height: 1.5; }
+
     .ty-body {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.1rem, 1.6vw, 1.35rem); font-weight: 300;
-      line-height: 1.55; color: rgba(247,242,234,0.55);
-      margin-bottom: 40px; max-width: 400px;
+      font-size: clamp(1rem, 1.5vw, 1.25rem); font-weight: 300;
+      line-height: 1.55; color: rgba(247,242,234,0.5);
+      max-width: 380px;
     }
 
-    .ty-links { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-    .ty-link-sec {
-      font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em;
-      color: rgba(247,242,234,0.3); text-decoration: none; transition: color 0.2s;
-    }
-    .ty-link-sec:hover { color: rgba(247,242,234,0.6); }
+    .ty-right { padding: 80px 0 80px 56px; }
 
-    /* RIGHT — mirrors index right panel */
-    .ty-right { padding: 80px 0 80px 60px; }
-
-    .next-steps { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
-
+    .next-steps { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
     .next-step {
       background: rgba(247,242,234,0.03); border: 1px solid rgba(247,242,234,0.06);
-      border-radius: 14px; padding: 22px 26px;
+      border-radius: 14px; padding: 20px 24px;
       position: relative; overflow: hidden;
       transition: background 0.2s, border-color 0.2s;
     }
-    .next-step::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(168,66,31,0.2), transparent);
-    }
+    .next-step::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(168,66,31,0.18), transparent); }
     .next-step:hover { background: rgba(247,242,234,0.05); border-color: rgba(247,242,234,0.09); }
-
-    .next-step-inner { display: flex; gap: 18px; align-items: flex-start; }
-    .next-step-num {
-      font-family: 'Cormorant Garamond', serif; font-size: 0.72rem; font-weight: 600;
-      color: var(--terra); opacity: 0.75; min-width: 18px; padding-top: 1px;
-    }
+    .next-step-inner { display: flex; gap: 16px; align-items: flex-start; }
+    .next-step-num { font-family: 'Cormorant Garamond', serif; font-size: 0.7rem; font-weight: 600; color: var(--terra); opacity: 0.75; min-width: 18px; padding-top: 1px; }
     .next-step-content { flex: 1; }
-    .next-step-title {
-      font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600;
-      color: var(--cream); margin-bottom: 5px; line-height: 1.2;
-    }
-    .next-step-desc { font-size: 0.74rem; color: rgba(247,242,234,0.38); line-height: 1.65; }
+    .next-step-title { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; color: var(--cream); margin-bottom: 4px; line-height: 1.2; }
+    .next-step-desc { font-size: 0.72rem; color: rgba(247,242,234,0.36); line-height: 1.65; }
 
-    .ty-ig {
-      display: inline-flex; align-items: center; gap: 7px;
-      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em;
-      color: rgba(247,242,234,0.25); text-decoration: none; transition: color 0.2s;
+    /* REFERRAL BLOCK — the one-friend mechanic */
+    .referral-block {
+      background: rgba(247,242,234,0.04); border: 1px solid rgba(247,242,234,0.08);
+      border-radius: 16px; padding: 24px 26px;
+      position: relative; overflow: hidden;
     }
-    .ty-ig:hover { color: rgba(247,242,234,0.55); }
+    .referral-block::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(168,66,31,0.4), transparent);
+    }
+    .referral-label { font-size: 0.56rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--terra); margin-bottom: 6px; display: block; }
+    .referral-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--cream); margin-bottom: 8px; line-height: 1.25; }
+    .referral-body { font-size: 0.7rem; color: rgba(247,242,234,0.36); line-height: 1.65; margin-bottom: 16px; }
+
+    /* share buttons */
+    .share-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .share-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-family: 'Syne', sans-serif; font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 9px 16px; border-radius: 8px; text-decoration: none;
+      position: relative; overflow: hidden; cursor: pointer; border: none;
+      transition: transform 0.15s, box-shadow 0.2s, background 0.2s;
+    }
+    .share-btn:hover { transform: translateY(-1px); }
+    .share-btn-sms {
+      background: rgba(168,66,31,0.15); border: 1px solid rgba(168,66,31,0.3);
+      color: var(--cream);
+    }
+    .share-btn-sms:hover { background: rgba(168,66,31,0.25); box-shadow: 0 6px 20px rgba(168,66,31,0.25); }
+    .share-btn-copy {
+      background: rgba(247,242,234,0.05); border: 1px solid rgba(247,242,234,0.1);
+      color: rgba(247,242,234,0.55);
+    }
+    .share-btn-copy:hover { background: rgba(247,242,234,0.09); color: var(--cream); }
+    .copy-feedback { font-size: 0.58rem; color: var(--terra); margin-top: 8px; display: none; }
+
+    .ty-ig { display: inline-flex; align-items: center; gap: 6px; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; color: rgba(247,242,234,0.22); text-decoration: none; transition: color 0.2s; margin-top: 18px; }
+    .ty-ig:hover { color: rgba(247,242,234,0.52); }
     .ty-ig svg { width: 12px; height: 12px; }
 
     @media (max-width: 768px) {
       .ty-wrap { grid-template-columns: 1fr; padding: 0 20px; align-items: start; }
-      .ty-left { padding: 48px 0 0; border-right: none; border-bottom: 1px solid rgba(247,242,234,0.06); padding-bottom: 40px; }
-      .ty-right { padding: 36px 0 60px; }
+      .ty-left { padding: 44px 0 0; border-right: none; border-bottom: 1px solid rgba(247,242,234,0.06); padding-bottom: 36px; }
+      .ty-right { padding: 32px 0 56px; }
+      .share-row { flex-direction: column; }
     }
   </style>
 </head>
@@ -133,14 +165,21 @@
         <div class="ty-mark reveal d1">✦</div>
         <div class="ty-tag reveal d1">
           <div class="ty-tag-line"></div>
-          <span class="ty-tag-text">You're in</span>
+          <span class="ty-tag-text">Founding member</span>
         </div>
-        <h1 class="ty-title reveal d2">Welcome<br>to <em>Hookd.</em></h1>
-        <p class="ty-body reveal d3">You're on the list. We'll reach out as soon as sessions, pricing, and schedules are confirmed. Founding members hear first.</p>
-        <div class="ty-links reveal d4">
-          <a href="who.html" class="btn"><span>Who Hookd is for →</span></a>
-          <a href="phase.html" class="ty-link-sec">See our timeline</a>
+        <h1 class="ty-title reveal d2">You're<br><em>in.</em></h1>
+
+        <!-- WAITLIST POSITION — gives them something to protect -->
+        <div class="position-block reveal d3">
+          <span class="position-label">Your founding position</span>
+          <div class="position-number">
+            <!-- UPDATE FOUNDING_COUNT to real number — same as index.html -->
+            No. <span id="posNumber">5</span>
+          </div>
+          <p class="position-sub">of a limited founding tier. Founding members get first access to everything — before it goes public.</p>
         </div>
+
+        <p class="ty-body reveal d4">We'll reach out as soon as sessions, pricing, and schedules are confirmed. You're ahead of everyone who hasn't signed up yet.</p>
       </div>
 
       <div class="ty-right">
@@ -150,7 +189,7 @@
               <span class="next-step-num">01</span>
               <div class="next-step-content">
                 <p class="next-step-title">Watch your inbox</p>
-                <p class="next-step-desc">We'll email you when pilot sessions open, pricing drops, and founding membership becomes available.</p>
+                <p class="next-step-desc">We email founding members first — sessions, pricing, and launch details before anything goes public.</p>
               </div>
             </div>
           </div>
@@ -159,7 +198,7 @@
               <span class="next-step-num">02</span>
               <div class="next-step-content">
                 <p class="next-step-title">Follow on Instagram</p>
-                <p class="next-step-desc">@hookdrecording for Creator Night announcements, behind the scenes, and updates as we build.</p>
+                <p class="next-step-desc">@hookdrecording for Creator Night dates, behind the scenes, and updates as we build.</p>
               </div>
             </div>
           </div>
@@ -168,13 +207,31 @@
               <span class="next-step-num">03</span>
               <div class="next-step-content">
                 <p class="next-step-title">Come to a Creator Night</p>
-                <p class="next-step-desc">Our community events are free and open to all creators in Central Arkansas. This is where it starts.</p>
+                <p class="next-step-desc">Free events for Central Arkansas creatives. This is where the community is already happening.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <a class="ty-ig reveal d3" href="https://instagram.com/hookdrecording" target="_blank" rel="noopener">
+        <!-- REFERRAL BLOCK — the highest-enthusiasm moment, ask them to tell one person -->
+        <div class="referral-block reveal d3">
+          <span class="referral-label">Know someone?</span>
+          <p class="referral-title">Think of one creator in Central Arkansas who should be on this list.</p>
+          <p class="referral-body">Not a mass share — just one person. A musician, a photographer, a content creator who deserves a real space to work. Send them the link. That's how this community grows.</p>
+          <div class="share-row">
+            <a class="share-btn share-btn-sms" id="smsBtn" href="#">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Text them the link
+            </a>
+            <button class="share-btn share-btn-copy" id="copyBtn" onclick="copyLink()">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy link
+            </button>
+          </div>
+          <p class="copy-feedback" id="copyFeedback">Link copied.</p>
+        </div>
+
+        <a class="ty-ig reveal d4" href="https://instagram.com/hookdrecording" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
             <circle cx="12" cy="12" r="4"/>
@@ -182,18 +239,44 @@
           </svg>
           @hookdrecording
         </a>
-        <p class="copyright reveal d4" style="text-align:left;margin-top:24px;">© 2026 Hookd Creative LLC</p>
+        <p class="copyright reveal d5" style="text-align:left;margin-top:16px;">© 2026 Hookd Creative LLC</p>
       </div>
 
     </div>
   </div>
 
   <script>
+    /* ── CURSOR ── */
     const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
     let mx=0,my=0,rx=0,ry=0;
     document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
-    (function a(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a);})();
-    document.querySelectorAll('a').forEach(el=>{el.addEventListener('mouseenter',()=>ring.classList.add('expanded'));el.addEventListener('mouseleave',()=>ring.classList.remove('expanded'));});
+    (function tick(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(tick);})();
+    document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>ring.classList.add('expanded'));el.addEventListener('mouseleave',()=>ring.classList.remove('expanded'));});
+
+    /* ── WAITLIST POSITION — update FOUNDING_COUNT to match index.html ── */
+    const FOUNDING_COUNT=5;
+    document.getElementById('posNumber').textContent=FOUNDING_COUNT;
+
+    /* ── SMS SHARE — pre-written message ── */
+    const SHARE_URL='https://hookdcreative.us';
+    const SHARE_MSG=`Hey — thought of you. Hookd is building Central Arkansas's first dedicated creative space for musicians, photographers, and content creators. They're taking founding member signups now, free, no commitment. You should be on this list: ${SHARE_URL}`;
+    document.getElementById('smsBtn').href=`sms:?body=${encodeURIComponent(SHARE_MSG)}`;
+
+    /* ── COPY LINK ── */
+    function copyLink(){
+      navigator.clipboard.writeText(SHARE_URL).then(()=>{
+        const fb=document.getElementById('copyFeedback');
+        fb.style.display='block';
+        setTimeout(()=>fb.style.display='none',2500);
+      }).catch(()=>{
+        const tmp=document.createElement('textarea');
+        tmp.value=SHARE_URL; document.body.appendChild(tmp);
+        tmp.select(); document.execCommand('copy'); document.body.removeChild(tmp);
+        const fb=document.getElementById('copyFeedback');
+        fb.style.display='block';
+        setTimeout(()=>fb.style.display='none',2500);
+      });
+    }
   </script>
 </body>
 </html>
