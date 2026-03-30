@@ -89,6 +89,11 @@
     .reel-dots { position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; pointer-events: none; }
     .reel-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(247,242,234,0.28); transition: background 0.3s, transform 0.3s; }
     .reel-dot.active { background: var(--terra-bright); transform: scale(1.5); }
+    .reel-notice {
+      position: absolute; bottom: 14px; right: 20px;
+      font-size: 0.5rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(247,242,234,0.35); pointer-events: none;
+    }
 
     /* ── LEFT BOTTOM ── */
     .left-bottom { padding: 20px 28px 0; flex-shrink: 0; }
@@ -287,6 +292,7 @@
           <span class="sound-label" id="soundLabel">Sound off</span>
         </button>
         <div class="reel-dots" id="reelDots"></div>
+        <div class="reel-notice">Footage from Creator Night No. 2</div>
       </div>
 
       <div class="left-bottom reveal d1">
@@ -490,7 +496,7 @@
 
     /* ── COUNTER COUNT-UP ── */
     /* UPDATE THIS NUMBER to match your real MailerLite subscriber count */
-    const FOUNDING_COUNT=7;
+    const FOUNDING_COUNT=6;
     const countEl=document.getElementById('foundingCount');
     let c=0;
     const countUp=setInterval(()=>{
