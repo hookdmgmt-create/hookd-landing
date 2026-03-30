@@ -105,9 +105,13 @@
     }
     .live-text strong { color: var(--terra-bright); }
 
-    .perks { list-style: none; display: flex; flex-direction: column; gap: 13px; }
-    .perks li { display: flex; align-items: flex-start; gap: 14px; font-size: 0.8rem; font-weight: 400; color: rgba(247,242,234,0.5); line-height: 1.5; }
-    .perk-num { font-family: 'Cormorant Garamond', serif; font-size: 0.72rem; font-weight: 600; color: var(--terra); min-width: 16px; padding-top: 1px; opacity: 0.8; }
+    .access-line {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 1.5vw, 1.2rem); font-weight: 300;
+      line-height: 1.55; color: rgba(247,242,234,0.55);
+      margin-bottom: 0;
+    }
+    .access-line em { font-style: italic; color: var(--cream); font-weight: 600; }
 
     .marquee-wrap {
       position: absolute; bottom: 0; left: 0; right: -40px;
@@ -155,31 +159,6 @@
     .attendee-quote-attr {
       font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em;
       text-transform: uppercase; color: rgba(168,66,31,0.7);
-    }
-
-    /* ── FREE SESSION OFFER — main conversion incentive ── */
-    .free-session-offer {
-      margin-top: 6px; margin-bottom: 4px;
-      background: rgba(168,66,31,0.08);
-      border: 1px solid rgba(168,66,31,0.25);
-      border-radius: 10px; padding: 14px 16px;
-      position: relative; overflow: hidden;
-    }
-    .free-session-offer::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(168,66,31,0.5), transparent);
-    }
-    .free-session-inner { display: flex; align-items: flex-start; gap: 12px; }
-    .free-session-icon {
-      font-family: 'Cormorant Garamond', serif; font-size: 1rem;
-      color: var(--terra); opacity: 0.8; flex-shrink: 0; padding-top: 1px; line-height: 1;
-    }
-    .free-session-title {
-      font-size: 0.76rem; font-weight: 700; color: var(--cream);
-      letter-spacing: 0.04em; margin-bottom: 4px;
-    }
-    .free-session-desc {
-      font-size: 0.7rem; color: rgba(247,242,234,0.5); line-height: 1.6;
     }
 
     form { display: flex; flex-direction: column; gap: 10px; }
@@ -310,11 +289,7 @@
         <p class="proof-text"><strong>Growing list of creators</strong> already signed up.</p>
       </div>
 
-      <ul class="perks reveal d4">
-        <li><span class="perk-num">01</span>Early access to trial sessions and events</li>
-        <li><span class="perk-num">02</span>First consideration for founding membership</li>
-        <li><span class="perk-num">03</span>Pricing and launch details before public release</li>
-      </ul>
+      <p class="access-line reveal d4">The list is how you stay inside what Hookd is building. <em>First in, first served.</em> No commitment.</p>
       <div class="marquee-wrap reveal d5">
         <div class="marquee-track" id="marqueeTrack"></div>
       </div>
@@ -345,16 +320,6 @@
             <div class="field-group">
               <input type="text" id="fphone" name="fields[phone]" placeholder="phone" autocomplete="tel">
               <label class="field-label" for="fphone">Your Phone (optional)</label>
-            </div>
-            <!-- FREE SESSION OFFER — main conversion incentive -->
-            <div class="free-session-offer">
-              <div class="free-session-inner">
-                <span class="free-session-icon">✦</span>
-                <div>
-                  <p class="free-session-title">Free intro session when we launch</p>
-                  <p class="free-session-desc">Every interest list member gets a complimentary studio session when the Hookd pilot opens. No catch. This is how we say thank you for being early.</p>
-                </div>
-              </div>
             </div>
             <button type="submit" class="submit-btn"><span class="btn-text">Keep Me On The Hook</span></button>
           </form>
