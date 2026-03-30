@@ -67,6 +67,7 @@
     }
     .headline em { font-style: italic; color: var(--cream); font-weight: 600; }
 
+    /* ── SOCIAL PROOF — updated to show count + real signal ── */
     .social-proof { display: flex; align-items: center; gap: 14px; margin-bottom: 36px; }
     .avatar-stack { display: flex; }
     .avatar {
@@ -82,6 +83,27 @@
     .av4 { background: #4a5a8a; color: var(--cream); }
     .proof-text { font-size: 0.76rem; color: rgba(247,242,234,0.45); line-height: 1.4; }
     .proof-text strong { color: var(--cream); font-weight: 700; }
+
+    /* ── LIVE BADGE — new, shows events are real and active ── */
+    .live-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(168,66,31,0.08); border: 1px solid rgba(168,66,31,0.2);
+      border-radius: 100px; padding: 6px 14px; margin-bottom: 28px;
+    }
+    .live-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--terra-bright); flex-shrink: 0;
+      animation: livePulse 2s ease infinite;
+    }
+    @keyframes livePulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(168,66,31,0.5); }
+      50% { box-shadow: 0 0 0 4px rgba(168,66,31,0); }
+    }
+    .live-text {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: rgba(247,242,234,0.55);
+    }
+    .live-text strong { color: var(--terra-bright); }
 
     .perks { list-style: none; display: flex; flex-direction: column; gap: 13px; }
     .perks li { display: flex; align-items: flex-start; gap: 14px; font-size: 0.8rem; font-weight: 400; color: rgba(247,242,234,0.5); line-height: 1.5; }
@@ -112,14 +134,53 @@
     .card-shine { position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(168,66,31,0.07) 0%, transparent 70%); pointer-events: none; }
 
     .form-eyebrow { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--terra); margin-bottom: 6px; }
-    .form-title { font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 600; color: var(--cream); line-height: 1.2; margin-bottom: 24px; }
+    .form-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 600;
+      color: var(--cream); line-height: 1.2; margin-bottom: 10px;
+    }
 
-    .urgency-bar { background: rgba(168,66,31,0.1); border: 1px solid rgba(168,66,31,0.2); border-radius: 8px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; margin-bottom: 22px; }
-    .urgency-pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--terra-bright); position: relative; flex-shrink: 0; }
-    .urgency-pulse::after { content: ''; position: absolute; inset: -3px; border-radius: 50%; border: 1px solid var(--terra-bright); animation: upulse 1.8s ease infinite; }
-    @keyframes upulse { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(2.2); opacity: 0; } }
-    .urgency-text { font-size: 0.74rem; font-weight: 500; color: rgba(247,242,234,0.65); line-height: 1.4; }
-    .urgency-text strong { color: var(--cream); }
+    /* ── ATTENDEE QUOTE — new, replaces urgency bar ── */
+    .attendee-quote {
+      margin-bottom: 22px;
+      padding: 12px 16px;
+      border-left: 2px solid rgba(168,66,31,0.4);
+      background: rgba(168,66,31,0.05);
+      border-radius: 0 8px 8px 0;
+    }
+    .attendee-quote-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.92rem; font-style: italic; font-weight: 300;
+      color: rgba(247,242,234,0.7); line-height: 1.5; margin-bottom: 5px;
+    }
+    .attendee-quote-attr {
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(168,66,31,0.7);
+    }
+
+    /* ── FREE SESSION OFFER — main conversion incentive ── */
+    .free-session-offer {
+      margin-top: 6px; margin-bottom: 4px;
+      background: rgba(168,66,31,0.08);
+      border: 1px solid rgba(168,66,31,0.25);
+      border-radius: 10px; padding: 14px 16px;
+      position: relative; overflow: hidden;
+    }
+    .free-session-offer::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(168,66,31,0.5), transparent);
+    }
+    .free-session-inner { display: flex; align-items: flex-start; gap: 12px; }
+    .free-session-icon {
+      font-family: 'Cormorant Garamond', serif; font-size: 1rem;
+      color: var(--terra); opacity: 0.8; flex-shrink: 0; padding-top: 1px; line-height: 1;
+    }
+    .free-session-title {
+      font-size: 0.76rem; font-weight: 700; color: var(--cream);
+      letter-spacing: 0.04em; margin-bottom: 4px;
+    }
+    .free-session-desc {
+      font-size: 0.7rem; color: rgba(247,242,234,0.5); line-height: 1.6;
+    }
 
     form { display: flex; flex-direction: column; gap: 10px; }
     .field-group { position: relative; }
@@ -173,6 +234,23 @@
     .info-text { font-size: 0.78rem; font-weight: 400; color: rgba(247,242,234,0.42); line-height: 1.75; }
     .info-text em { color: rgba(247,242,234,0.65); font-style: normal; }
 
+    /* ── EVENTS LIVE STRIP — new, bridges events to the studio vision ── */
+    .events-strip {
+      background: rgba(247,242,234,0.03); border: 1px solid rgba(247,242,234,0.06);
+      border-radius: 14px; padding: 18px 24px; margin-bottom: 10px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .events-strip-left { flex: 1; }
+    .events-strip-label { font-size: 0.56rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--terra); margin-bottom: 4px; display: block; }
+    .events-strip-text { font-size: 0.76rem; color: rgba(247,242,234,0.45); line-height: 1.5; }
+    .events-strip-text strong { color: rgba(247,242,234,0.7); font-weight: 500; }
+    .events-strip-cta {
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--terra); text-decoration: none; white-space: nowrap;
+      transition: color 0.2s;
+    }
+    .events-strip-cta:hover { color: var(--terra-bright); }
+
     .ig-link-wrap { margin-top: 14px; text-align: center; }
 
     @media (max-width: 768px) {
@@ -213,15 +291,25 @@
         <span class="logo-creative">Creative</span>
       </div>
       <p class="headline reveal d2">Every great idea deserves a space to <em>become real.</em></p>
+
+      <!-- LIVE BADGE — Hookd voice -->
+      <div class="live-badge reveal d3">
+        <div class="live-dot"></div>
+        <span class="live-text">60+ creatives showed up. Central Arkansas to Northwest Arkansas. That's what Creator Nights are.</span>
+      </div>
+
       <div class="social-proof reveal d3">
         <div class="avatar-stack">
-          <div class="avatar av1">JL</div>
-          <div class="avatar av2">MR</div>
-          <div class="avatar av3">AK</div>
-          <div class="avatar av4">DS</div>
+          <div class="avatar av1">BV</div>
+          <div class="avatar av2">LR</div>
+          <div class="avatar av3">IR</div>
+          <div class="avatar av4">AW</div>
+          <div class="avatar av1">AC</div>
         </div>
-        <p class="proof-text"><strong>Creators already on the list.</strong></p>
+        <!-- UPDATE this number as the list grows -->
+        <p class="proof-text"><strong>Growing list of creators</strong> already signed up.</p>
       </div>
+
       <ul class="perks reveal d4">
         <li><span class="perk-num">01</span>Early access to trial sessions and events</li>
         <li><span class="perk-num">02</span>First consideration for founding membership</li>
@@ -237,10 +325,13 @@
         <div class="card-shine"></div>
         <p class="form-eyebrow">Get early access</p>
         <h2 class="form-title">Be the first<br>to get Hookd.</h2>
-        <div class="urgency-bar">
-          <div class="urgency-pulse"></div>
-          <p class="urgency-text"><strong>Building this around real needs,</strong> not assumptions. Your input shapes what this becomes.</p>
+
+        <!-- ATTENDEE QUOTE — replaces urgency bar, real voice from Creator Night No. 2 -->
+        <div class="attendee-quote">
+          <p class="attendee-quote-text">"We were HOOK'D on all the love and collaboration. We're family now."</p>
+          <span class="attendee-quote-attr">Creator Night No. 2 attendee &mdash; Central Arkansas</span>
         </div>
+
         <div id="formWrap">
           <form id="hookdForm" novalidate>
             <div class="field-group">
@@ -254,6 +345,16 @@
             <div class="field-group">
               <input type="text" id="fphone" name="fields[phone]" placeholder="phone" autocomplete="tel">
               <label class="field-label" for="fphone">Your Phone (optional)</label>
+            </div>
+            <!-- FREE SESSION OFFER — main conversion incentive -->
+            <div class="free-session-offer">
+              <div class="free-session-inner">
+                <span class="free-session-icon">✦</span>
+                <div>
+                  <p class="free-session-title">Free intro session when we launch</p>
+                  <p class="free-session-desc">Every interest list member gets a complimentary studio session when the Hookd pilot opens. No catch. This is how we say thank you for being early.</p>
+                </div>
+              </div>
             </div>
             <button type="submit" class="submit-btn"><span class="btn-text">Keep Me On The Hook</span></button>
           </form>
@@ -276,6 +377,16 @@
           <span class="info-block-label">What Hookd Will Be</span>
           <div class="info-block-line" style="background:linear-gradient(90deg,transparent,rgba(168,66,31,0.3))"></div>
         </div>
+
+        <!-- EVENTS STRIP — new, bridges the community to the studio -->
+        <div class="events-strip">
+          <div class="events-strip-left">
+            <span class="events-strip-label">Already active</span>
+            <p class="events-strip-text">Creator Nights are happening now. <strong>Free events for Central Arkansas creatives</strong> — workshops, networking, and content creation in one room.</p>
+          </div>
+          <a href="https://instagram.com/hookdrecording" target="_blank" rel="noopener" class="events-strip-cta">Follow along &rarr;</a>
+        </div>
+
         <div class="info-section">
           <div class="info-section-inner">
             <span class="info-icon">◈</span>
