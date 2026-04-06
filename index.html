@@ -60,14 +60,14 @@
     .marquee-dot{width:3px;height:3px;border-radius:50%;background:var(--terra);opacity:0.28}
     @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
     .right{display:flex;flex-direction:column;justify-content:center;padding:56px 0 56px 52px;min-height:calc(100vh - 64px)}
-    .form-card{background:rgba(247,242,234,0.04);border:1px solid rgba(247,242,234,0.08);border-radius:20px;padding:38px 34px;position:relative;overflow:hidden;transition:transform 0.1s ease,box-shadow 0.3s}
+    .form-card{background:rgba(247,242,234,0.04);border:1px solid rgba(247,242,234,0.08);border-radius:20px;padding:36px 36px;position:relative;overflow:hidden;transition:transform 0.1s ease,box-shadow 0.3s}
     .form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(168,66,31,0.6),transparent)}
     .card-shine{position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(168,66,31,0.07) 0%,transparent 70%);pointer-events:none}
-    .form-eyebrow{font-size:0.58rem;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--terra);margin-bottom:14px;display:block}
-    /* CHANGE 1 — plain language description */
-    .form-what{font-size:0.78rem;color:rgba(247,242,234,0.45);line-height:1.65;margin-bottom:16px;padding:12px 16px;background:rgba(247,242,234,0.03);border:1px solid rgba(247,242,234,0.06);border-radius:10px}
+    .form-eyebrow{font-size:0.58rem;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--terra);margin-bottom:12px;display:block}
+    /* CHANGE 1 — plain language description, flush alignment, no box */
+    .form-what{font-size:0.78rem;color:rgba(247,242,234,0.45);line-height:1.65;margin-bottom:18px;padding:0;background:none;border:none}
     .form-what em{color:rgba(247,242,234,0.7);font-style:normal;font-weight:500}
-    .form-title{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--cream);line-height:1.12;margin-bottom:16px}
+    .form-title{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--cream);line-height:1.12;margin-bottom:14px}
     .confirm-line{font-size:0.7rem;color:rgba(247,242,234,0.36);line-height:1.65;margin-bottom:18px}
     .confirm-line em{color:rgba(247,242,234,0.58);font-style:normal}
     form{display:flex;flex-direction:column;gap:9px}
@@ -128,7 +128,7 @@
       .left-bottom{padding:20px 20px 0}
       .marquee-wrap{margin:14px -20px 0}
       .right{padding:28px 20px 48px;min-height:unset}
-      .form-card{padding:26px 20px}
+      .form-card{padding:28px 24px}
       .form-title{font-size:1.45rem}
       .sound-btn{display:none}
       .reel-notice{font-size:0.42rem;right:10px;bottom:10px}
@@ -178,9 +178,9 @@
   <div class="site" id="form">
     <div class="left">
       <div class="video-reel" id="videoReel">
-        <video class="reel-vid active" src="cn2-1 (1).mp4" muted playsinline preload="auto"></video>
-        <video class="reel-vid" src="cn2-2 (1).mp4" muted playsinline preload="auto"></video>
-        <video class="reel-vid" src="cn2-3 (1).mp4" muted playsinline preload="auto"></video>
+        <video class="reel-vid active" src="cn2-1.mp4" muted playsinline preload="auto"></video>
+        <video class="reel-vid" src="cn2-2.mp4" muted playsinline preload="auto"></video>
+        <video class="reel-vid" src="cn2-3.mp4" muted playsinline preload="auto"></video>
         <div class="video-overlay"></div>
         <div class="geo-identity">
           <div class="geo-dot"></div>
