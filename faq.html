@@ -9,88 +9,54 @@
   <meta property="og:title" content="FAQ | Hookd Creative">
   <meta property="og:description" content="Everything you want to know about Hookd — what it is, where it's located, how membership works, and how to get early access.">
   <meta property="og:image" content="https://hookdcreative.us/og.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="FAQ | Hookd Creative">
-  <meta name="twitter:description" content="Everything you want to know about Hookd Creative in Central Arkansas.">
-  <meta name="twitter:image" content="https://hookdcreative.us/og.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="shared.css">
   <style>
-    .inner-page { max-width: 760px; margin: 0 auto; padding: 72px 40px 100px; }
-
-    .pg-header { margin-bottom: 72px; }
-    .pg-header-tag { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px; }
-    .pg-header-tag-line { width: 24px; height: 1px; background: var(--terra); }
-    .pg-header-tag-text { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--terra); }
-    .pg-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 5vw, 4.2rem); font-weight: 700; line-height: 0.95; letter-spacing: -0.02em; color: var(--cream); margin-bottom: 20px; }
-    .pg-title em { font-style: italic; color: var(--terra); }
-    .pg-sub { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem, 1.8vw, 1.4rem); font-weight: 300; line-height: 1.5; color: rgba(247,242,234,0.5); }
-
-    /* FAQ */
-    .faq-group { margin-bottom: 48px; }
-    .faq-group-label {
-      display: flex; align-items: center; gap: 12px; margin-bottom: 4px;
-    }
-    .faq-group-label-line { height: 1px; flex: 1; background: rgba(247,242,234,0.05); }
-    .faq-group-label-text { font-size: 0.56rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(247,242,234,0.18); white-space: nowrap; }
-
-    .faq-item { border-bottom: 1px solid rgba(247,242,234,0.06); }
-    .faq-item:first-of-type { border-top: 1px solid rgba(247,242,234,0.06); }
-
-    .faq-btn {
-      width: 100%; background: none; border: none; cursor: none;
-      display: flex; align-items: center; justify-content: space-between; gap: 20px;
-      padding: 18px 0; text-align: left;
-    }
-    .faq-q {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem; font-weight: 600;
-      color: rgba(247,242,234,0.65); line-height: 1.3;
-      transition: color 0.2s;
-    }
-    .faq-item.open .faq-q { color: var(--cream); }
-
-    .faq-icon {
-      width: 20px; height: 20px; flex-shrink: 0; border-radius: 50%;
-      border: 1px solid rgba(168,66,31,0.28);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--terra); font-size: 0.85rem; line-height: 1;
-      transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), background 0.2s, border-color 0.2s;
-    }
-    .faq-item.open .faq-icon { transform: rotate(45deg); background: rgba(168,66,31,0.1); border-color: var(--terra); }
-
-    .faq-body { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1); }
-    .faq-item.open .faq-body { max-height: 300px; }
-    .faq-a {
-      padding: 0 0 20px;
-      font-size: 0.8rem; color: rgba(247,242,234,0.42); line-height: 1.8;
-    }
-    .faq-a em { color: rgba(247,242,234,0.65); font-style: normal; font-weight: 500; }
-    .faq-a a { color: var(--terra); text-decoration: none; }
-    .faq-a a:hover { color: var(--terra-bright); }
-
-    /* BOTTOM CTA */
-    .faq-cta-block {
-      margin-top: 60px;
-      background: rgba(247,242,234,0.03); border: 1px solid rgba(247,242,234,0.07);
-      border-radius: 20px; padding: 44px 52px;
-      display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 36px;
-      position: relative; overflow: hidden;
-    }
-    .faq-cta-block::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(168,66,31,0.4), transparent);
-    }
-    .faq-cta-block h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 600; color: var(--cream); margin-bottom: 8px; }
-    .faq-cta-block h3 em { font-style: italic; color: var(--terra); }
-    .faq-cta-block p { font-size: 0.78rem; color: rgba(247,242,234,0.38); line-height: 1.7; }
-
-    @media (max-width: 600px) {
-      .inner-page { padding: 60px 20px 80px; }
-      .faq-cta-block { grid-template-columns: 1fr; padding: 32px 24px; }
-    }
+    .inner-page{max-width:760px;margin:0 auto;padding:72px 40px 100px}
+    .pg-header{margin-bottom:72px}
+    .pg-header-tag{display:inline-flex;align-items:center;gap:8px;margin-bottom:24px}
+    .pg-header-tag-line{width:24px;height:1px;background:var(--terra)}
+    .pg-header-tag-text{font-size:0.65rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--terra)}
+    .pg-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,5vw,4.2rem);font-weight:700;line-height:0.95;letter-spacing:-0.02em;color:var(--cream);margin-bottom:20px}
+    .pg-title em{font-style:italic;color:var(--terra)}
+    .pg-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,1.8vw,1.4rem);font-weight:300;line-height:1.5;color:rgba(247,242,234,0.5)}
+    .faq-group{margin-bottom:48px}
+    .faq-group-label{display:flex;align-items:center;gap:12px;margin-bottom:4px}
+    .faq-group-label-line{height:1px;flex:1;background:rgba(247,242,234,0.05)}
+    .faq-group-label-text{font-size:0.56rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:rgba(247,242,234,0.18);white-space:nowrap}
+    .faq-item{border-bottom:1px solid rgba(247,242,234,0.06)}
+    .faq-item:first-of-type{border-top:1px solid rgba(247,242,234,0.06)}
+    .faq-btn{width:100%;background:none;border:none;cursor:none;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;text-align:left}
+    .faq-q{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:rgba(247,242,234,0.65);line-height:1.3;transition:color 0.2s}
+    .faq-item.open .faq-q{color:var(--cream)}
+    .faq-icon{width:20px;height:20px;flex-shrink:0;border-radius:50%;border:1px solid rgba(168,66,31,0.28);display:flex;align-items:center;justify-content:center;color:var(--terra);font-size:0.85rem;line-height:1;transition:transform 0.3s cubic-bezier(0.16,1,0.3,1),background 0.2s,border-color 0.2s}
+    .faq-item.open .faq-icon{transform:rotate(45deg);background:rgba(168,66,31,0.1);border-color:var(--terra)}
+    .faq-body{max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.16,1,0.3,1)}
+    .faq-item.open .faq-body{max-height:300px}
+    .faq-a{padding:0 0 20px;font-size:0.8rem;color:rgba(247,242,234,0.42);line-height:1.8}
+    .faq-a em{color:rgba(247,242,234,0.65);font-style:normal;font-weight:500}
+    .faq-a a{color:var(--terra);text-decoration:none}
+    .faq-a a:hover{color:var(--terra-bright)}
+    .faq-cta-block{margin-top:60px;background:rgba(247,242,234,0.03);border:1px solid rgba(247,242,234,0.07);border-radius:20px;padding:44px 52px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:36px;position:relative;overflow:hidden}
+    .faq-cta-block::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(168,66,31,0.4),transparent)}
+    .faq-cta-block h3{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--cream);margin-bottom:8px}
+    .faq-cta-block h3 em{font-style:italic;color:var(--terra)}
+    .faq-cta-block p{font-size:0.78rem;color:rgba(247,242,234,0.38);line-height:1.7}
+    .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:none;border:none;cursor:pointer;padding:4px;flex-shrink:0}
+    .nav-hamburger span{display:block;width:100%;height:1.5px;background:rgba(247,242,234,0.6);transition:all 0.3s;transform-origin:center}
+    .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+    .nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+    .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+    .nav-drawer{position:fixed;top:64px;left:0;right:0;background:rgba(15,10,7,0.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(247,242,234,0.07);z-index:499;max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.16,1,0.3,1)}
+    .nav-drawer.open{max-height:300px}
+    .nav-drawer ul{list-style:none;display:flex;flex-direction:column;padding:8px 0 16px}
+    .nav-drawer ul li a{display:block;padding:14px 28px;font-size:0.75rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(247,242,234,0.45);text-decoration:none;transition:color 0.2s;border-bottom:1px solid rgba(247,242,234,0.04)}
+    .nav-drawer ul li:last-child a{border-bottom:none}
+    .nav-drawer ul li a:hover{color:var(--cream)}
+    .nav-drawer ul li a.nav-cta-drawer{color:var(--terra)}
+    @media(max-width:768px){.nav-hamburger{display:flex}.nav-links{display:none !important}.inner-page{padding:60px 20px 80px}.faq-cta-block{grid-template-columns:1fr;padding:32px 24px}body{cursor:auto}.cursor,.cursor-ring{display:none}.faq-btn{cursor:pointer}}
   </style>
 </head>
 <body>
@@ -98,51 +64,49 @@
   <div class="cursor-ring" id="cursorRing"></div>
   <div class="grain"></div>
   <div class="ambient"></div>
-
   <nav class="nav">
     <a href="index.html" class="nav-logo">HOO<span class="accent">K</span>D</a>
     <ul class="nav-links">
       <li><a href="who.html" data-short="Who">Who It's For</a></li>
       <li><a href="phase.html" data-short="Phase">Our Phase</a></li>
       <li><a href="faq.html" class="active" data-short="FAQ">FAQ</a></li>
-      <li><a href="index.html#form" class="nav-cta" data-short="Access">Get Access</a></li>
+      <li><a href="index.html#form" class="nav-cta" data-short="Join">Join the Founding List</a></li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
-
+  <div class="nav-drawer" id="navDrawer">
+    <ul>
+      <li><a href="who.html">Who It's For</a></li>
+      <li><a href="phase.html">Our Phase</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="index.html#form" class="nav-cta-drawer">Join the Founding List</a></li>
+    </ul>
+  </div>
   <div class="page-wrap">
     <div class="inner-page">
-
       <div class="pg-header reveal d1">
-        <div class="pg-header-tag">
-          <div class="pg-header-tag-line"></div>
-          <span class="pg-header-tag-text">Questions</span>
-        </div>
+        <div class="pg-header-tag"><div class="pg-header-tag-line"></div><span class="pg-header-tag-text">Questions</span></div>
         <h1 class="pg-title">Everything you<br><em>want to know.</em></h1>
         <p class="pg-sub">If something isn't answered here, DM us on Instagram and we'll get back to you directly.</p>
       </div>
 
       <div class="faq-group reveal d2">
-        <div class="faq-group-label">
-          <div class="faq-group-label-line"></div>
-          <span class="faq-group-label-text">The Basics</span>
-          <div class="faq-group-label-line"></div>
-        </div>
-
+        <div class="faq-group-label"><div class="faq-group-label-line"></div><span class="faq-group-label-text">The Basics</span><div class="faq-group-label-line"></div></div>
         <div class="faq-item">
           <button class="faq-btn"><span class="faq-q">What is Hookd?</span><span class="faq-icon">+</span></button>
           <div class="faq-body"><p class="faq-a">Hookd is a dedicated creative space in Central Arkansas where you can record music, film content, shoot photography, and host podcasts — all under one roof. It's designed for creators who need a real, professional space to do their work, whether that's once or every week.</p></div>
         </div>
-
         <div class="faq-item">
           <button class="faq-btn"><span class="faq-q">Where is Hookd located?</span><span class="faq-icon">+</span></button>
-          <div class="faq-body"><p class="faq-a">Hookd will be located in <em>Central Arkansas</em>. We're currently finalizing our pilot location. People on the interest list will be the first to know the exact address when it's confirmed.</p></div>
+          <!-- CHANGE 14 — softened location language -->
+          <div class="faq-body"><p class="faq-a">Hookd will be located in <em>Central Arkansas</em>. We'll share the exact address with interest list members first when it's confirmed.</p></div>
         </div>
-
         <div class="faq-item">
           <button class="faq-btn"><span class="faq-q">When does Hookd open?</span><span class="faq-icon">+</span></button>
           <div class="faq-body"><p class="faq-a">We're currently in Phase 1 — building our community and validating demand before committing to a permanent location. Our goal is to launch the pilot in <em>2026</em>. The interest list gets first access to sessions when they open. <a href="phase.html">See our full timeline →</a></p></div>
         </div>
-
         <div class="faq-item">
           <button class="faq-btn"><span class="faq-q">Is Hookd open yet?</span><span class="faq-icon">+</span></button>
           <div class="faq-body"><p class="faq-a">Not yet. We're in early development — hosting Creator Nights, building our interest list, and working toward our pilot launch. Join the list to get notified the moment sessions open.</p></div>
@@ -150,27 +114,19 @@
       </div>
 
       <div class="faq-group reveal d3">
-        <div class="faq-group-label">
-          <div class="faq-group-label-line"></div>
-          <span class="faq-group-label-text">Using the Space</span>
-          <div class="faq-group-label-line"></div>
-        </div>
-
+        <div class="faq-group-label"><div class="faq-group-label-line"></div><span class="faq-group-label-text">Using the Space</span><div class="faq-group-label-line"></div></div>
         <div class="faq-item">
           <button class="faq-btn"><span class="faq-q">What can I do at Hookd?</span><span class="faq-icon">+</span></button>
           <div class="faq-body"><p class="faq-a">Hookd will have two dedicated studios — an <em>audio studio</em> for recording, mixing, and mastering, and a <em>content studio</em> for photo, video, and podcast production. The space is built for any creative discipline. <a href="who.html">See who Hookd is for →</a></p></div>
         </div>
-
         <div class="faq-item">
           <button class="faq-btn"><span class="faq-q">Do I need to bring my own equipment?</span><span class="faq-icon">+</span></button>
           <div class="faq-body"><p class="faq-a">Hookd operates on a <em>BYOE (Bring Your Own Equipment) model</em> — you can bring your own gear, or work with what's in the space. You're also welcome to bring your own engineer, photographer, or creative collaborator, or book one of ours.</p></div>
         </div>
-
         <div class="faq-item">
           <button class="faq-btn"><span class="faq-q">Can I book a one-time session or do I need a membership?</span><span class="faq-icon">+</span></button>
           <div class="faq-body"><p class="faq-a">Both. Hookd will offer hourly bookings for one-time sessions as well as monthly memberships for creators who want consistent access. <em>Memberships get priority booking and better rates.</em> More details on pricing will be shared with the interest list first.</p></div>
         </div>
-
         <div class="faq-item">
           <button class="faq-btn"><span class="faq-q">How does booking work?</span><span class="faq-icon">+</span></button>
           <div class="faq-body"><p class="faq-a">Booking will be handled through our online system — pick your space, your time, and any add-ons like engineering or photography support. Everything is self-service and available from your phone.</p></div>
@@ -178,22 +134,15 @@
       </div>
 
       <div class="faq-group reveal d4">
-        <div class="faq-group-label">
-          <div class="faq-group-label-line"></div>
-          <span class="faq-group-label-text">Membership</span>
-          <div class="faq-group-label-line"></div>
-        </div>
-
+        <div class="faq-group-label"><div class="faq-group-label-line"></div><span class="faq-group-label-text">Membership</span><div class="faq-group-label-line"></div></div>
         <div class="faq-item">
           <button class="faq-btn"><span class="faq-q">What is a founding membership?</span><span class="faq-icon">+</span></button>
           <div class="faq-body"><p class="faq-a">Founding members are the first people to join Hookd when sessions open. They get <em>first access to pilot passes, priority booking, and pricing before it's made public</em>. Joining the interest list is how you get considered for founding membership.</p></div>
         </div>
-
         <div class="faq-item">
           <button class="faq-btn"><span class="faq-q">How much will membership cost?</span><span class="faq-icon">+</span></button>
           <div class="faq-body"><p class="faq-a">Hookd will offer <em>three membership tiers</em> at different hour allotments per month. Exact pricing will be shared with the interest list first — before it goes public.</p></div>
         </div>
-
         <div class="faq-item">
           <button class="faq-btn"><span class="faq-q">Is there a commitment required for membership?</span><span class="faq-icon">+</span></button>
           <div class="faq-body"><p class="faq-a">Memberships will have a short initial commitment period, then move to month-to-month. <em>No long-term lock-in.</em> Full terms will be shared when memberships open.</p></div>
@@ -201,17 +150,11 @@
       </div>
 
       <div class="faq-group reveal d5">
-        <div class="faq-group-label">
-          <div class="faq-group-label-line"></div>
-          <span class="faq-group-label-text">Getting Involved Now</span>
-          <div class="faq-group-label-line"></div>
-        </div>
-
+        <div class="faq-group-label"><div class="faq-group-label-line"></div><span class="faq-group-label-text">Getting Involved Now</span><div class="faq-group-label-line"></div></div>
         <div class="faq-item">
           <button class="faq-btn"><span class="faq-q">What are Creator Nights?</span><span class="faq-icon">+</span></button>
           <div class="faq-body"><p class="faq-a">Creator Nights are Hookd's community events — free gatherings for Central Arkansas creators to connect, collaborate, and experience what Hookd is building before it officially opens. Follow <a href="https://instagram.com/hookdrecording" target="_blank">@hookdrecording</a> for upcoming dates.</p></div>
         </div>
-
         <div class="faq-item">
           <button class="faq-btn"><span class="faq-q">What does joining the interest list actually do?</span><span class="faq-icon">+</span></button>
           <div class="faq-body"><p class="faq-a">Joining puts you first in line. When Hookd launches, <em>interest list members get first access to pilot passes, founding membership consideration, and pricing details</em> — all before anything goes public. No commitment, no cost, opt out anytime.</p></div>
@@ -223,24 +166,22 @@
           <h3>Still have <em>questions?</em></h3>
           <p>DM us on Instagram and we'll answer directly. Or get on the list and we'll keep you in the loop as things develop.</p>
         </div>
-        <a href="index.html#form" class="btn"><span>Join the list →</span></a>
+        <a href="index.html#form" class="btn"><span>Join the Founding List →</span></a>
       </div>
-
     </div>
   </div>
-
   <script>
+    const hamburger=document.getElementById('hamburger');const navDrawer=document.getElementById('navDrawer');hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');navDrawer.classList.toggle('open');});navDrawer.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{hamburger.classList.remove('open');navDrawer.classList.remove('open');});});
     const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
     let mx=0,my=0,rx=0,ry=0;
     document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
     (function a(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a);})();
     document.querySelectorAll('a,.faq-btn').forEach(el=>{el.addEventListener('mouseenter',()=>ring.classList.add('expanded'));el.addEventListener('mouseleave',()=>ring.classList.remove('expanded'));});
-
     document.querySelectorAll('.faq-item').forEach(item=>{
       item.querySelector('.faq-btn').addEventListener('click',()=>{
         const wasOpen=item.classList.contains('open');
         document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
-        if(!wasOpen) item.classList.add('open');
+        if(!wasOpen)item.classList.add('open');
       });
     });
   </script>
