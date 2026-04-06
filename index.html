@@ -170,6 +170,7 @@
     </ul>
   </div>
 
+  <div class="page-wrap">
   <div class="site">
     <div style="position:absolute;top:0;left:0;height:1px;width:1px;visibility:hidden" id="top"></div>
     <div class="left">
@@ -258,6 +259,7 @@
       <p class="copyright" style="margin-top:18px;font-size:0.56rem;color:rgba(247,242,234,0.1);letter-spacing:0.05em;">© 2026 Hookd Creative LLC</p>
     </div>
   </div>
+  </div>
 
   <script>
     // PREVENT ANCHOR JUMP ON LOAD
@@ -296,7 +298,7 @@
     [...words,...words,...words,...words].forEach(w=>{const s=document.createElement('span');s.className='marquee-item';s.innerHTML=w+'<span class="marquee-dot"></span>';track.appendChild(s);});
 
     // CARD TILT
-    const card=document.getElementById('join');
+    const card=document.getElementById('form');
     if(window.innerWidth>768){
       card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-0.5,y=(e.clientY-r.top)/r.height-0.5;card.style.transform='perspective(900px) rotateY('+x*4+'deg) rotateX('+(-y*4)+'deg)';card.style.transition='transform 0.08s ease';});
       card.addEventListener('mouseleave',()=>{card.style.transform='perspective(900px) rotateY(0) rotateX(0)';card.style.transition='transform 0.6s cubic-bezier(0.16,1,0.3,1)';});
