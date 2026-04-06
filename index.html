@@ -63,12 +63,10 @@
     .form-card{background:rgba(247,242,234,0.04);border:1px solid rgba(247,242,234,0.08);border-radius:20px;padding:38px 34px;position:relative;overflow:hidden;transition:transform 0.1s ease,box-shadow 0.3s}
     .form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(168,66,31,0.6),transparent)}
     .card-shine{position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(168,66,31,0.07) 0%,transparent 70%);pointer-events:none}
-    .counter-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-    .form-eyebrow{font-size:0.58rem;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--terra)}
-    .founding-counter{display:flex;align-items:center;gap:6px;background:rgba(168,66,31,0.08);border:1px solid rgba(168,66,31,0.2);border-radius:100px;padding:3px 10px}
-    .counter-pulse{width:5px;height:5px;border-radius:50%;background:var(--terra-bright);animation:gpulse 2s ease infinite;flex-shrink:0}
-    .counter-text{font-size:0.58rem;font-weight:700;letter-spacing:0.1em;color:rgba(247,242,234,0.55)}
-    .counter-num{color:var(--cream)}
+    .form-eyebrow{font-size:0.58rem;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--terra);margin-bottom:14px;display:block}
+    /* CHANGE 1 — plain language description */
+    .form-what{font-size:0.78rem;color:rgba(247,242,234,0.45);line-height:1.65;margin-bottom:16px;padding:12px 16px;background:rgba(247,242,234,0.03);border:1px solid rgba(247,242,234,0.06);border-radius:10px}
+    .form-what em{color:rgba(247,242,234,0.7);font-style:normal;font-weight:500}
     .form-title{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--cream);line-height:1.12;margin-bottom:16px}
     .confirm-line{font-size:0.7rem;color:rgba(247,242,234,0.36);line-height:1.65;margin-bottom:18px}
     .confirm-line em{color:rgba(247,242,234,0.58);font-style:normal}
@@ -79,10 +77,7 @@
     input::placeholder{color:transparent}
     input:focus{border-color:rgba(168,66,31,0.5);background:rgba(247,242,234,0.06);box-shadow:0 0 0 3px rgba(168,66,31,0.08)}
     input:focus+.field-label,input:not(:placeholder-shown)+.field-label{top:7px;font-size:0.58rem;letter-spacing:0.12em;color:var(--terra)}
-    .scarcity-signal{display:flex;align-items:center;gap:10px;padding:7px 0 1px}
-    .scarcity-line{height:1px;flex:1;background:rgba(247,242,234,0.05)}
-    .scarcity-text{font-size:0.6rem;color:rgba(247,242,234,0.22);letter-spacing:0.06em;white-space:nowrap}
-    .submit-btn{width:100%;padding:16px;border-radius:10px;border:none;background:var(--terra);color:var(--cream);font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;position:relative;overflow:hidden;transition:background 0.25s,transform 0.15s,box-shadow 0.25s;-webkit-appearance:none}
+    .submit-btn{width:100%;padding:16px;border-radius:10px;border:none;background:var(--terra);color:var(--cream);font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;position:relative;overflow:hidden;transition:background 0.25s,transform 0.15s,box-shadow 0.25s;-webkit-appearance:none;margin-top:4px}
     .submit-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.12) 0%,transparent 50%)}
     .submit-btn:hover{background:var(--terra-bright);transform:translateY(-2px);box-shadow:0 12px 32px rgba(168,66,31,0.4)}
     .submit-btn:active{transform:translateY(0)}
@@ -96,25 +91,25 @@
     .success-mark{width:52px;height:52px;border-radius:50%;background:rgba(168,66,31,0.1);border:1px solid rgba(168,66,31,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--terra)}
     .success-state h3{font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--cream);margin-bottom:10px}
     .success-state p{font-size:0.78rem;color:rgba(247,242,234,0.42);line-height:1.7}
+    /* CHANGE 9 — real photo grid */
     .ig-block{margin-top:18px}
     .ig-block-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
     .ig-block-line{height:1px;flex:1;background:linear-gradient(90deg,rgba(168,66,31,0.18),transparent)}
     .ig-block-label{font-size:0.54rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(247,242,234,0.16)}
     .ig-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;border-radius:10px;overflow:hidden}
-    .ig-thumb{aspect-ratio:1;background:rgba(247,242,234,0.03);border:1px solid rgba(247,242,234,0.05);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:0.5rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(247,242,234,0.12)}
+    .ig-thumb{aspect-ratio:1;background:rgba(247,242,234,0.03);border-radius:4px;overflow:hidden}
+    .ig-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.3s ease}
+    .ig-thumb:hover img{transform:scale(1.04)}
     .ig-follow-row{display:flex;justify-content:flex-end;margin-top:7px}
     .ig-follow-link{display:inline-flex;align-items:center;gap:5px;font-size:0.6rem;font-weight:500;letter-spacing:0.1em;color:rgba(247,242,234,0.26);text-decoration:none;transition:color 0.2s}
     .ig-follow-link:hover{color:rgba(247,242,234,0.55)}
     .ig-follow-link svg{width:11px;height:11px}
-
-    /* ── MOBILE NAV HAMBURGER ── */
+    /* MOBILE NAV */
     .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:none;border:none;cursor:pointer;padding:4px;flex-shrink:0}
     .nav-hamburger span{display:block;width:100%;height:1.5px;background:rgba(247,242,234,0.6);transition:all 0.3s cubic-bezier(0.16,1,0.3,1);transform-origin:center}
     .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
     .nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
     .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-
-    /* ── MOBILE NAV DRAWER ── */
     .nav-drawer{position:fixed;top:64px;left:0;right:0;background:rgba(15,10,7,0.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(247,242,234,0.07);z-index:499;max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.16,1,0.3,1)}
     .nav-drawer.open{max-height:300px}
     .nav-drawer ul{list-style:none;display:flex;flex-direction:column;padding:8px 0 16px}
@@ -122,9 +117,7 @@
     .nav-drawer ul li:last-child a{border-bottom:none}
     .nav-drawer ul li a:hover{color:var(--cream);background:rgba(247,242,234,0.03)}
     .nav-drawer ul li a.nav-cta-drawer{color:var(--terra)}
-    .nav-drawer ul li a.nav-cta-drawer:hover{color:var(--terra-bright)}
-
-    /* ── MOBILE LAYOUT ── */
+    /* MOBILE LAYOUT */
     @media(max-width:768px){
       .nav-hamburger{display:flex}
       .nav-links{display:none !important}
@@ -165,7 +158,8 @@
       <li><a href="who.html" data-short="Who">Who It's For</a></li>
       <li><a href="phase.html" data-short="Phase">Our Phase</a></li>
       <li><a href="faq.html" data-short="FAQ">FAQ</a></li>
-      <li><a href="#form" class="nav-cta" data-short="Access">Get Access</a></li>
+      <!-- CHANGE 11 — nav CTA renamed -->
+      <li><a href="#form" class="nav-cta" data-short="Join">Join the Founding List</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -177,7 +171,7 @@
       <li><a href="who.html">Who It's For</a></li>
       <li><a href="phase.html">Our Phase</a></li>
       <li><a href="faq.html">FAQ</a></li>
-      <li><a href="#form" class="nav-cta-drawer">Get Access</a></li>
+      <li><a href="#form" class="nav-cta-drawer">Join the Founding List</a></li>
     </ul>
   </div>
 
@@ -190,7 +184,8 @@
         <div class="video-overlay"></div>
         <div class="geo-identity">
           <div class="geo-dot"></div>
-          <span class="geo-text">Central Arkansas's <em>first.</em></span>
+          <!-- CHANGE 8 — geo pill specific -->
+          <span class="geo-text">Central Arkansas's <em>first creative space.</em></span>
         </div>
         <button class="sound-btn" id="soundBtn" onclick="toggleSound()">
           <span class="sound-icon" id="soundIcon">🔇</span>
@@ -205,9 +200,10 @@
           <span class="logo-hookd">HOO<span class="accent">K</span>D</span>
           <span class="logo-creative">Creative</span>
         </div>
+        <!-- CHANGE 13 — real quote with attribution -->
         <p class="left-quote reveal d2">
-          "We were HOOK'D on all the love and collaboration. <strong>We're family now.</strong>"
-          <span class="left-quote-attr">Creator Night No. 2 &mdash; Central Arkansas</span>
+          "We were HOOK'D on all the love and collaboration. Got to meet amazing people tonight. We're family now."
+          <span class="left-quote-attr">@_babyjennii &mdash; Creator Night No. 2</span>
         </p>
         <div class="social-proof reveal d3">
           <div class="avatar-stack">
@@ -217,7 +213,8 @@
             <div class="avatar av4">AW</div>
             <div class="avatar av1">AC</div>
           </div>
-          <p class="proof-text"><strong>Founding members are already in.</strong> You should be too.</p>
+          <!-- CHANGE 6 — removed "you should be too" -->
+          <p class="proof-text"><strong>Founding members are already on the list.</strong> Be part of what's next.</p>
         </div>
         <div class="marquee-wrap">
           <div class="marquee-track" id="marqueeTrack"></div>
@@ -228,15 +225,16 @@
     <div class="right">
       <div class="form-card reveal d1" id="formCard">
         <div class="card-shine"></div>
-        <div class="counter-row">
-          <p class="form-eyebrow">Founding membership</p>
-          <div class="founding-counter">
-            <div class="counter-pulse"></div>
-            <span class="counter-text"><span class="counter-num" id="foundingCount">0</span> in so far</span>
-          </div>
-        </div>
+
+        <!-- CHANGE 3 — counter removed -->
+        <!-- CHANGE 1 — plain language description -->
+        <span class="form-eyebrow">Founding membership</span>
+        <p class="form-what">Hookd is <em>Central Arkansas's first dedicated creative space</em> for musicians, photographers, content creators, and podcasters. We're not open yet. Join the list and be first in when we do.</p>
+
         <h2 class="form-title">This is where<br>Central Arkansas<br>creatives come first.</h2>
+
         <p class="confirm-line">Get on the list before we open. <em>Founding members hear everything first — sessions, pricing, and what's coming — before it goes public.</em></p>
+
         <div id="formWrap">
           <form id="hookdForm" novalidate>
             <div class="field-group">
@@ -247,16 +245,10 @@
               <input type="email" id="femail" name="fields[email]" placeholder="email" required autocomplete="email">
               <label class="field-label" for="femail">Your Email</label>
             </div>
-            <div class="field-group">
-              <input type="text" id="fphone" name="fields[phone]" placeholder="phone" autocomplete="tel">
-              <label class="field-label" for="fphone">Your Phone (optional)</label>
-            </div>
-            <div class="scarcity-signal">
-              <div class="scarcity-line"></div>
-              <span class="scarcity-text">Founding membership is a limited tier</span>
-              <div class="scarcity-line"></div>
-            </div>
-            <button type="submit" class="submit-btn"><span class="btn-text">Count Me In</span></button>
+            <!-- CHANGE 5 — phone field removed -->
+            <!-- CHANGE 2 — scarcity line removed -->
+            <!-- CHANGE 4 — button copy updated -->
+            <button type="submit" class="submit-btn"><span class="btn-text">Get First Access</span></button>
           </form>
           <div class="form-footer">
             <div class="form-footer-line"></div>
@@ -264,6 +256,7 @@
             <div class="form-footer-line"></div>
           </div>
         </div>
+
         <div class="success-state" id="successState">
           <div class="success-mark">&#10086;</div>
           <h3>You're in.</h3>
@@ -271,6 +264,7 @@
         </div>
       </div>
 
+      <!-- CHANGE 9 — real photos -->
       <div class="ig-block reveal d2">
         <div class="ig-block-header">
           <div class="ig-block-line"></div>
@@ -278,9 +272,9 @@
           <div class="ig-block-line" style="background:linear-gradient(90deg,transparent,rgba(168,66,31,0.18))"></div>
         </div>
         <div class="ig-thumbs">
-          <div class="ig-thumb">@hookdrecording</div>
-          <div class="ig-thumb">Creator Nights</div>
-          <div class="ig-thumb">Central AR</div>
+          <div class="ig-thumb"><img src="cn2-photo-1.png" alt="Creator Night No. 2"></div>
+          <div class="ig-thumb"><img src="cn2-photo-2.png" alt="Creator Night No. 2"></div>
+          <div class="ig-thumb"><img src="cn2-photo-3.png" alt="Creator Night No. 2"></div>
         </div>
         <div class="ig-follow-row">
           <a class="ig-follow-link" href="https://instagram.com/hookdrecording" target="_blank" rel="noopener">
@@ -301,102 +295,52 @@
     // HAMBURGER
     const hamburger=document.getElementById('hamburger');
     const navDrawer=document.getElementById('navDrawer');
-    hamburger.addEventListener('click',()=>{
-      hamburger.classList.toggle('open');
-      navDrawer.classList.toggle('open');
-    });
-    navDrawer.querySelectorAll('a').forEach(a=>{
-      a.addEventListener('click',()=>{
-        hamburger.classList.remove('open');
-        navDrawer.classList.remove('open');
-      });
-    });
+    hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');navDrawer.classList.toggle('open');});
+    navDrawer.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{hamburger.classList.remove('open');navDrawer.classList.remove('open');});});
 
     // CURSOR
     const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
     let mx=0,my=0,rx=0,ry=0;
     document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
     (function tick(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(tick);})();
-    document.querySelectorAll('button,a,input').forEach(el=>{
-      el.addEventListener('mouseenter',()=>ring.classList.add('expanded'));
-      el.addEventListener('mouseleave',()=>ring.classList.remove('expanded'));
-    });
+    document.querySelectorAll('button,a,input').forEach(el=>{el.addEventListener('mouseenter',()=>ring.classList.add('expanded'));el.addEventListener('mouseleave',()=>ring.classList.remove('expanded'));});
 
     // VIDEO REEL
     const vids=[...document.querySelectorAll('.reel-vid')];
     const dotsWrap=document.getElementById('reelDots');
     let cur=0,soundOn=false;
-    vids.forEach((_,i)=>{
-      const d=document.createElement('div');
-      d.className='reel-dot'+(i===0?' active':'');
-      dotsWrap.appendChild(d);
-    });
+    vids.forEach((_,i)=>{const d=document.createElement('div');d.className='reel-dot'+(i===0?' active':'');dotsWrap.appendChild(d);});
     const dots=[...dotsWrap.querySelectorAll('.reel-dot')];
-    function playVid(idx){
-      vids[cur].classList.remove('active');vids[cur].pause();dots[cur].classList.remove('active');
-      cur=idx%vids.length;vids[cur].muted=!soundOn;vids[cur].currentTime=0;
-      vids[cur].classList.add('active');dots[cur].classList.add('active');
-      vids[cur].play().catch(()=>{});
-    }
+    function playVid(idx){vids[cur].classList.remove('active');vids[cur].pause();dots[cur].classList.remove('active');cur=idx%vids.length;vids[cur].muted=!soundOn;vids[cur].currentTime=0;vids[cur].classList.add('active');dots[cur].classList.add('active');vids[cur].play().catch(()=>{});}
     vids[0].play().catch(()=>{});
     setInterval(()=>playVid(cur+1),5000);
-    function toggleSound(){
-      soundOn=!soundOn;vids[cur].muted=!soundOn;
-      document.getElementById('soundIcon').textContent=soundOn?'🔊':'🔇';
-      document.getElementById('soundLabel').textContent=soundOn?'Sound on':'Sound off';
-    }
+    function toggleSound(){soundOn=!soundOn;vids[cur].muted=!soundOn;document.getElementById('soundIcon').textContent=soundOn?'🔊':'🔇';document.getElementById('soundLabel').textContent=soundOn?'Sound on':'Sound off';}
 
     // MARQUEE
     const words=['Music','Content','Podcasts','Photography','Media','Creation','Community','Central Arkansas'];
     const track=document.getElementById('marqueeTrack');
-    [...words,...words,...words,...words].forEach(w=>{
-      const s=document.createElement('span');s.className='marquee-item';
-      s.innerHTML=w+'<span class="marquee-dot"></span>';track.appendChild(s);
-    });
+    [...words,...words,...words,...words].forEach(w=>{const s=document.createElement('span');s.className='marquee-item';s.innerHTML=w+'<span class="marquee-dot"></span>';track.appendChild(s);});
 
-    // CARD TILT desktop only
+    // CARD TILT
     const card=document.getElementById('formCard');
     if(window.innerWidth>768){
-      card.addEventListener('mousemove',e=>{
-        const r=card.getBoundingClientRect();
-        const x=(e.clientX-r.left)/r.width-0.5,y=(e.clientY-r.top)/r.height-0.5;
-        card.style.transform='perspective(900px) rotateY('+x*4+'deg) rotateX('+(-y*4)+'deg)';
-        card.style.transition='transform 0.08s ease';
-      });
-      card.addEventListener('mouseleave',()=>{
-        card.style.transform='perspective(900px) rotateY(0) rotateX(0)';
-        card.style.transition='transform 0.6s cubic-bezier(0.16,1,0.3,1)';
-      });
+      card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-0.5,y=(e.clientY-r.top)/r.height-0.5;card.style.transform='perspective(900px) rotateY('+x*4+'deg) rotateX('+(-y*4)+'deg)';card.style.transition='transform 0.08s ease';});
+      card.addEventListener('mouseleave',()=>{card.style.transform='perspective(900px) rotateY(0) rotateX(0)';card.style.transition='transform 0.6s cubic-bezier(0.16,1,0.3,1)';});
     }
 
     // RIPPLE
-    document.querySelector('.submit-btn').addEventListener('click',function(e){
-      const r=document.createElement('span'),rect=this.getBoundingClientRect();
-      const size=Math.max(rect.width,rect.height);
-      r.className='ripple';
-      r.style.cssText='width:'+size+'px;height:'+size+'px;left:'+(e.clientX-rect.left-size/2)+'px;top:'+(e.clientY-rect.top-size/2)+'px';
-      this.appendChild(r);setTimeout(()=>r.remove(),700);
-    });
-
-    // COUNTER
-    const FOUNDING_COUNT=9;
-    const countEl=document.getElementById('foundingCount');
-    let c=0;
-    const cu=setInterval(()=>{c=Math.min(c+1,FOUNDING_COUNT);countEl.textContent=c;if(c>=FOUNDING_COUNT)clearInterval(cu);},100);
+    document.querySelector('.submit-btn').addEventListener('click',function(e){const r=document.createElement('span'),rect=this.getBoundingClientRect();const size=Math.max(rect.width,rect.height);r.className='ripple';r.style.cssText='width:'+size+'px;height:'+size+'px;left:'+(e.clientX-rect.left-size/2)+'px;top:'+(e.clientY-rect.top-size/2)+'px';this.appendChild(r);setTimeout(()=>r.remove(),700);});
 
     // FORM
     document.getElementById('hookdForm').addEventListener('submit',function(e){
       e.preventDefault();
       const name=this.querySelector('[name="fields[name]"]').value.trim();
       const email=this.querySelector('[name="fields[email]"]').value.trim();
-      const phone=this.querySelector('[name="fields[phone]"]').value.trim();
       if(!name||!email)return;
       const body=new URLSearchParams();
       body.append('fields[name]',name);body.append('fields[email]',email);
-      body.append('fields[phone]',phone);body.append('ml-submit','1');body.append('anticsrf','true');
-      fetch('https://assets.mailerlite.com/jsonp/2215527/forms/182754247239009348/subscribe',{
-        method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body.toString()
-      }).catch(()=>{});
+      body.append('ml-submit','1');body.append('anticsrf','true');
+      fetch('https://assets.mailerlite.com/jsonp/2215527/forms/182754247239009348/subscribe',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body.toString()}).catch(()=>{});
       window.location.href='thankyou.html';
     });
   </script>
