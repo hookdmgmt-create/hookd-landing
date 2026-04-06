@@ -154,7 +154,7 @@
       <li><a href="phase.html" data-short="Phase">Our Phase</a></li>
       <li><a href="faq.html" data-short="FAQ">FAQ</a></li>
       <!-- CHANGE 11 — nav CTA renamed -->
-      <li><a href="#form" class="nav-cta" data-short="Join">Join the Founding List</a></li>
+      <li><a href="#join" class="nav-cta" data-short="Join">Join the Founding List</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -166,11 +166,12 @@
       <li><a href="who.html">Who It's For</a></li>
       <li><a href="phase.html">Our Phase</a></li>
       <li><a href="faq.html">FAQ</a></li>
-      <li><a href="#form" class="nav-cta-drawer">Join the Founding List</a></li>
+      <li><a href="#join" class="nav-cta-drawer">Join the Founding List</a></li>
     </ul>
   </div>
 
-  <div class="site" id="form">
+  <div class="site">
+    <div style="position:absolute;top:0;left:0;height:1px;width:1px;visibility:hidden" id="top"></div>
     <div class="left">
       <div class="photo-reel" id="photoReel">
         <img class="reel-img active" src="cn2-photo-1.png" alt="Creator Night No. 2">
@@ -213,7 +214,7 @@
     </div>
 
     <div class="right">
-      <div class="form-card reveal d1" id="formCard">
+      <div class="form-card reveal d1" id="join" style="scroll-margin-top:80px">
         <div class="card-shine"></div>
 
         <!-- CHANGE 3 — counter removed -->
@@ -259,6 +260,10 @@
   </div>
 
   <script>
+    // PREVENT ANCHOR JUMP ON LOAD
+    if(window.location.hash==='#form'){history.replaceState(null,null,' ');}
+    window.scrollTo(0,0);
+
     // HAMBURGER
     const hamburger=document.getElementById('hamburger');
     const navDrawer=document.getElementById('navDrawer');
@@ -291,7 +296,7 @@
     [...words,...words,...words,...words].forEach(w=>{const s=document.createElement('span');s.className='marquee-item';s.innerHTML=w+'<span class="marquee-dot"></span>';track.appendChild(s);});
 
     // CARD TILT
-    const card=document.getElementById('formCard');
+    const card=document.getElementById('join');
     if(window.innerWidth>768){
       card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-0.5,y=(e.clientY-r.top)/r.height-0.5;card.style.transform='perspective(900px) rotateY('+x*4+'deg) rotateX('+(-y*4)+'deg)';card.style.transition='transform 0.08s ease';});
       card.addEventListener('mouseleave',()=>{card.style.transform='perspective(900px) rotateY(0) rotateX(0)';card.style.transition='transform 0.6s cubic-bezier(0.16,1,0.3,1)';});
