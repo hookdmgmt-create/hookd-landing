@@ -22,19 +22,15 @@
   <style>
     .site{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;max-width:1100px;margin:0 auto;padding:0 40px}
     .left{position:sticky;top:64px;height:calc(100vh - 64px);display:flex;flex-direction:column;border-right:1px solid rgba(247,242,234,0.06);overflow:hidden}
-    .video-reel{position:relative;width:100%;flex:1;overflow:hidden;background:#0a0705;min-height:0}
-    .reel-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.9s ease}
-    .reel-vid.active{opacity:1}
+    .photo-reel{position:relative;width:100%;flex:1;overflow:hidden;background:#0a0705;min-height:0}
+    .reel-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.9s ease}
+    .reel-img.active{opacity:1}
     .video-overlay{position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom,rgba(15,10,7,0.12) 0%,rgba(15,10,7,0) 35%,rgba(15,10,7,0.55) 78%,rgba(15,10,7,0.93) 100%)}
     .geo-identity{position:absolute;top:18px;left:20px;display:inline-flex;align-items:center;gap:7px;background:rgba(15,10,7,0.68);backdrop-filter:blur(10px);border:1px solid rgba(168,66,31,0.3);border-radius:100px;padding:5px 12px;pointer-events:none;z-index:2}
     .geo-dot{width:5px;height:5px;border-radius:50%;background:var(--terra-bright);flex-shrink:0;animation:gpulse 2s ease infinite}
     @keyframes gpulse{0%,100%{box-shadow:0 0 0 0 rgba(168,66,31,0.5)}50%{box-shadow:0 0 0 4px rgba(168,66,31,0)}}
     .geo-text{font-size:0.58rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(247,242,234,0.65)}
     .geo-text em{font-style:normal;color:var(--terra-bright)}
-    .sound-btn{position:absolute;top:18px;right:20px;background:rgba(15,10,7,0.68);backdrop-filter:blur(10px);border:1px solid rgba(247,242,234,0.1);border-radius:100px;padding:5px 12px;display:flex;align-items:center;gap:6px;cursor:pointer;transition:border-color 0.2s;z-index:2}
-    .sound-btn:hover{border-color:rgba(247,242,234,0.28)}
-    .sound-icon{font-size:0.68rem;line-height:1}
-    .sound-label{font-size:0.52rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(247,242,234,0.32)}
     .reel-dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:5px;pointer-events:none;z-index:2}
     .reel-dot{width:4px;height:4px;border-radius:50%;background:rgba(247,242,234,0.28);transition:background 0.3s,transform 0.3s}
     .reel-dot.active{background:var(--terra-bright);transform:scale(1.5)}
@@ -123,14 +119,13 @@
       .nav-links{display:none !important}
       .site{grid-template-columns:1fr;padding:0;display:flex;flex-direction:column}
       .left{position:static;height:auto;border-right:none;border-bottom:1px solid rgba(247,242,234,0.06)}
-      .video-reel{position:relative;width:100%;height:0;padding-bottom:62%;flex:none;overflow:hidden}
-      .reel-vid{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}
+      .photo-reel{position:relative;width:100%;height:0;padding-bottom:62%;flex:none;overflow:hidden}
+      .reel-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}
       .left-bottom{padding:20px 20px 0}
       .marquee-wrap{margin:14px -20px 0}
       .right{padding:28px 20px 48px;min-height:unset}
       .form-card{padding:28px 24px}
       .form-title{font-size:1.45rem}
-      .sound-btn{display:none}
       .reel-notice{font-size:0.42rem;right:10px;bottom:10px}
       .geo-identity{top:12px;left:12px;padding:4px 10px}
       .geo-text{font-size:0.52rem}
@@ -177,22 +172,17 @@
 
   <div class="site" id="form">
     <div class="left">
-      <div class="video-reel" id="videoReel">
-        <video class="reel-vid active" src="cn2-1.mp4" muted playsinline preload="auto"></video>
-        <video class="reel-vid" src="cn2-2.mp4" muted playsinline preload="auto"></video>
-        <video class="reel-vid" src="cn2-3.mp4" muted playsinline preload="auto"></video>
+      <div class="photo-reel" id="photoReel">
+        <img class="reel-img active" src="cn2-photo-1.png" alt="Creator Night No. 2">
+        <img class="reel-img" src="cn2-photo-2.png" alt="Creator Night No. 2">
+        <img class="reel-img" src="cn2-photo-3.png" alt="Creator Night No. 2">
         <div class="video-overlay"></div>
         <div class="geo-identity">
           <div class="geo-dot"></div>
-          <!-- CHANGE 8 — geo pill specific -->
-          <span class="geo-text">Central Arkansas's <em>first creative space.</em></span>
+          <span class="geo-text">The space Central Arkansas creators <em>said they needed.</em></span>
         </div>
-        <button class="sound-btn" id="soundBtn" onclick="toggleSound()">
-          <span class="sound-icon" id="soundIcon">🔇</span>
-          <span class="sound-label" id="soundLabel">Sound off</span>
-        </button>
         <div class="reel-dots" id="reelDots"></div>
-        <div class="reel-notice">Footage from Creator Night No. 2</div>
+        <div class="reel-notice">Creator Night No. 2</div>
       </div>
 
       <div class="left-bottom reveal d1">
@@ -229,7 +219,7 @@
         <!-- CHANGE 3 — counter removed -->
         <!-- CHANGE 1 — plain language description -->
         <span class="form-eyebrow">Founding membership</span>
-        <p class="form-what">Hookd is <em>Central Arkansas's first dedicated creative space</em> for musicians, photographers, content creators, and podcasters. We're not open yet. Join the list and be first in when we do.</p>
+        <p class="form-what">Hookd is a <em>dedicated creative space for Central Arkansas musicians, photographers, content creators, and podcasters</em> — built from what the community said it needed. We're not open yet. Join the list and be first in when we do.</p>
 
         <h2 class="form-title">This is where<br>Central Arkansas<br>creatives come first.</h2>
 
@@ -264,29 +254,6 @@
         </div>
       </div>
 
-      <!-- CHANGE 9 — real photos -->
-      <div class="ig-block reveal d2">
-        <div class="ig-block-header">
-          <div class="ig-block-line"></div>
-          <span class="ig-block-label">From the room</span>
-          <div class="ig-block-line" style="background:linear-gradient(90deg,transparent,rgba(168,66,31,0.18))"></div>
-        </div>
-        <div class="ig-thumbs">
-          <div class="ig-thumb"><img src="cn2-photo-1.png" alt="Creator Night No. 2"></div>
-          <div class="ig-thumb"><img src="cn2-photo-2.png" alt="Creator Night No. 2"></div>
-          <div class="ig-thumb"><img src="cn2-photo-3.png" alt="Creator Night No. 2"></div>
-        </div>
-        <div class="ig-follow-row">
-          <a class="ig-follow-link" href="https://instagram.com/hookdrecording" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-              <circle cx="12" cy="12" r="4"/>
-              <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
-            </svg>
-            Follow @hookdrecording
-          </a>
-        </div>
-      </div>
       <p class="copyright" style="margin-top:18px;font-size:0.56rem;color:rgba(247,242,234,0.1);letter-spacing:0.05em;">© 2026 Hookd Creative LLC</p>
     </div>
   </div>
@@ -305,16 +272,18 @@
     (function tick(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(tick);})();
     document.querySelectorAll('button,a,input').forEach(el=>{el.addEventListener('mouseenter',()=>ring.classList.add('expanded'));el.addEventListener('mouseleave',()=>ring.classList.remove('expanded'));});
 
-    // VIDEO REEL
-    const vids=[...document.querySelectorAll('.reel-vid')];
+    // PHOTO CAROUSEL
+    const imgs=[...document.querySelectorAll('.reel-img')];
     const dotsWrap=document.getElementById('reelDots');
-    let cur=0,soundOn=false;
-    vids.forEach((_,i)=>{const d=document.createElement('div');d.className='reel-dot'+(i===0?' active':'');dotsWrap.appendChild(d);});
+    let cur=0;
+    imgs.forEach((_,i)=>{const d=document.createElement('div');d.className='reel-dot'+(i===0?' active':'');dotsWrap.appendChild(d);});
     const dots=[...dotsWrap.querySelectorAll('.reel-dot')];
-    function playVid(idx){vids[cur].classList.remove('active');vids[cur].pause();dots[cur].classList.remove('active');cur=idx%vids.length;vids[cur].muted=!soundOn;vids[cur].currentTime=0;vids[cur].classList.add('active');dots[cur].classList.add('active');vids[cur].play().catch(()=>{});}
-    vids[0].play().catch(()=>{});
-    setInterval(()=>playVid(cur+1),5000);
-    function toggleSound(){soundOn=!soundOn;vids[cur].muted=!soundOn;document.getElementById('soundIcon').textContent=soundOn?'🔊':'🔇';document.getElementById('soundLabel').textContent=soundOn?'Sound on':'Sound off';}
+    function showImg(idx){
+      imgs[cur].classList.remove('active');dots[cur].classList.remove('active');
+      cur=idx%imgs.length;
+      imgs[cur].classList.add('active');dots[cur].classList.add('active');
+    }
+    setInterval(()=>showImg(cur+1),4000);
 
     // MARQUEE
     const words=['Music','Content','Podcasts','Photography','Media','Creation','Community','Central Arkansas'];
