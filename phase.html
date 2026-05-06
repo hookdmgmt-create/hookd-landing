@@ -58,6 +58,7 @@
     .phase-cta-block h3{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--cream);margin-bottom:8px}
     .phase-cta-block h3 em{font-style:italic;color:var(--terra)}
     .phase-cta-block p{font-size:0.78rem;color:rgba(247,242,234,0.38);line-height:1.7}
+    .nav-logo-img{height:26px;display:block;width:auto}
     .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:none;border:none;cursor:pointer;padding:4px;flex-shrink:0}
     .nav-hamburger span{display:block;width:100%;height:1.5px;background:rgba(247,242,234,0.6);transition:all 0.3s;transform-origin:center}
     .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
@@ -79,7 +80,11 @@
   <div class="grain"></div>
   <div class="ambient"></div>
   <nav class="nav">
-    <a href="index.html" class="nav-logo">HOO<span class="accent">K</span>D</a>
+    <!-- CHANGE 1: logo image -->
+    <a href="index.html" class="nav-logo">
+      <img src="hookd-logo-nav.png" alt="Hookd" class="nav-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+      <span style="display:none">HOO<span class="accent">K</span>D</span>
+    </a>
     <ul class="nav-links">
       <li><a href="who.html" data-short="Who">Who It's For</a></li>
       <li><a href="phase.html" class="active" data-short="Phase">Our Phase</a></li>
@@ -126,11 +131,12 @@
             <div class="phase-meta"><span class="phase-num">Phase 1</span><span class="phase-badge">In Progress</span></div>
             <h3 class="phase-name">Pre-Launch & Validation</h3>
             <p class="phase-desc">Building the interest list, hosting Creator Nights, and validating demand before committing to a permanent location. This is the phase you're seeing right now.</p>
+            <!-- CHANGE 5: CN2 marked complete, CN3 added as upcoming -->
             <ul class="milestones">
-              <li><span class="m-icon">◈</span>Creator Night No. 2 — March 27, 2026</li>
+              <li><span class="m-icon">✓</span>Creator Night No. 2 — March 27, 2026</li>
+              <li><span class="m-icon">◈</span>Creator Night No. 3 — Later June 2026</li>
               <li><span class="m-icon">◈</span>Interest list growth and community building</li>
               <li><span class="m-icon">◈</span>Pilot location scouting and lease negotiation</li>
-              <li><span class="m-icon">◈</span>Pre-sale validation before committing to a lease</li>
               <li><span class="m-icon">◈</span>Equipment sourcing and studio buildout planning</li>
             </ul>
           </div>
