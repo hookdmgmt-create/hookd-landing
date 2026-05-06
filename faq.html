@@ -44,6 +44,7 @@
     .faq-cta-block h3{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--cream);margin-bottom:8px}
     .faq-cta-block h3 em{font-style:italic;color:var(--terra)}
     .faq-cta-block p{font-size:0.78rem;color:rgba(247,242,234,0.38);line-height:1.7}
+    .nav-logo-img{height:26px;display:block;width:auto}
     .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:none;border:none;cursor:pointer;padding:4px;flex-shrink:0}
     .nav-hamburger span{display:block;width:100%;height:1.5px;background:rgba(247,242,234,0.6);transition:all 0.3s;transform-origin:center}
     .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
@@ -65,7 +66,11 @@
   <div class="grain"></div>
   <div class="ambient"></div>
   <nav class="nav">
-    <a href="index.html" class="nav-logo">HOO<span class="accent">K</span>D</a>
+    <!-- CHANGE 1: logo image -->
+    <a href="index.html" class="nav-logo">
+      <img src="hookd-logo-nav.png" alt="Hookd" class="nav-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+      <span style="display:none">HOO<span class="accent">K</span>D</span>
+    </a>
     <ul class="nav-links">
       <li><a href="who.html" data-short="Who">Who It's For</a></li>
       <li><a href="phase.html" data-short="Phase">Our Phase</a></li>
@@ -100,12 +105,12 @@
         </div>
         <div class="faq-item">
           <button class="faq-btn"><span class="faq-q">Where is Hookd located?</span><span class="faq-icon">+</span></button>
-          <!-- CHANGE 14 — softened location language -->
           <div class="faq-body"><p class="faq-a">Hookd will be located in <em>Central Arkansas</em>. We'll share the exact address with interest list members first when it's confirmed.</p></div>
         </div>
         <div class="faq-item">
           <button class="faq-btn"><span class="faq-q">When does Hookd open?</span><span class="faq-icon">+</span></button>
-          <div class="faq-body"><p class="faq-a">We're currently in Phase 1 — building our community and validating demand before committing to a permanent location. Our goal is to launch the pilot in <em>2026</em>. The interest list gets first access to sessions when they open. <a href="phase.html">See our full timeline →</a></p></div>
+          <!-- CHANGE 2: 2026 → 2027 -->
+          <div class="faq-body"><p class="faq-a">We're currently in Phase 1 — building our community and validating demand before committing to a permanent location. Our goal is to launch the pilot in <em>2027</em>. The interest list gets first access to sessions when they open. <a href="phase.html">See our full timeline →</a></p></div>
         </div>
         <div class="faq-item">
           <button class="faq-btn"><span class="faq-q">Is Hookd open yet?</span><span class="faq-icon">+</span></button>
@@ -121,7 +126,8 @@
         </div>
         <div class="faq-item">
           <button class="faq-btn"><span class="faq-q">Do I need to bring my own equipment?</span><span class="faq-icon">+</span></button>
-          <div class="faq-body"><p class="faq-a">Hookd operates on a <em>BYOE (Bring Your Own Equipment) model</em> — you can bring your own gear, or work with what's in the space. You're also welcome to bring your own engineer, photographer, or creative collaborator, or book one of ours.</p></div>
+          <!-- CHANGE 6: BYOE reword -->
+          <div class="faq-body"><p class="faq-a">Hookd is pre-stocked with professional gear — <em>use what's in the space if you know your way around it, or bring your own equipment if you prefer</em>. Every session includes a staff-facilitated onboarding so you're set up before you start. If you need ongoing technical support, you can bring your own engineer or book one of ours as an add-on.</p></div>
         </div>
         <div class="faq-item">
           <button class="faq-btn"><span class="faq-q">Can I book a one-time session or do I need a membership?</span><span class="faq-icon">+</span></button>
