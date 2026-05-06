@@ -60,7 +60,6 @@
     .form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(168,66,31,0.6),transparent)}
     .card-shine{position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(168,66,31,0.07) 0%,transparent 70%);pointer-events:none}
     .form-eyebrow{font-size:0.58rem;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--terra);margin-bottom:12px;display:block}
-    /* CHANGE 1 — plain language description, flush alignment, no box */
     .form-what{font-size:0.78rem;color:rgba(247,242,234,0.45);line-height:1.65;margin-bottom:18px;padding:0;background:none;border:none}
     .form-what em{color:rgba(247,242,234,0.7);font-style:normal;font-weight:500}
     .form-title{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--cream);line-height:1.12;margin-bottom:14px}
@@ -87,7 +86,6 @@
     .success-mark{width:52px;height:52px;border-radius:50%;background:rgba(168,66,31,0.1);border:1px solid rgba(168,66,31,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--terra)}
     .success-state h3{font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--cream);margin-bottom:10px}
     .success-state p{font-size:0.78rem;color:rgba(247,242,234,0.42);line-height:1.7}
-    /* CHANGE 9 — real photo grid */
     .ig-block{margin-top:18px}
     .ig-block-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
     .ig-block-line{height:1px;flex:1;background:linear-gradient(90deg,rgba(168,66,31,0.18),transparent)}
@@ -100,6 +98,8 @@
     .ig-follow-link{display:inline-flex;align-items:center;gap:5px;font-size:0.6rem;font-weight:500;letter-spacing:0.1em;color:rgba(247,242,234,0.26);text-decoration:none;transition:color 0.2s}
     .ig-follow-link:hover{color:rgba(247,242,234,0.55)}
     .ig-follow-link svg{width:11px;height:11px}
+    /* NAV LOGO IMAGE */
+    .nav-logo-img{height:26px;display:block;width:auto}
     /* MOBILE NAV */
     .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:none;border:none;cursor:pointer;padding:4px;flex-shrink:0}
     .nav-hamburger span{display:block;width:100%;height:1.5px;background:rgba(247,242,234,0.6);transition:all 0.3s cubic-bezier(0.16,1,0.3,1);transform-origin:center}
@@ -148,12 +148,15 @@
   <div class="ambient"></div>
 
   <nav class="nav">
-    <a href="index.html" class="nav-logo">HOO<span class="accent">K</span>D</a>
+    <!-- CHANGE 1: logo image — upload hookd-logo-nav.png to server root -->
+    <a href="index.html" class="nav-logo">
+      <img src="hookd-logo-nav.png" alt="Hookd" class="nav-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+      <span style="display:none">HOO<span class="accent">K</span>D</span>
+    </a>
     <ul class="nav-links">
       <li><a href="who.html" data-short="Who">Who It's For</a></li>
       <li><a href="phase.html" data-short="Phase">Our Phase</a></li>
       <li><a href="faq.html" data-short="FAQ">FAQ</a></li>
-      <!-- CHANGE 11 — nav CTA renamed -->
       <li><a href="#join" class="nav-cta" data-short="Join">Join the Founding List</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu">
@@ -192,10 +195,10 @@
           <span class="logo-hookd">HOO<span class="accent">K</span>D</span>
           <span class="logo-creative">Creative</span>
         </div>
-        <!-- CHANGE 13 — real quote with attribution -->
+        <!-- CHANGE 3: em dash removed, replaced with interpunct -->
         <p class="left-quote reveal d2">
           "We were HOOK'D on all the love and collaboration. Got to meet amazing people tonight. We're family now."
-          <span class="left-quote-attr">@_babyjennii &mdash; Creator Night No. 2</span>
+          <span class="left-quote-attr">@_babyjennii · Creator Night No. 2</span>
         </p>
         <div class="social-proof reveal d3">
           <div class="avatar-stack">
@@ -205,7 +208,6 @@
             <div class="avatar av4">AW</div>
             <div class="avatar av1">AC</div>
           </div>
-          <!-- CHANGE 6 — removed "you should be too" -->
           <p class="proof-text"><strong>Founding members are already on the list.</strong> Be part of what's next.</p>
         </div>
         <div class="marquee-wrap">
@@ -218,9 +220,8 @@
       <div class="form-card reveal d1" id="join" style="scroll-margin-top:80px">
         <div class="card-shine"></div>
 
-        <!-- CHANGE 3 — counter removed -->
-        <!-- CHANGE 1 — plain language description -->
-        <span class="form-eyebrow">Founding membership</span>
+        <!-- CHANGE 4: eyebrow copy updated -->
+        <span class="form-eyebrow">Be First In</span>
         <p class="form-what">Hookd is a <em>dedicated creative space for Central Arkansas musicians, photographers, content creators, and podcasters</em> — built from what the community said it needed. We're not open yet. Join the list and be first in when we do.</p>
 
         <h2 class="form-title">This is where<br>Central Arkansas<br>creatives come first.</h2>
@@ -237,9 +238,6 @@
               <input type="email" id="femail" name="fields[email]" placeholder="email" required autocomplete="email">
               <label class="field-label" for="femail">Your Email</label>
             </div>
-            <!-- CHANGE 5 — phone field removed -->
-            <!-- CHANGE 2 — scarcity line removed -->
-            <!-- CHANGE 4 — button copy updated -->
             <button type="submit" class="submit-btn"><span class="btn-text">Get First Access</span></button>
           </form>
           <div class="form-footer">
@@ -262,52 +260,33 @@
   </div>
 
   <script>
-    // PREVENT ANCHOR JUMP ON LOAD
     if(window.location.hash==='#form'){history.replaceState(null,null,' ');}
     window.scrollTo(0,0);
-
-    // HAMBURGER
     const hamburger=document.getElementById('hamburger');
     const navDrawer=document.getElementById('navDrawer');
     hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');navDrawer.classList.toggle('open');});
     navDrawer.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{hamburger.classList.remove('open');navDrawer.classList.remove('open');});});
-
-    // CURSOR
     const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
     let mx=0,my=0,rx=0,ry=0;
     document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
     (function tick(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(tick);})();
     document.querySelectorAll('button,a,input').forEach(el=>{el.addEventListener('mouseenter',()=>ring.classList.add('expanded'));el.addEventListener('mouseleave',()=>ring.classList.remove('expanded'));});
-
-    // PHOTO CAROUSEL
     const imgs=[...document.querySelectorAll('.reel-img')];
     const dotsWrap=document.getElementById('reelDots');
     let cur=0;
     imgs.forEach((_,i)=>{const d=document.createElement('div');d.className='reel-dot'+(i===0?' active':'');dotsWrap.appendChild(d);});
     const dots=[...dotsWrap.querySelectorAll('.reel-dot')];
-    function showImg(idx){
-      imgs[cur].classList.remove('active');dots[cur].classList.remove('active');
-      cur=idx%imgs.length;
-      imgs[cur].classList.add('active');dots[cur].classList.add('active');
-    }
+    function showImg(idx){imgs[cur].classList.remove('active');dots[cur].classList.remove('active');cur=idx%imgs.length;imgs[cur].classList.add('active');dots[cur].classList.add('active');}
     setInterval(()=>showImg(cur+1),4000);
-
-    // MARQUEE
     const words=['Music','Content','Podcasts','Photography','Media','Creation','Community','Central Arkansas'];
     const track=document.getElementById('marqueeTrack');
     [...words,...words,...words,...words].forEach(w=>{const s=document.createElement('span');s.className='marquee-item';s.innerHTML=w+'<span class="marquee-dot"></span>';track.appendChild(s);});
-
-    // CARD TILT
     const card=document.getElementById('form');
     if(window.innerWidth>768){
       card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-0.5,y=(e.clientY-r.top)/r.height-0.5;card.style.transform='perspective(900px) rotateY('+x*4+'deg) rotateX('+(-y*4)+'deg)';card.style.transition='transform 0.08s ease';});
       card.addEventListener('mouseleave',()=>{card.style.transform='perspective(900px) rotateY(0) rotateX(0)';card.style.transition='transform 0.6s cubic-bezier(0.16,1,0.3,1)';});
     }
-
-    // RIPPLE
     document.querySelector('.submit-btn').addEventListener('click',function(e){const r=document.createElement('span'),rect=this.getBoundingClientRect();const size=Math.max(rect.width,rect.height);r.className='ripple';r.style.cssText='width:'+size+'px;height:'+size+'px;left:'+(e.clientX-rect.left-size/2)+'px;top:'+(e.clientY-rect.top-size/2)+'px';this.appendChild(r);setTimeout(()=>r.remove(),700);});
-
-    // FORM
     document.getElementById('hookdForm').addEventListener('submit',function(e){
       e.preventDefault();
       const name=this.querySelector('[name="fields[name]"]').value.trim();
