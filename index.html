@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,11 +8,11 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hookdcreative.us/">
   <meta property="og:title" content="Hookd Creative | Central Arkansas">
-  <meta property="og:description" content="Central Arkansas's first dedicated creative space. Get on the founding member list before we open.">
+  <meta property="og:description" content="Central Arkansas's first dedicated creative space. Get on the Hookd Member list before we open.">
   <meta property="og:image" content="https://hookdcreative.us/og.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Hookd Creative | Central Arkansas">
-  <meta name="twitter:description" content="Central Arkansas's first dedicated creative space. Get on the founding member list.">
+  <meta name="twitter:description" content="Central Arkansas's first dedicated creative space. Get on the Hookd Member list.">
   <meta name="twitter:image" content="https://hookdcreative.us/og.png">
   <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
   <script>fetch("https://assets.mailerlite.com/jsonp/2215527/forms/182754247239009348/takel")</script>
@@ -98,9 +99,7 @@
     .ig-follow-link{display:inline-flex;align-items:center;gap:5px;font-size:0.6rem;font-weight:500;letter-spacing:0.1em;color:rgba(247,242,234,0.26);text-decoration:none;transition:color 0.2s}
     .ig-follow-link:hover{color:rgba(247,242,234,0.55)}
     .ig-follow-link svg{width:11px;height:11px}
-    /* NAV LOGO IMAGE */
     .nav-logo-img{height:26px;display:block;width:auto}
-    /* MOBILE NAV */
     .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:none;border:none;cursor:pointer;padding:4px;flex-shrink:0}
     .nav-hamburger span{display:block;width:100%;height:1.5px;background:rgba(247,242,234,0.6);transition:all 0.3s cubic-bezier(0.16,1,0.3,1);transform-origin:center}
     .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
@@ -113,7 +112,24 @@
     .nav-drawer ul li:last-child a{border-bottom:none}
     .nav-drawer ul li a:hover{color:var(--cream);background:rgba(247,242,234,0.03)}
     .nav-drawer ul li a.nav-cta-drawer{color:var(--terra)}
-    /* MOBILE LAYOUT */
+    .field-helper{font-size:0.6rem;color:rgba(247,242,234,0.28);margin:-4px 0 6px 4px;letter-spacing:0.04em}
+    .field-group-secondary input{background:rgba(247,242,234,0.02);border-color:rgba(247,242,234,0.05);font-size:0.82rem}
+    .field-group-secondary .field-label{color:rgba(247,242,234,0.22)}
+    /* MEMBER BENEFITS */
+    .member-benefits{margin-bottom:20px}
+    .benefits-eyebrow{font-size:0.54rem;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:rgba(247,242,234,0.28);display:block;margin-bottom:12px}
+    .benefits-list{list-style:none;display:flex;flex-direction:column;gap:0}
+    .benefit{display:flex;align-items:flex-start;gap:11px;padding:11px 0;border-bottom:1px solid rgba(247,242,234,0.05)}
+    .benefit:last-child{border-bottom:none}
+    .benefit-hero{padding:14px 12px;margin:0 -12px 4px;background:rgba(168,66,31,0.08);border:1px solid rgba(168,66,31,0.18);border-radius:10px}
+    .benefit-hero .benefit-icon{color:var(--terra-bright)}
+    .benefit-icon-wrap{flex-shrink:0;padding-top:2px}
+    .benefit-icon{font-size:0.5rem;color:rgba(247,242,234,0.2)}
+    .benefit-content{display:flex;flex-direction:column;gap:2px}
+    .benefit-title{font-size:0.78rem;font-weight:700;color:var(--cream);letter-spacing:0.01em;line-height:1.3}
+    .benefit-hero .benefit-title{color:#fff;font-size:0.82rem}
+    .benefit-sub{font-size:0.66rem;color:rgba(247,242,234,0.38);line-height:1.5}
+    .benefit-hero .benefit-sub{color:rgba(247,242,234,0.55)}
     @media(max-width:768px){
       .nav-hamburger{display:flex}
       .nav-links{display:none !important}
@@ -148,7 +164,6 @@
   <div class="ambient"></div>
 
   <nav class="nav">
-    <!-- CHANGE 1: logo image: upload hookd-logo-nav.png to server root -->
     <a href="index.html" class="nav-logo">
       <img src="hookd-logo-nav.png" alt="Hookd" class="nav-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
       <span style="display:none">HOO<span class="accent">K</span>D</span>
@@ -157,7 +172,7 @@
       <li><a href="who.html" data-short="Who">Who It's For</a></li>
       <li><a href="phase.html" data-short="Phase">Our Phase</a></li>
       <li><a href="faq.html" data-short="FAQ">FAQ</a></li>
-      <li><a href="#join" class="nav-cta" data-short="Join">Join the Founding List</a></li>
+      <li><a href="#join" class="nav-cta" data-short="Join">Join the List</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -169,7 +184,7 @@
       <li><a href="who.html">Who It's For</a></li>
       <li><a href="phase.html">Our Phase</a></li>
       <li><a href="faq.html">FAQ</a></li>
-      <li><a href="#join" class="nav-cta-drawer">Join the Founding List</a></li>
+      <li><a href="#join" class="nav-cta-drawer">Join the List</a></li>
     </ul>
   </div>
 
@@ -190,72 +205,110 @@
         <div class="reel-notice">Creator Night No. 2</div>
       </div>
 
-      <div class="left-bottom reveal d1">
-        <div class="brand-row">
-          <span class="logo-hookd">HOO<span class="accent">K</span>D</span>
-          <span class="logo-creative">Creative</span>
-        </div>
-        <!-- CHANGE 3: em dash removed, replaced with interpunct -->
-        <p class="left-quote reveal d2">
-          "We were HOOK'D on all the love and collaboration. Got to meet amazing people tonight. We're family now."
-          <span class="left-quote-attr">@_babyjennii · Creator Night No. 2</span>
-        </p>
-        <div class="social-proof reveal d3">
-          <div class="avatar-stack">
-            <div class="avatar av1">BV</div>
-            <div class="avatar av2">LR</div>
-            <div class="avatar av3">IR</div>
-            <div class="avatar av4">AW</div>
-            <div class="avatar av1">AC</div>
+```
+  <div class="left-bottom reveal d1">
+    <div class="brand-row">
+      <span class="logo-hookd">HOO<span class="accent">K</span>D</span>
+      <span class="logo-creative">Creative</span>
+    </div>
+    <p class="left-quote reveal d2">
+      "We were HOOK'D on all the love and collaboration. Got to meet amazing people tonight. We're family now."
+      <span class="left-quote-attr">@_babyjennii · Creator Night No. 2</span>
+    </p>
+    <div class="social-proof reveal d3">
+      <div class="avatar-stack">
+        <div class="avatar av1">BV</div>
+        <div class="avatar av2">LR</div>
+        <div class="avatar av3">IR</div>
+        <div class="avatar av4">AW</div>
+        <div class="avatar av1">AC</div>
+      </div>
+      <p class="proof-text"><strong>Hookd Members are already on the list.</strong> Be part of what's next.</p>
+    </div>
+    <div class="marquee-wrap">
+      <div class="marquee-track" id="marqueeTrack"></div>
+    </div>
+  </div>
+</div>
+
+<div class="right">
+  <div class="form-card reveal d1" id="join" style="scroll-margin-top:80px">
+    <div class="card-shine"></div>
+
+    <span class="form-eyebrow">Be First In</span>
+    <p class="form-what">Hookd Recording is a new creative studio concept in Central Arkansas built around one idea: <em>allowing creators to focus on creating.</em> We're designing pre-stocked, affordable, ready-to-use rooms for recording music, filming videos, shooting photos, and building content, without needing to bring your own gear or spend hours setting up.</p>
+
+    <h2 class="form-title">This is where<br>Central Arkansas<br>creatives come first.</h2>
+
+    <div class="member-benefits">
+      <span class="benefits-eyebrow">Hookd Members Get</span>
+      <ul class="benefits-list">
+        <li class="benefit benefit-hero">
+          <div class="benefit-icon-wrap"><span class="benefit-icon">&#9670;</span></div>
+          <div class="benefit-content">
+            <span class="benefit-title">A free trial session when we open</span>
+            <span class="benefit-sub">Audio studio, content studio, or podcast. Your choice. First come, first booked.</span>
           </div>
-          <p class="proof-text"><strong>Founding members are already on the list.</strong> Be part of what's next.</p>
+        </li>
+        <li class="benefit">
+          <div class="benefit-icon-wrap"><span class="benefit-icon">&#9670;</span></div>
+          <div class="benefit-content">
+            <span class="benefit-title">First access to book sessions</span>
+            <span class="benefit-sub">Before the public ever sees availability.</span>
+          </div>
+        </li>
+        <li class="benefit">
+          <div class="benefit-icon-wrap"><span class="benefit-icon">&#9670;</span></div>
+          <div class="benefit-content">
+            <span class="benefit-title">Pricing before it goes public</span>
+            <span class="benefit-sub">Know the numbers first. No surprises.</span>
+          </div>
+        </li>
+        <li class="benefit">
+          <div class="benefit-icon-wrap"><span class="benefit-icon">&#9670;</span></div>
+          <div class="benefit-content">
+            <span class="benefit-title">Updates on what we're building</span>
+            <span class="benefit-sub">Follow the space from day one to open doors.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div id="formWrap">
+      <form id="hookdForm" novalidate>
+        <div class="field-group">
+          <input type="text" id="fname" name="fields[name]" placeholder="name" required autocomplete="given-name">
+          <label class="field-label" for="fname">First Name</label>
         </div>
-        <div class="marquee-wrap">
-          <div class="marquee-track" id="marqueeTrack"></div>
+        <div class="field-group">
+          <input type="email" id="femail" name="fields[email]" placeholder="email" required autocomplete="email">
+          <label class="field-label" for="femail">Your Email</label>
         </div>
+        <div class="field-group field-group-secondary">
+          <input type="tel" id="fphone" name="fields[phone]" placeholder="phone" autocomplete="tel">
+          <label class="field-label" for="fphone">Phone Number (optional)</label>
+        </div>
+        <p class="field-helper">Drop your number and we'll text you when things are happening.</p>
+        <button type="submit" class="submit-btn"><span class="btn-text">Get First Access</span></button>
+      </form>
+      <div class="form-footer">
+        <div class="form-footer-line"></div>
+        <p class="disclaimer">No commitment. No cost. Opt out anytime.</p>
+        <div class="form-footer-line"></div>
       </div>
     </div>
 
-    <div class="right">
-      <div class="form-card reveal d1" id="join" style="scroll-margin-top:80px">
-        <div class="card-shine"></div>
-
-        <!-- CHANGE 4: eyebrow copy updated -->
-        <span class="form-eyebrow">Be First In</span>
-        <p class="form-what">Hookd Recording is a new creative studio concept in Central Arkansas built around one idea: <em>allowing creators to focus on creating.</em> We're designing pre-stocked, affordable, ready-to-use rooms for recording music, filming videos, shooting photos, and building content, without needing to bring your own gear or spend hours setting up.</p>
-
-        <h2 class="form-title">This is where<br>Central Arkansas<br>creatives come first.</h2>
-
-        <p class="confirm-line">Get on the list before we open. <em>Founding members hear everything first: sessions, pricing, and what's coming, before it goes public.</em></p>
-
-        <div id="formWrap">
-          <form id="hookdForm" novalidate>
-            <div class="field-group">
-              <input type="text" id="fname" name="fields[name]" placeholder="name" required autocomplete="name">
-              <label class="field-label" for="fname">Your Name</label>
-            </div>
-            <div class="field-group">
-              <input type="email" id="femail" name="fields[email]" placeholder="email" required autocomplete="email">
-              <label class="field-label" for="femail">Your Email</label>
-            </div>
-            <button type="submit" class="submit-btn"><span class="btn-text">Get First Access</span></button>
-          </form>
-          <div class="form-footer">
-            <div class="form-footer-line"></div>
-            <p class="disclaimer">No commitment. No cost. Opt out anytime.</p>
-            <div class="form-footer-line"></div>
-          </div>
-        </div>
-
-        <div class="success-state" id="successState">
-          <div class="success-mark">&#10086;</div>
-          <h3>You're in.</h3>
-          <p>Founding spot secured. We'll be in touch before anything goes public.</p>
-        </div>
-      </div>
-
-      <p class="copyright" style="margin-top:18px;font-size:0.56rem;color:rgba(247,242,234,0.1);letter-spacing:0.05em;">© 2026 Hookd Creative LLC</p>
+    <div class="success-state" id="successState">
+      <div class="success-mark">&#10086;</div>
+      <h3>You're in.</h3>
+      <p>You're now a Hookd Member. We'll be in touch before anything goes public.</p>
     </div>
+  </div>
+
+  <p class="copyright" style="margin-top:18px;font-size:0.56rem;color:rgba(247,242,234,0.1);letter-spacing:0.05em;">© 2026 Hookd Creative LLC</p>
+</div>
+```
+
   </div>
   </div>
 
@@ -281,7 +334,7 @@
     const words=['Music','Content','Podcasts','Photography','Media','Creation','Community','Central Arkansas'];
     const track=document.getElementById('marqueeTrack');
     [...words,...words,...words,...words].forEach(w=>{const s=document.createElement('span');s.className='marquee-item';s.innerHTML=w+'<span class="marquee-dot"></span>';track.appendChild(s);});
-    const card=document.getElementById('form');
+    const card=document.getElementById('join');
     if(window.innerWidth>768){
       card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-0.5,y=(e.clientY-r.top)/r.height-0.5;card.style.transform='perspective(900px) rotateY('+x*4+'deg) rotateX('+(-y*4)+'deg)';card.style.transition='transform 0.08s ease';});
       card.addEventListener('mouseleave',()=>{card.style.transform='perspective(900px) rotateY(0) rotateX(0)';card.style.transition='transform 0.6s cubic-bezier(0.16,1,0.3,1)';});
@@ -291,13 +344,17 @@
       e.preventDefault();
       const name=this.querySelector('[name="fields[name]"]').value.trim();
       const email=this.querySelector('[name="fields[email]"]').value.trim();
+      const phone=this.querySelector('[name="fields[phone]"]').value.trim();
       if(!name||!email)return;
       const body=new URLSearchParams();
-      body.append('fields[name]',name);body.append('fields[email]',email);
+      body.append('fields[name]',name);
+      body.append('fields[email]',email);
+      if(phone)body.append('fields[phone]',phone);
       body.append('ml-submit','1');body.append('anticsrf','true');
       fetch('https://assets.mailerlite.com/jsonp/2215527/forms/182754247239009348/subscribe',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body.toString()}).catch(()=>{});
       window.location.href='thankyou.html';
     });
   </script>
+
 </body>
 </html>
